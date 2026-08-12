@@ -47,8 +47,18 @@ export default function ContactsSection({ lang }: ContactsSectionProps) {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">{t.contacts.phones}</h3>
-                  {settings.phone1 && <a href={phone1Href} className="block text-blue-600 hover:underline text-sm mb-1">{settings.phone1}</a>}
-                  {settings.phone2 && <a href={phone2Href} className="block text-blue-600 hover:underline text-sm mb-1">{settings.phone2}</a>}
+                  {settings.phone1 && (
+                    <div className="mb-2">
+                      <p className="text-xs text-gray-500 mb-0.5">{t.contacts.phoneAdmission}</p>
+                      <a href={phone1Href} className="block text-blue-600 hover:underline text-sm">{settings.phone1}</a>
+                    </div>
+                  )}
+                  {settings.phone2 && (
+                    <div className="mb-2">
+                      <p className="text-xs text-gray-500 mb-0.5">{t.contacts.phonePolyclinic}</p>
+                      <a href={phone2Href} className="block text-blue-600 hover:underline text-sm">{settings.phone2}</a>
+                    </div>
+                  )}
                   <a href={`mailto:${settings.email}`} className="block text-gray-600 hover:text-blue-600 text-sm flex items-center gap-1 mt-2">
                     <Mail size={14} /> {settings.email}
                   </a>
@@ -80,11 +90,16 @@ export default function ContactsSection({ lang }: ContactsSectionProps) {
               />
             </div>
           ) : (
-            <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 aspect-video lg:aspect-auto lg:h-full min-h-[350px] flex items-center justify-center">
-              <div className="text-center text-gray-300">
-                <MapPin size={64} />
-                <p className="mt-3 text-sm text-gray-400">Карта (Google Maps / Yandex)</p>
-                <p className="text-xs text-gray-300">{settings.mapLabel || settings.address}</p>
+            <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl overflow-hidden border border-gray-100 aspect-video lg:aspect-auto lg:h-full min-h-[350px] flex items-center justify-center">
+              <div
+                className="absolute inset-0 opacity-40"
+                style={{ backgroundImage: 'radial-gradient(circle, #93c5fd 1.5px, transparent 1.5px)', backgroundSize: '22px 22px' }}
+              />
+              <div className="relative text-center px-6">
+                <div className="w-14 h-14 bg-white rounded-2xl shadow-md flex items-center justify-center mx-auto mb-4">
+                  <MapPin size={26} className="text-blue-600" />
+                </div>
+                <p className="text-gray-800 font-semibold text-sm">{settings.mapLabel || settings.address}</p>
               </div>
             </div>
           )}

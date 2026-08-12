@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Shield, Clock, Zap, Activity } from 'lucide-react';
 import { Lang } from '@/types';
 import { getT } from '@/i18n';
@@ -27,15 +28,16 @@ export default function AboutSection({ lang }: AboutSectionProps) {
     <section id="about" className="py-12 sm:py-20 bg-white">
       <div className="container mx-auto px-3 sm:px-4">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left: Image placeholder */}
+          {/* Left: Photo */}
           <div className="relative">
-            <div className="aspect-[4/3] bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center text-blue-200">
-                  <Activity size={80} />
-                  <p className="mt-2 text-blue-300 text-sm">Фото клиники</p>
-                </div>
-              </div>
+            <div className="aspect-[4/3] bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl overflow-hidden shadow-sm">
+              <Image
+                src="/hero/hero-doctor.webp"
+                alt={lang === 'ru' ? 'Врач осматривает ребёнка' : 'Shifokor bolani ko\'rikdan o\'tkazmoqda'}
+                fill
+                className="object-cover"
+                unoptimized
+              />
               {/* Decorative floating card */}
               <div className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-auto sm:max-w-xs bg-white rounded-2xl p-4 shadow-xl">
                 <div className="flex items-center gap-3">

@@ -1,4 +1,8 @@
 const uz = {
+  header: {
+    tagline: 'Birinchi kunlardan g\'amxo\'rlik',
+    workingShort: 'Har kuni 8:00 – 20:00',
+  },
   nav: {
     home: 'Bosh sahifa',
     about: 'Klinika haqida',
@@ -12,10 +16,10 @@ const uz = {
     makeAppointment: 'Yozilish',
   },
   hero: {
-    badge: 'Zamonaviy ko\'p tarmoqli klinika',
-    title: 'Sog\'lig\'ingiz —',
+    badge: 'TSMU bolalar klinikasi',
+    title: 'Sog\'lig\'ingiz',
     titleAccent: 'bizning asosiy ustuvorligimiz',
-    subtitle: 'Zamonaviy uskunalar, tajribali shifokorlar, to\'liq diagnostika va davolash. Biz siz va oilangiz haqida g\'amxo\'rlik qilamiz.',
+    subtitle: 'Zamonaviy uskunalar, tajribali bolalar mutaxassislari, 3 oylikdan 18 yoshgacha bolalar uchun to\'liq diagnostika va davolash.',
     callBtn: 'Qo\'ng\'iroq qilish',
     appointmentBtn: 'Qabul uchun yozilish',
     stats: {
@@ -24,12 +28,18 @@ const uz = {
       experience: 'Yillik tajriba',
       departments: 'Yo\'nalishlar',
     },
+    features: {
+      hours: { title: 'Qulay vaqt', desc: 'Har kuni 8:00 dan 20:00 gacha qabul' },
+      location: { title: 'Qulay joylashuv', desc: 'Mo\'ljal: TTA' },
+      safety: { title: 'Xavfsizlik va sifat', desc: 'Xalqaro standartlar va sifat nazorati' },
+      support: { title: '24/7 qo\'llab-quvvatlash', desc: 'Siz va farzandingiz uchun doim aloqadamiz' },
+    },
   },
   about: {
     badge: 'Biz haqimizda',
     title: 'Yangi avlod klinikasi',
-    description1: 'MedCare — isbot asosidagi tibbiyot va har bir bemorga g\'amxo\'rlik tamoyillariga asoslangan ko\'p tarmoqli klinika. Biz ilg\'or texnologiyalarni insoniy yondashuvga uyg\'unlashtirgan.',
-    description2: 'Bizda zamonaviy diagnostika uskunalari, operatsiya bloklari va qulay statsionar mavjud. Klinikaning har bir mutaxassisi ko\'p yillik tajribaga ega professional.',
+    description1: 'TSMU — isbot asosidagi tibbiyot va har bir bolaga g\'amxo\'rlik tamoyillariga asoslangan ko\'p tarmoqli bolalar klinikasi. Biz ilg\'or texnologiyalarni insoniy yondashuvga uyg\'unlashtirgan.',
+    description2: 'Bizda zamonaviy diagnostika uskunalari, operatsiya bloklari va 340 o\'rinli qulay statsionar mavjud. Klinikaning har bir mutaxassisi bolalar bilan ishlashda ko\'p yillik tajribaga ega professional.',
     features: {
       license: { title: 'Sog\'liqni saqlash vazirligi litsenziyasi', desc: 'Rasmiy sertifikatlangan klinika' },
       stationery: { title: 'Statsionar 24/7', desc: '100+ ta qulay palata' },
@@ -41,7 +51,7 @@ const uz = {
     badge: 'Bo\'limlar',
     title: 'Bizning yo\'nalishlar',
     subtitle: 'Bir tom ostida tibbiy yordamning to\'liq spektri',
-    viewAll: 'Barcha yo\'nalishlar',
+    viewAll: 'Barcha yo\'nalishlarni ko\'rish',
     learnMore: 'Batafsil',
   },
   doctors: {
@@ -84,10 +94,13 @@ const uz = {
     badge: 'Afzalliklar',
     title: 'Nima uchun bizni tanlashadi',
     items: [
-      { title: 'Zamonaviy uskunalar', desc: '3 Tesla MRT, 64 qismli KT, raqamli UZI' },
-      { title: 'Tajribali shifokorlar', desc: 'Mutaxassislarimizning o\'rtacha tajribasi 15 yil' },
+      {
+        title: 'Zamonaviy uskunalar',
+        desc: 'MSKT, MRT, rentgenografiya, fluorografiya, mammografiya, UZI, ExoKG, EKG',
+      },
+      { title: 'Tajribali shifokorlar', desc: 'Mutaxassislarimizning tajribasi 20 yildan boshlab' },
       { title: 'Tez diagnostika', desc: 'Murojaat kunida tahlil natijalari' },
-      { title: 'Statsionar 24/7', desc: 'Zamonaviy jihozlangan 100+ ta qulay palata' },
+      { title: 'Statsionar 24/7', desc: 'Zamonaviy jihozlangan 200+ qulay palata' },
       { title: 'Arzon narxlar', desc: 'Yashirin qo\'shimcha to\'lovsiz halol narxlar' },
       { title: 'Vazirlik litsenziyasi', desc: 'Rasmiy sertifikatlangan klinika' },
     ],
@@ -129,6 +142,8 @@ const uz = {
     title: 'Bizni qanday topish mumkin',
     address: 'Manzil',
     phones: 'Telefonlar',
+    phoneAdmission: 'Qabul bo‘limi',
+    phonePolyclinic: 'Poliklinika',
     workingHours: 'Ish tartibi',
     workingHoursValue: 'Du–Ju: 8:00–20:00\nSh–Ya: 9:00–17:00',
     emergency: 'Favqulodda yordam: 24/7',
@@ -146,9 +161,75 @@ const uz = {
     selectDoctor: 'Shifokorni tanlang',
     namePlaceholder: 'Alisher Karimov',
     phonePlaceholder: '+998 90 123 45 67',
+    phoneInvalid: 'Telefon raqamini +998 XX XXX XX XX formatida kiriting',
+    submitError: "So'rov yuborilmadi. Qayta urinib ko'ring.",
+    consentPrefix: 'Men shaxsiy ma\'lumotlarimni qayta ishlashga roziman — batafsil:',
+    consentLink: 'maxfiylik siyosati',
+    consentRequired: 'Shaxsiy ma\'lumotlarni qayta ishlashga rozilik talab qilinadi',
+  },
+  privacy: {
+    title: 'Maxfiylik siyosati',
+    subtitle: 'Ushbu siyosat TSMU Bolalar Klinikasi sayti tashrif buyuruvchilarining shaxsiy ma\'lumotlarini yig\'ish, saqlash va foydalanish tartibini tavsiflaydi.',
+    backHome: 'Bosh sahifaga qaytish',
+    sections: [
+      {
+        title: '1. Shaxsiy ma\'lumotlar operatori',
+        paragraphs: [
+          'Shaxsiy ma\'lumotlar operatori — Toshkent State Medical University (TSMU) ko\'p tarmoqli bolalar klinikasi.',
+          'Manzil: Toshkent viloyati, Qibray tumani, Salar shaharchasi, Bog\'ishamol ko\'chasi, 223A/1. Aloqa ma\'lumotlari «Aloqa» sahifasida keltirilgan.',
+        ],
+      },
+      {
+        title: '2. Qanday ma\'lumotlar yig\'iladi',
+        paragraphs: [
+          'Saytda ariza yuborishda biz quyidagilarni olamiz: ism, telefon raqami, izoh (mavjud bo\'lsa), interfeys tili va murojaat sanasi.',
+          'Texnik ma\'lumotlar (IP-manzil, brauzer turi, cookies) sayt ishlashi uchun hosting vositalari orqali avtomatik qayta ishlanishi mumkin.',
+        ],
+      },
+      {
+        title: '3. Qayta ishlash maqsadlari',
+        paragraphs: [
+          'Shaxsiy ma\'lumotlar qabulga yozish, bemorga yoki uning qonuniy vakiliga qayta aloqa qilish hamda xizmat sifatini yaxshilash uchun ishlatiladi.',
+          'Ma\'lumotlar alohida roziliksiz reklama yuborish uchun ishlatilmaydi.',
+        ],
+      },
+      {
+        title: '4. Huquqiy asoslar',
+        paragraphs: [
+          'Qayta ishlash shaxsiy ma\'lumotlar sub\'ektining roziligi (O\'zbekiston Respublikasining «Shaxsiy ma\'lumotlar to\'g\'risida»gi qonuni, 6-modda) va tibbiy xizmat ko\'rsatish maqsadida amalga oshiriladi.',
+        ],
+      },
+      {
+        title: '5. Saqlash va uzatish',
+        paragraphs: [
+          'Ma\'lumotlar himoyalangan ma\'lumotlar bazasida (Firebase/Firestore) saqlanadi va O\'zbekiston Respublikasi qonunlarida nazarda tutilgan hollardan tashqari uchinchi shaxslarga berilmaydi.',
+          'Ariza haqida xabar berish zarur bo\'lsa, ma\'lumotlar klinika vakolatli xodimlariga elektron pochta orqali uzatilishi mumkin.',
+          'Arizalar saqlash muddati — oxirgi murojaatdan boshlab 3 yilgacha, agar qonun boshqacha talab qilmasa.',
+        ],
+      },
+      {
+        title: '6. Sub\'ekt huquqlari',
+        paragraphs: [
+          'Siz o\'z ma\'lumotlaringizga kirish, ularni tuzatish yoki o\'chirishni, shuningdek rozilikni qaytarib olishni saytda ko\'rsatilgan kontaktlar orqali so\'rashingiz mumkin.',
+          'Rozilikni qaytarib olish undan oldin amalga oshirilgan qayta ishlashning qonuniyligiga ta\'sir qilmaydi.',
+        ],
+      },
+      {
+        title: '7. Xavfsizlik',
+        paragraphs: [
+          'Shaxsiy ma\'lumotlarni ruxsatsiz kirish, o\'zgartirish yoki yo\'q qilishdan himoya qilish uchun tashkiliy va texnik choralar ko\'riladi.',
+        ],
+      },
+      {
+        title: '8. Siyosat o\'zgarishlari',
+        paragraphs: [
+          'Siyosatning joriy versiyasi doimo ushbu sahifada mavjud. Oxirgi yangilanish sanasi: 2026-yil iyun.',
+        ],
+      },
+    ],
   },
   footer: {
-    description: 'To\'liq diagnostika va davolash spektriga ega zamonaviy ko\'p tarmoqli klinika.',
+    description: 'Bolalar uchun to\'liq diagnostika va davolash spektriga ega TSMU ko\'p tarmoqli bolalar klinikasi.',
     links: 'Tezkor havolalar',
     workingHours: 'Ish tartibi',
     workingHoursValue: 'Du–Ju: 8:00–20:00',
@@ -163,11 +244,20 @@ const uz = {
     allDoctors: 'Barcha shifokorlar',
     allServices: 'Barcha xizmatlar',
     backToHome: 'Bosh sahifaga',
+    backToDepartments: "Yo'nalishlarga",
+    backToDoctors: "Shifokorlarga",
+    backToServices: 'Xizmatlarga',
+    backToPrices: 'Narxlar ro\'yxatiga',
+    backToEquipment: 'Uskunalarga',
     loading: 'Yuklanmoqda...',
     search: 'Qidirish...',
     price: 'Narx',
     currency: 'so\'m',
     from: 'dan',
+    close: 'Yopish',
+  },
+  disclaimer: {
+    text: 'Saytdagi ma\'lumotlar ma\'lumotnoma xarakteriga ega va shifokor bilan shaxsiy maslahatni almashtirmaydi. Xizmat narxlari ommaviy oferta hisoblanmaydi — amaldagi narxlar uchun telefon orqali aniqlang.',
   },
   departmentPage: {
     diseases: 'Biz davolaydigan kasalliklar',

@@ -9,6 +9,7 @@ import { Lang } from '@/types';
 import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
 import AppointmentButton from '@/components/ui/AppointmentButton';
+import PageBackButton from '@/components/ui/PageBackButton';
 import { doctors as staticDoctors } from '@/data/doctors';
 import { departments as staticDepartments } from '@/data/departments';
 
@@ -36,7 +37,7 @@ export default function DoctorPageClient({ lang: langStr, slug }: Props) {
   const t = getT(lang);
   const router = useRouter();
   const pathname = usePathname();
-  const { doctors, departments, settings, loaded } = useSiteData();
+  const { doctors, departments, settings, loaded, refreshing } = useSiteData();
 
   const candidates = DOCTOR_SLUG_ALIASES[slug] ?? [slug];
   const normalizedCandidates = candidates.map(normalizeSlug);
@@ -50,7 +51,15 @@ export default function DoctorPageClient({ lang: langStr, slug }: Props) {
 
   const phoneHref = `tel:${settings.phone1.replace(/\s/g, '')}`;
 
-  if (!doctor && !loaded) {
+  useEffect(() => {
+    if (!loaded || refreshing || !doctor || slug === resolvedSlug) return;
+    const targetPath = `/${lang}/doctors/${resolvedSlug}`;
+    if (pathname !== targetPath) {
+      router.replace(targetPath);
+    }
+  }, [doctor, lang, loaded, pathname, resolvedSlug, router, slug]);
+
+  if (!doctor && (!loaded || refreshing)) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
@@ -61,7 +70,7 @@ export default function DoctorPageClient({ lang: langStr, slug }: Props) {
     );
   }
 
-  if (!doctor && loaded) {
+  if (!doctor && loaded && !refreshing) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="text-center max-w-md">
@@ -98,22 +107,11 @@ export default function DoctorPageClient({ lang: langStr, slug }: Props) {
   const workExperience = lang === 'ru' ? details.workExperienceRu : details.workExperienceUz;
   const additionalInfo = lang === 'ru' ? details.additionalInfoRu : details.additionalInfoUz;
 
-  useEffect(() => {
-    if (!loaded || !doctor || slug === resolvedSlug) return;
-    const targetPath = `/${lang}/doctors/${resolvedSlug}`;
-    if (pathname !== targetPath) {
-      router.replace(targetPath);
-    }
-  }, [doctor, lang, loaded, pathname, resolvedSlug, router, slug]);
-
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-gradient-to-br from-blue-900 to-blue-950 text-white py-12">
         <div className="container mx-auto px-3 sm:px-4">
-          <Link href={`/${lang}/doctors`} className="inline-flex items-center gap-2 text-blue-300 hover:text-white transition-colors text-sm mb-6">
-            <ArrowLeft size={16} />
-            {lang === 'ru' ? 'Назад к врачам' : 'Shifokorlarga qaytish'}
-          </Link>
+          <PageBackButton href={`/${lang}/doctors`} label={t.common.backToDoctors} className="mb-6" />
           <div className="flex flex-col md:flex-row gap-8 items-start">
             <div className="relative w-32 h-32 md:w-48 md:h-48 bg-blue-800/50 rounded-2xl overflow-hidden shrink-0">
               {currentDoctor.photo ? (
@@ -121,7 +119,7 @@ export default function DoctorPageClient({ lang: langStr, slug }: Props) {
                   src={currentDoctor.photo}
                   alt={lang === 'ru' ? currentDoctor.nameRu : currentDoctor.nameUz}
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   unoptimized
                 />
               ) : (

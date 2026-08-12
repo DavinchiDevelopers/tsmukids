@@ -1,22 +1,27 @@
+import type { Metadata } from 'next';
 import { services as staticServices } from '@/data/services';
-import { getServicesFS } from '@/lib/firestore';
+import { buildPageMetadata } from '@/lib/metadata';
+import { Lang } from '@/types';
 import ServicePageClient from './ServicePageClient';
 
 interface ServicePageProps {
   params: Promise<{ lang: string; slug: string }>;
 }
 
+/** Только услуги из кода — остальные открываются через /services/fallback + rewrite в firebase.json */
 export async function generateStaticParams() {
-  const fromStatic = staticServices.map(s => s.slug);
-  let fromFirestore: string[] = [];
-  try {
-    const docs = await getServicesFS();
-    fromFirestore = docs.map(d => (d.slug || '').trim()).filter(Boolean);
-  } catch {
-    /* офлайн-сборка */
-  }
-  const unique = new Set([...fromStatic, ...fromFirestore]);
-  return Array.from(unique).map(slug => ({ slug }));
+  return staticServices.map(s => ({ slug: s.slug }));
+}
+
+export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
+  const { lang, slug } = await params;
+  const isRu = lang === 'ru';
+  return buildPageMetadata({
+    lang: lang as Lang,
+    title: isRu ? 'Услуга' : 'Xizmat',
+    description: isRu ? 'Медицинская услуга детской клиники ТГМУ' : 'TSMU Bolalar Klinikasi tibbiy xizmati',
+    path: `/services/${slug}`,
+  });
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {

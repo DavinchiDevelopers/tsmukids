@@ -1,5 +1,5 @@
 {
-  "name": "medcare-clinic",
+  "name": "tsmukids",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "backup:firebase": "node scripts/backup-firestore.mjs"
+    "backup:firebase": "node scripts/backup-firestore.mjs",
+    "restore:firebase": "node scripts/restore-firestore.mjs",
+    "seed:thoracic": "node scripts/seed-thoracic-department.mjs",
+    "seed:required": "node scripts/seed-required-departments.mjs"
   },
   "dependencies": {
     "@google-cloud/firestore": "^8.5.0",

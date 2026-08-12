@@ -1,29 +1,24 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
-import { SITE_LOGO_PATH } from '@/lib/branding';
+import { buildRootMetadata } from '@/lib/metadata';
 
-const inter = Inter({ subsets: ['latin', 'cyrillic'] });
-
-export const metadata: Metadata = {
-  title: {
-    default: 'MedCare Clinic — Многопрофильная клиника в Ташкенте',
-    template: '%s | MedCare Clinic',
-  },
-  description: 'Современная многопрофильная клиника в Ташкенте. МРТ, КТ, УЗИ, анализы, хирургия, консультации специалистов.',
-  icons: {
-    icon: [{ url: SITE_LOGO_PATH, type: 'image/svg+xml' }],
-    shortcut: SITE_LOGO_PATH,
-    apple: SITE_LOGO_PATH,
-  },
-};
+export const metadata: Metadata = buildRootMetadata();
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning>
-      <body className={inter.className}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&subset=cyrillic&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body suppressHydrationWarning>
         {children}
       </body>
     </html>
   );
 }
+

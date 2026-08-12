@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Calendar } from 'lucide-react';
 import { Lang } from '@/types';
 import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
-import { SITE_LOGO_PATH } from '@/lib/branding';
+import { useAppointmentModal } from '@/contexts/AppointmentModalContext';
+import Logo from '@/components/layout/Logo';
 import clsx from 'clsx';
 
 interface HeaderProps {
@@ -21,6 +21,7 @@ export default function Header({ lang }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { settings } = useSiteData();
+  const { open: openAppointment } = useAppointmentModal();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -31,9 +32,12 @@ export default function Header({ lang }: HeaderProps) {
   const otherLang = lang === 'ru' ? 'uz' : 'ru';
   const switchPath = pathname.replace(`/${lang}`, `/${otherLang}`);
 
-  const clinicName = lang === 'ru' ? settings.nameShortRu : settings.nameShortUz;
   const phone = settings.phone1;
   const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
+
+  const [logoLine1, logoLine2] = lang === 'ru'
+    ? ['Детская клиника ТГМУ', 'TSMU Kids']
+    : ['TSMU Bolalar klinikasi', 'TSMU Kids'];
 
   const navLinks = [
     { href: `/${lang}`, label: t.nav.home },
@@ -50,37 +54,27 @@ export default function Header({ lang }: HeaderProps) {
   return (
     <header className={clsx(
       'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-      scrolled ? 'bg-white shadow-md py-2' : 'bg-white/95 backdrop-blur-sm py-3'
+      scrolled || menuOpen ? 'bg-white shadow-md py-2' : 'bg-white/95 backdrop-blur-sm py-3'
     )}>
-      <div className="container mx-auto px-3 sm:px-4">
+      <div className="mx-auto max-w-[1600px] px-3 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between gap-2 min-w-0">
           {/* Logo */}
           <Link href={`/${lang}`} className="flex items-center gap-2 min-w-0 shrink-0">
-            <div className="relative w-8 h-8 sm:w-9 sm:h-9 bg-blue-600 rounded-lg shrink-0 overflow-hidden">
-              <Image
-                src={SITE_LOGO_PATH}
-                alt={lang === 'ru' ? `Логотип ${clinicName}` : `${clinicName} logotipi`}
-                fill
-                className="object-contain p-1 sm:p-1.5 brightness-0 invert"
-                unoptimized
-                sizes="36px"
-                priority
-              />
-            </div>
+            <Logo alt={lang === 'ru' ? 'Логотип клиники' : 'Klinika logotipi'} />
             <div className="min-w-0">
-              <span className="font-bold text-gray-900 text-base sm:text-lg leading-none block truncate">{clinicName}</span>
-              <span className="text-blue-600 text-[10px] sm:text-xs">{lang === 'ru' ? 'Клиника' : 'Klinika'}</span>
+              <span className="font-bold text-gray-900 text-[11px] sm:text-sm leading-tight block truncate">{logoLine1}</span>
+              <span className="font-bold text-gray-900 text-[11px] sm:text-sm leading-tight block truncate">{logoLine2}</span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden xl:grid grid-cols-5 gap-1 max-w-[600px]">
+          <nav className="hidden xl:flex flex-1 flex-wrap items-center justify-center gap-x-1 gap-y-1 px-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={clsx(
-                  'px-3 py-2 rounded-md text-sm font-medium transition-colors text-center whitespace-nowrap',
+                  'px-2 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap',
                   pathname === link.href
                     ? 'text-blue-600 bg-blue-50'
                     : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
@@ -92,11 +86,11 @@ export default function Header({ lang }: HeaderProps) {
           </nav>
 
           {/* Right side */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 xl:gap-3">
             {/* Language switch */}
             <Link
               href={switchPath}
-              className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-full border border-gray-200 text-sm font-medium text-gray-600 hover:border-blue-500 hover:text-blue-600 transition-colors"
+              className="flex items-center gap-1 px-3 py-1.5 rounded-full border border-gray-200 text-sm font-medium text-gray-600 hover:border-blue-500 hover:text-blue-600 transition-colors"
             >
               {otherLang.toUpperCase()}
             </Link>
@@ -104,21 +98,23 @@ export default function Header({ lang }: HeaderProps) {
             {/* Phone */}
             <a
               href={phoneHref}
-              className="hidden md:flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors text-sm"
+              className="hidden md:flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
             >
-              <Phone size={16} className="text-blue-600" />
-              {phone}
+              <Phone size={18} className="text-blue-600 shrink-0" />
+              <div className="leading-tight whitespace-nowrap">
+                <div className="text-sm font-semibold text-gray-900">{phone}</div>
+                <div className="text-[11px] text-gray-500">{t.header.workingShort}</div>
+              </div>
             </a>
 
             {/* CTA */}
             <button
-              onClick={() => {
-                const el = document.getElementById('appointment-modal');
-                if (el) el.style.display = 'flex';
-              }}
-              className="hidden sm:block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+              type="button"
+              onClick={openAppointment}
+              className="hidden sm:flex items-center gap-2 bg-blue-600 text-white px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-blue-700 transition-colors whitespace-nowrap"
             >
-              {t.nav.makeAppointment}
+              <Calendar size={16} />
+              {t.hero.appointmentBtn}
             </button>
 
             {/* Burger */}
@@ -134,7 +130,7 @@ export default function Header({ lang }: HeaderProps) {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="xl:hidden mt-3 pb-3 border-t border-gray-100">
+          <div className="xl:hidden mt-3 pb-3 border-t border-gray-100 bg-white">
             <nav className="flex flex-col gap-1 pt-3">
               {navLinks.map((link) => (
                 <Link

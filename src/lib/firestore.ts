@@ -39,11 +39,9 @@ export interface ClinicSettings {
   aboutDescription2Uz: string;
   licenseInfo: string;
   logoLetter: string;
-  telegram: string;
   whatsapp: string;
   mapEmbedUrl?: string;
   mapLabel?: string;
-  appointmentTelegramWebhook?: string;
   appointmentEmailWebhook?: string;
 }
 
@@ -214,12 +212,25 @@ export interface AppointmentRequestDoc {
   doctor?: string;
   message?: string;
   lang: 'ru' | 'uz';
+  consentGiven?: boolean;
+  consentAt?: string;
   createdAt: string;
 }
 
 export async function saveAppointmentRequest(data: Omit<AppointmentRequestDoc, 'id'>): Promise<string> {
   const ref = await addDoc(collection(db, 'appointments'), stripUndefined(data as Record<string, unknown>));
   return ref.id;
+}
+
+export async function getAppointmentsFS(): Promise<AppointmentRequestDoc[]> {
+  const snap = await getDocs(collection(db, 'appointments'));
+  return snap.docs
+    .map(d => ({ id: d.id, ...d.data() } as AppointmentRequestDoc))
+    .sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
+}
+
+export async function deleteAppointment(id: string): Promise<void> {
+  await deleteDoc(doc(db, 'appointments', id));
 }
 
 // ── Gallery ───────────────────────────────────────────────────────────────────

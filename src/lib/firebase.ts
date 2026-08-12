@@ -1,18 +1,21 @@
 import { initializeApp, getApps } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, initializeFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDM2RiEZmoWS1ncWEcyvHzv0r11NBCfSjc',
-  authDomain: 'medcare-clinic.firebaseapp.com',
-  projectId: 'medcare-clinic',
-  storageBucket: 'medcare-clinic.firebasestorage.app',
-  messagingSenderId: '248351278919',
-  appId: '1:248351278919:web:dd7518efb9ebf66dacae62',
+  apiKey: 'AIzaSyBdGjEGWp1Z1CVlHp-lRyGW6bemPxA81CY',
+  authDomain: 'tsmukids.firebaseapp.com',
+  projectId: 'tsmukids',
+  storageBucket: 'tsmukids.firebasestorage.app',
+  messagingSenderId: '344516528237',
+  appId: '1:344516528237:web:c12aea83d1775ac2025764',
 };
 
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+const isNewApp = getApps().length === 0;
+const app = isNewApp ? initializeApp(firebaseConfig) : getApps()[0];
 
 export const auth = getAuth(app);
-export const db = getFirestore(app);
+export const db = isNewApp
+  ? initializeFirestore(app, { experimentalAutoDetectLongPolling: true })
+  : getFirestore(app);
 export default app;

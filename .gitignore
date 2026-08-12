@@ -23,7 +23,24 @@
 # misc
 .DS_Store
 *.pem
+
+# firebase (local cache + secrets)
+.firebase/
 backups/
+*firebase-adminsdk*.json
+tsmukids-firebase-adminsdk.json
+
+# local tooling
+.claude/
+
+# unused lockfile (project uses npm / package-lock.json)
+bun.lock
+
+# raw doctor photo sources (~700MB+); processed copies live in public/images/doctors/
+/photos/
+
+# stray design assets dropped in repo root
+/ChatGPT Image*.png
 
 # debug
 npm-debug.log*
@@ -33,6 +50,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel

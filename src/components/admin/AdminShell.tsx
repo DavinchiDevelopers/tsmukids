@@ -5,10 +5,13 @@ import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
-import { Settings, Stethoscope, Users, Building2, LogOut, LayoutDashboard, Menu, Monitor, Images } from 'lucide-react';
+import Logo from '@/components/layout/Logo';
+import { SITE_NAME_RU } from '@/lib/branding';
+import { Settings, Stethoscope, Users, Building2, LogOut, LayoutDashboard, Menu, Monitor, Images, Inbox } from 'lucide-react';
 
 const navItems = [
   { href: '/admin/dashboard', label: 'Главная', icon: LayoutDashboard },
+  { href: '/admin/appointments', label: 'Заявки', icon: Inbox },
   { href: '/admin/settings', label: 'Настройки', icon: Settings },
   { href: '/admin/services', label: 'Услуги', icon: Stethoscope },
   { href: '/admin/doctors', label: 'Врачи', icon: Users },
@@ -65,12 +68,10 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
       `}>
         <div className="p-5 border-b border-gray-100">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center shrink-0">
-              <span className="text-white font-bold text-sm">МК</span>
-            </div>
+            <Logo alt={`Логотип ${SITE_NAME_RU}`} size="sm" />
             <div className="min-w-0">
-              <p className="font-bold text-gray-900 text-sm leading-tight">ТГМУ</p>
-              <p className="text-xs text-gray-500 leading-tight">Детская Клиника</p>
+              <p className="font-bold text-gray-900 text-sm leading-tight">TSMU</p>
+              <p className="text-xs text-gray-500 leading-tight">Детская клиника</p>
             </div>
           </div>
         </div>

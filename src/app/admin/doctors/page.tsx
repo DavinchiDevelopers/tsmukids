@@ -4,34 +4,19 @@ import { useState, useEffect } from 'react';
 import AdminShell from '@/components/admin/AdminShell';
 import {
   getDoctorsFS,
+  getDepartmentsFS,
   saveDoctor,
+  saveDepartment,
   updateDoctor,
   deleteDoctor,
   DoctorDoc,
+  DepartmentDoc,
 } from '@/lib/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import { slugifyDoctorSlug } from '@/lib/slugify';
+import { mergeRequiredDepartments, ensureRequiredDepartmentsInFirestore } from '@/lib/requiredDepartments';
 import { Plus, Pencil, Trash2, X, Save } from 'lucide-react';
-
-const DEPARTMENTS = [
-  { value: 'surgery', label: 'Хирургия' },
-  { value: 'cardiac-surgery', label: 'Кардиохирургия' },
-  { value: 'ophthalmology', label: 'Офтальмология' },
-  { value: 'traumatology', label: 'Травматология' },
-  { value: 'ent', label: 'ЛОР' },
-  { value: 'plastic-surgery', label: 'Пластическая хирургия' },
-  { value: 'urology', label: 'Урология' },
-  { value: 'purulent-surgery', label: 'Гнойная хирургия' },
-  { value: 'gynecology', label: 'Детская гинекология' },
-  { value: 'pulmonology', label: 'Пульмонология' },
-  { value: 'cardiorheumatology', label: 'Кардиоревматология' },
-  { value: 'neurology', label: 'Неврология' },
-  { value: 'dermatology', label: 'Дерматология' },
-  { value: 'pediatrics', label: 'Педиатрия' },
-  { value: 'diagnostics', label: 'Диагностика' },
-  { value: 'reanimation', label: 'Реанимация' },
-];
 
 const empty: Omit<DoctorDoc, 'id'> = {
   slug: '',
@@ -43,13 +28,14 @@ const empty: Omit<DoctorDoc, 'id'> = {
   experienceUz: '',
   bioRu: '',
   bioUz: '',
-  department: 'surgery',
+  department: '',
   photo: '',
   order: 0,
 };
 
 export default function DoctorsAdminPage() {
   const [items, setItems] = useState<DoctorDoc[]>([]);
+  const [departments, setDepartments] = useState<DepartmentDoc[]>([]);
   const [loading, setLoading] = useState(true);
   const [modal, setModal] = useState<null | 'new' | DoctorDoc>(null);
   const [form, setForm] = useState<Omit<DoctorDoc, 'id'>>(empty);
@@ -58,10 +44,29 @@ export default function DoctorsAdminPage() {
 
   const load = async () => {
     setLoading(true);
-    const data = await getDoctorsFS().catch(() => []);
+    const [data, depts0] = await Promise.all([
+      getDoctorsFS().catch(() => [] as DoctorDoc[]),
+      getDepartmentsFS().catch(() => [] as DepartmentDoc[]),
+    ]);
+
+    let depts = depts0;
+    try {
+      const added = await ensureRequiredDepartmentsInFirestore(depts, saveDepartment);
+      if (added) {
+        depts = await getDepartmentsFS().catch(() => [] as DepartmentDoc[]);
+      }
+    } catch (e) {
+      console.error('ensureRequiredDepartments', e);
+    }
+
+    depts = mergeRequiredDepartments(depts);
     setItems(data);
+    setDepartments(depts);
     setLoading(false);
   };
+
+  const departmentLabel = (slug: string) =>
+    departments.find(d => d.slug === slug)?.nameRu || slug || '—';
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, user => {
@@ -71,7 +76,11 @@ export default function DoctorsAdminPage() {
   }, []);
 
   const openNew = () => {
-    setForm({ ...empty, order: items.length });
+    setForm({
+      ...empty,
+      order: items.length,
+      department: departments[0]?.slug ?? '',
+    });
     setModal('new');
   };
 
@@ -101,6 +110,11 @@ export default function DoctorsAdminPage() {
     try {
       const fallbackId = modal && typeof modal === 'object' ? modal.id : undefined;
       const slug = slugifyDoctorSlug(form.nameRu, form.slug, fallbackId);
+      if (!form.department) {
+        alert('Выберите направление (отделение) для врача');
+        setSaving(false);
+        return;
+      }
       const data = { ...form, slug };
       if (modal === 'new') {
         await saveDoctor(data);
@@ -156,7 +170,8 @@ export default function DoctorsAdminPage() {
                 <tr>
                   <th className="text-left px-4 py-3 font-semibold text-gray-500 text-xs uppercase">ФИО</th>
                   <th className="text-left px-4 py-3 font-semibold text-gray-500 text-xs uppercase hidden sm:table-cell">Специальность</th>
-                  <th className="text-left px-4 py-3 font-semibold text-gray-500 text-xs uppercase hidden md:table-cell">Стаж</th>
+                  <th className="text-left px-4 py-3 font-semibold text-gray-500 text-xs uppercase hidden md:table-cell">Направление</th>
+                  <th className="text-left px-4 py-3 font-semibold text-gray-500 text-xs uppercase hidden lg:table-cell">Стаж</th>
                   <th className="px-4 py-3 w-20"></th>
                 </tr>
               </thead>
@@ -171,6 +186,9 @@ export default function DoctorsAdminPage() {
                       <span className="text-gray-600">{item.specialtyRu}</span>
                     </td>
                     <td className="px-4 py-3 hidden md:table-cell">
+                      <span className="text-gray-600 text-xs">{departmentLabel(item.department)}</span>
+                    </td>
+                    <td className="px-4 py-3 hidden lg:table-cell">
                       <span className="text-gray-500">{item.experienceRu}</span>
                     </td>
                     <td className="px-4 py-3">
@@ -251,10 +269,28 @@ export default function DoctorsAdminPage() {
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-semibold text-gray-500 uppercase mb-1.5">Отделение</label>
-                <select value={form.department} onChange={e => f('department')(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm bg-white">
-                  {DEPARTMENTS.map(d => <option key={d.value} value={d.value}>{d.label}</option>)}
+                <label className="block text-xs font-semibold text-gray-500 uppercase mb-1.5">Направление *</label>
+                <select
+                  value={form.department}
+                  onChange={e => f('department')(e.target.value)}
+                  required
+                  disabled={departments.length === 0}
+                  className="w-full px-3 py-2 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm bg-white disabled:opacity-60"
+                >
+                  <option value="">
+                    {departments.length === 0 ? 'Сначала добавьте направления' : 'Выберите направление'}
+                  </option>
+                  {departments.map(d => (
+                    <option key={d.id} value={d.slug}>{d.nameRu}</option>
+                  ))}
+                  {form.department &&
+                    !departments.some(d => d.slug === form.department) && (
+                      <option value={form.department}>{form.department} (устаревшее)</option>
+                    )}
                 </select>
+                <p className="text-xs text-gray-400 mt-1">
+                  Slug направления должен совпадать с URL страницы — врач появится в блоке «Врачи отделения».
+                </p>
               </div>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>

@@ -6,6 +6,7 @@ import { Lang } from '@/types';
 import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
 import AppointmentButton from '@/components/ui/AppointmentButton';
+import PageBackButton from '@/components/ui/PageBackButton';
 
 interface Props {
   lang: string;
@@ -58,11 +59,8 @@ export default function ServicePageClient({ lang: langStr, slug }: Props) {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-gradient-to-br from-blue-900 to-blue-950 text-white py-12">
-        <div className="container mx-auto px-4">
-          <Link href={`/${lang}/services`} className="inline-flex items-center gap-2 text-blue-300 hover:text-white text-sm mb-6 transition-colors">
-            <ArrowLeft size={16} />
-            {lang === 'ru' ? 'Назад к услугам' : 'Xizmatlarga qaytish'}
-          </Link>
+        <div className="container mx-auto px-3 sm:px-4">
+          <PageBackButton href={`/${lang}/services`} label={t.common.backToServices} className="mb-6" />
           <h1 className="text-2xl sm:text-3xl font-bold text-balance">
             {lang === 'ru' ? service.nameRu : service.nameUz}
           </h1>

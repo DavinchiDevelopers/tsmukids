@@ -1,11 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { Lang } from '@/types';
 import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
+import { DepartmentDoc } from '@/lib/firestore';
 import DeptIcon from '@/components/ui/DeptIcon';
 
 interface DepartmentsSectionProps {
@@ -29,6 +29,12 @@ export default function DepartmentsSection({ lang }: DepartmentsSectionProps) {
   const { departments, loaded } = useSiteData();
   const displayed = departments.slice(0, 8);
 
+  const getDescription = (dept: DepartmentDoc) => {
+    const raw = lang === 'ru' ? dept.descriptionRu : dept.descriptionUz;
+    const fallback = lang === 'ru' ? dept.descriptionUz : dept.descriptionRu;
+    return (raw || fallback || '').replace(/\r/g, '').trim();
+  };
+
   return (
     <section id="departments" className="py-20 bg-gray-50">
       <div className="container mx-auto px-3 sm:px-4">
@@ -46,7 +52,7 @@ export default function DepartmentsSection({ lang }: DepartmentsSectionProps) {
             : displayed.map((dept) => (
               <div
                 key={dept.id}
-                className="bg-white rounded-2xl overflow-hidden border border-gray-100"
+                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300"
               >
                 <div className="aspect-video relative bg-gradient-to-br from-blue-100 to-blue-200">
                   {dept.image ? (
@@ -54,7 +60,7 @@ export default function DepartmentsSection({ lang }: DepartmentsSectionProps) {
                       src={dept.image}
                       alt={lang === 'ru' ? dept.nameRu : dept.nameUz}
                       fill
-                      className="object-cover"
+                      className="object-cover group-hover:scale-[1.02] transition-transform duration-300"
                       unoptimized
                     />
                   ) : (
@@ -69,14 +75,31 @@ export default function DepartmentsSection({ lang }: DepartmentsSectionProps) {
                   <h3 className="font-bold text-gray-900 mb-2">
                     {lang === 'ru' ? dept.nameRu : dept.nameUz}
                   </h3>
-                  <p className="text-sm text-gray-500 mb-4 line-clamp-2">
-                    {lang === 'ru' ? dept.descriptionRu : dept.descriptionUz}
+                  <p className="text-sm text-gray-500 mb-4 line-clamp-3 leading-relaxed">
+                    {getDescription(dept)}
                   </p>
+                  <Link
+                    href={`/${lang}/departments/${dept.slug}`}
+                    className="flex w-full items-center justify-center py-2.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium group-hover:bg-blue-600 group-hover:text-white transition-colors"
+                  >
+                    {t.departments.learnMore}
+                  </Link>
                 </div>
               </div>
             ))
           }
         </div>
+
+        {loaded && departments.length > 0 && (
+          <div className="flex justify-center mt-10">
+            <Link
+              href={`/${lang}/departments`}
+              className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition-colors"
+            >
+              {t.departments.viewAll}
+            </Link>
+          </div>
+        )}
 
         {loaded && departments.length === 0 && (
           <p className="text-center text-gray-400 py-8">

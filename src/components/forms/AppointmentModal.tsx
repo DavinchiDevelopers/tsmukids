@@ -1,11 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { X } from 'lucide-react';
 import { Lang } from '@/types';
 import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
+import { useAppointmentModal } from '@/contexts/AppointmentModalContext';
 import { saveAppointmentRequest } from '@/lib/firestore';
+import { formatUzPhoneInput, isValidUzPhone, normalizeUzPhone } from '@/lib/phone';
 
 interface AppointmentModalProps {
   lang: Lang;
@@ -13,59 +16,79 @@ interface AppointmentModalProps {
 
 export default function AppointmentModal({ lang }: AppointmentModalProps) {
   const t = getT(lang);
-  const { services, doctors, settings } = useSiteData();
-  const [visible, setVisible] = useState(false);
+  const { settings } = useSiteData();
+  const { isOpen, close } = useAppointmentModal();
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const firstFieldRef = useRef<HTMLInputElement>(null);
+
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitError, setSubmitError] = useState('');
-  const [form, setForm] = useState({ name: '', phone: '', service: '', doctor: '', message: '' });
+  const [form, setForm] = useState({ name: '', phone: '', message: '' });
+  const [consent, setConsent] = useState(false);
+  const [consentError, setConsentError] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
+
+  const handleClose = () => {
+    close();
+    setTimeout(() => {
+      setSubmitted(false);
+      setSubmitError('');
+      setPhoneError('');
+      setConsentError(false);
+    }, 300);
+  };
 
   useEffect(() => {
-    const modal = document.getElementById('appointment-modal');
-    if (!modal) return;
-    const observer = new MutationObserver(() => {
-      setVisible(modal.style.display === 'flex');
-    });
-    observer.observe(modal, { attributes: true, attributeFilter: ['style'] });
-    return () => observer.disconnect();
-  }, []);
+    if (!isOpen) return;
 
-  const close = () => {
-    const el = document.getElementById('appointment-modal');
-    if (el) el.style.display = 'none';
-    setTimeout(() => setSubmitted(false), 500);
-  };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') close();
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKeyDown);
+    firstFieldRef.current?.focus();
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [isOpen, close]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!consent) {
+      setConsentError(true);
+      return;
+    }
+    if (!isValidUzPhone(form.phone)) {
+      setPhoneError(t.appointment.phoneInvalid);
+      return;
+    }
+
+    setConsentError(false);
+    setPhoneError('');
     setLoading(true);
     setSubmitError('');
 
-    const serviceName = services.find(s => s.slug === form.service);
-    const doctorName = doctors.find(d => d.slug === form.doctor);
     const payload = {
-      ...form,
+      name: form.name.trim(),
+      phone: normalizeUzPhone(form.phone),
+      message: form.message.trim(),
       lang,
-      serviceLabel: serviceName ? (lang === 'ru' ? serviceName.nameRu : serviceName.nameUz) : '',
-      doctorLabel: doctorName ? (lang === 'ru' ? doctorName.nameRu : doctorName.nameUz) : '',
+      consentGiven: true,
+      consentAt: new Date().toISOString(),
       createdAt: new Date().toISOString(),
     };
 
     try {
-      await saveAppointmentRequest({
-        name: form.name,
-        phone: form.phone,
-        service: payload.serviceLabel || form.service,
-        doctor: payload.doctorLabel || form.doctor,
-        message: form.message,
-        lang,
-        createdAt: payload.createdAt,
-      });
+      await saveAppointmentRequest(payload);
 
-      const webhooks = [settings.appointmentTelegramWebhook, settings.appointmentEmailWebhook].filter(Boolean);
+      const webhooks = [settings.appointmentEmailWebhook].filter(Boolean);
       if (webhooks.length > 0) {
         await Promise.allSettled(
-          webhooks.map((url) =>
+          webhooks.map(url =>
             fetch(url as string, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -76,26 +99,42 @@ export default function AppointmentModal({ lang }: AppointmentModalProps) {
       }
 
       setSubmitted(true);
-      setForm({ name: '', phone: '', service: '', doctor: '', message: '' });
+      setForm({ name: '', phone: '', message: '' });
+      setConsent(false);
     } catch {
-      setSubmitError(lang === 'ru' ? 'Не удалось отправить заявку. Попробуйте еще раз.' : "So'rov yuborilmadi. Qayta urinib ko'ring.");
+      setSubmitError(t.appointment.submitError);
     } finally {
       setLoading(false);
     }
   };
 
+  if (!isOpen) return null;
+
   return (
     <div
-      id="appointment-modal"
-      style={{ display: 'none' }}
       className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
-      onClick={(e) => { if (e.target === e.currentTarget) close(); }}
+      onClick={e => {
+        if (e.target === e.currentTarget) handleClose();
+      }}
     >
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={close} />
-      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" aria-hidden="true" />
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="appointment-modal-title"
+        className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto"
+      >
         <div className="flex items-center justify-between p-6 border-b border-gray-100">
-          <h2 className="text-xl font-bold text-gray-900">{t.appointment.title}</h2>
-          <button onClick={close} className="p-2 rounded-full hover:bg-gray-100 transition-colors">
+          <h2 id="appointment-modal-title" className="text-xl font-bold text-gray-900">
+            {t.appointment.title}
+          </h2>
+          <button
+            type="button"
+            onClick={handleClose}
+            aria-label={t.common.close}
+            className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+          >
             <X size={20} />
           </button>
         </div>
@@ -113,8 +152,12 @@ export default function AppointmentModal({ lang }: AppointmentModalProps) {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.appointment.name} *</label>
+                <label htmlFor="appointment-name" className="block text-sm font-medium text-gray-700 mb-1">
+                  {t.appointment.name} *
+                </label>
                 <input
+                  ref={firstFieldRef}
+                  id="appointment-name"
                   type="text"
                   required
                   placeholder={t.appointment.namePlaceholder}
@@ -124,58 +167,63 @@ export default function AppointmentModal({ lang }: AppointmentModalProps) {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.appointment.phone} *</label>
+                <label htmlFor="appointment-phone" className="block text-sm font-medium text-gray-700 mb-1">
+                  {t.appointment.phone} *
+                </label>
                 <input
+                  id="appointment-phone"
                   type="tel"
                   required
+                  inputMode="tel"
+                  autoComplete="tel"
                   placeholder={t.appointment.phonePlaceholder}
                   value={form.phone}
-                  onChange={e => setForm({ ...form, phone: e.target.value })}
+                  onChange={e => {
+                    setForm({ ...form, phone: formatUzPhoneInput(e.target.value) });
+                    if (phoneError) setPhoneError('');
+                  }}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
                 />
+                {phoneError && <p className="text-sm text-red-500 mt-1">{phoneError}</p>}
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.appointment.service}</label>
-                <select
-                  value={form.service}
-                  onChange={e => setForm({ ...form, service: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white"
-                >
-                  <option value="">{t.appointment.selectService}</option>
-                  {services.map(s => (
-                    <option key={s.slug} value={s.slug}>
-                      {lang === 'ru' ? s.nameRu : s.nameUz}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.appointment.doctor}</label>
-                <select
-                  value={form.doctor}
-                  onChange={e => setForm({ ...form, doctor: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm bg-white"
-                >
-                  <option value="">{t.appointment.selectDoctor}</option>
-                  {doctors.map(d => (
-                    <option key={d.slug} value={d.slug}>
-                      {lang === 'ru' ? d.nameRu : d.nameUz}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.appointment.message}</label>
+                <label htmlFor="appointment-message" className="block text-sm font-medium text-gray-700 mb-1">
+                  {t.appointment.message}
+                </label>
                 <textarea
+                  id="appointment-message"
                   rows={3}
                   value={form.message}
                   onChange={e => setForm({ ...form, message: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm resize-none"
                 />
               </div>
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  onChange={e => {
+                    setConsent(e.target.checked);
+                    if (e.target.checked) setConsentError(false);
+                  }}
+                  className="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 shrink-0"
+                />
+                <span className="text-sm text-gray-600 leading-relaxed">
+                  {t.appointment.consentPrefix}{' '}
+                  <Link
+                    href={`/${lang}/privacy`}
+                    className="text-blue-600 hover:text-blue-700 underline underline-offset-2"
+                    onClick={e => e.stopPropagation()}
+                  >
+                    {t.appointment.consentLink}
+                  </Link>
+                  .
+                </span>
+              </label>
+              {consentError && <p className="text-sm text-red-500">{t.appointment.consentRequired}</p>}
               <button
                 type="submit"
-                disabled={loading}
+                disabled={loading || !consent}
                 className="w-full bg-blue-600 text-white py-3.5 rounded-xl font-semibold hover:bg-blue-700 transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
               >
                 {loading ? (
@@ -186,9 +234,7 @@ export default function AppointmentModal({ lang }: AppointmentModalProps) {
                 ) : null}
                 {t.appointment.submit}
               </button>
-              {submitError && (
-                <p className="text-sm text-red-500">{submitError}</p>
-              )}
+              {submitError && <p className="text-sm text-red-500">{submitError}</p>}
             </form>
           )}
         </div>

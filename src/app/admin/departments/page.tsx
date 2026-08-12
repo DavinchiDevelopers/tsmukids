@@ -17,26 +17,10 @@ import Image from 'next/image';
 
 const ICONS = ['stethoscope', 'heart', 'eye', 'ear', 'brain', 'bone', 'baby', 'scissors', 'activity', 'shield'];
 
-const DEPT_PRESETS = [
-  { nameRu: 'Хирургия 1', nameUz: 'Jarrohlik 1', icon: 'scissors', beds: 25, hasEmergency: true },
-  { nameRu: 'Хирургия 2', nameUz: 'Jarrohlik 2', icon: 'scissors', beds: 25, hasEmergency: true },
-  { nameRu: 'Кардиохирургия', nameUz: 'Kardiojarrohlik', icon: 'heart', beds: 25, hasEmergency: false },
-  { nameRu: 'Офтальмология', nameUz: 'Oftalmologiya', icon: 'eye', beds: 25, hasEmergency: true },
-  { nameRu: 'Травматология', nameUz: 'Travmatologiya', icon: 'bone', beds: 25, hasEmergency: true },
-  { nameRu: 'ЛОР', nameUz: 'LOR', icon: 'ear', beds: 20, hasEmergency: true },
-  { nameRu: 'Пластическая хирургия', nameUz: 'Plastik jarrohlik', icon: 'scissors', beds: 25, hasEmergency: false },
-  { nameRu: 'Урология', nameUz: 'Urologiya', icon: 'activity', beds: 25, hasEmergency: true },
-  { nameRu: 'Гнойная хирургия', nameUz: 'Yiringli jarrohlik', icon: 'shield', beds: 20, hasEmergency: false },
-  { nameRu: 'Детская гинекология', nameUz: 'Bolalar ginekologiyasi', icon: 'baby', beds: 20, hasEmergency: false },
-  { nameRu: 'Пульмонология', nameUz: 'Pulmonologiya', icon: 'activity', beds: 20, hasEmergency: true },
-  { nameRu: 'Кардиоревматология', nameUz: 'Kardiorevmatologiya', icon: 'heart', beds: 25, hasEmergency: true },
-  { nameRu: 'Неврология', nameUz: 'Nevrologiya', icon: 'brain', beds: 20, hasEmergency: true },
-  { nameRu: 'Дерматология', nameUz: 'Dermatologiya', icon: 'shield', beds: 20, hasEmergency: false },
-  { nameRu: 'Педиатрия (0–3 года)', nameUz: 'Pediatriya (0–3 yosh)', icon: 'baby', beds: 20, hasEmergency: false },
-  { nameRu: 'Диагностика', nameUz: 'Diagnostika', icon: 'activity', beds: 20, hasEmergency: false },
-  { nameRu: 'Детская реанимация', nameUz: 'Bolalar reanimatsiyasi', icon: 'activity', beds: 18, hasEmergency: true },
-  { nameRu: 'Кардиореанимация', nameUz: 'Kardioreanimatsiya', icon: 'heart', beds: 6, hasEmergency: true },
-];
+import { DEPARTMENT_PRESETS } from '@/data/departmentPresets';
+import { mergeRequiredDepartments, ensureRequiredDepartmentsInFirestore } from '@/lib/requiredDepartments';
+
+const DEPT_PRESETS = DEPARTMENT_PRESETS;
 
 function resolveDeptImage(nameRu: string): string | null {
   const n = nameRu.toLowerCase();
@@ -47,6 +31,7 @@ function resolveDeptImage(nameRu: string): string | null {
     { keys: ['реаним'], image: '/oborudovanie/Аппараты ИВЛ (искусственная вентиляция лёгких).jpg' },
     { keys: ['кардиоревмат'], image: '/oborudovanie/Холтеровское мониторирование ЭКГ.jpg' },
     { keys: ['кардиохир'], image: '/oborudovanie/ЭхоКГ (эхокардиография).jpg' },
+    { keys: ['грудн', 'торакал'], image: '/oborudovanie/Бронхоскопия.jpg' },
     { keys: ['кардио'], image: '/oborudovanie/ЭКГ (электрокардиография).jpg' },
     { keys: ['офтальм'], image: '/oborudovanie/Офтальмологическая диагностика (ОКТ, периметрия, авторефрактометрия).jpg' },
     { keys: ['травмат'], image: '/oborudovanie/Рентгенография (цифровая).jpg' },
@@ -59,7 +44,7 @@ function resolveDeptImage(nameRu: string): string | null {
     { keys: ['неврол'], image: '/oborudovanie/ЭЭГ (электроэнцефалография).jpg' },
     { keys: ['дермат'], image: '/oborudovanie/ПЦР-диагностика.jpg' },
     { keys: ['педиатр'], image: '/oborudovanie/УЗИ (всех органов и систем).jpg' },
-    { keys: ['диагност'], image: '/oborudovanie/МСКТ (мультиспиральная компьютерная томография).jpg' },
+    { keys: ['диагност'], image: '/oborudovanie/УЗИ (всех органов и систем).jpg' },
     { keys: ['хирург'], image: '/oborudovanie/Лапароскопическое оборудование.jpg' },
   ];
 
@@ -89,13 +74,24 @@ export default function DepartmentsAdminPage() {
   const [form, setForm] = useState<Omit<DepartmentDoc, 'id'>>(empty);
   const [saving, setSaving] = useState(false);
   const [importing, setImporting] = useState(false);
+  const [syncingPresets, setSyncingPresets] = useState(false);
   const [fillingImages, setFillingImages] = useState(false);
   const [deleteId, setDeleteId] = useState<string | null>(null);
 
   const load = async () => {
     setLoading(true);
-    const data = await getDepartmentsFS().catch(() => []);
-    setItems(data);
+    let data = await getDepartmentsFS().catch(() => []);
+
+    try {
+      const added = await ensureRequiredDepartmentsInFirestore(data, saveDepartment);
+      if (added) {
+        data = await getDepartmentsFS().catch(() => []);
+      }
+    } catch (e) {
+      console.error('ensureRequiredDepartments', e);
+    }
+
+    setItems(mergeRequiredDepartments(data));
     setLoading(false);
   };
 
@@ -172,6 +168,34 @@ export default function DepartmentsAdminPage() {
     load();
   };
 
+  const handleSyncMissingPresets = async () => {
+    setSyncingPresets(true);
+    const existingNames = new Set(items.map(item => item.nameRu.trim().toLowerCase()));
+    let added = 0;
+
+    for (let i = 0; i < DEPT_PRESETS.length; i++) {
+      const p = DEPT_PRESETS[i];
+      if (existingNames.has(p.nameRu.trim().toLowerCase())) continue;
+
+      await saveDepartment({
+        slug: slugifyDepartmentSlug(p.nameRu, ''),
+        nameRu: p.nameRu,
+        nameUz: p.nameUz,
+        descriptionRu: '',
+        descriptionUz: '',
+        icon: p.icon,
+        beds: p.beds,
+        hasEmergency: p.hasEmergency,
+        order: items.length + added,
+      });
+      added += 1;
+    }
+
+    setSyncingPresets(false);
+    alert(added > 0 ? `Добавлено направлений: ${added}` : 'Все направления из списка уже есть');
+    load();
+  };
+
   const handleDelete = async (id: string) => {
     await deleteDepartment(id);
     setDeleteId(null);
@@ -200,13 +224,22 @@ export default function DepartmentsAdminPage() {
           <h1 className="text-2xl font-bold text-gray-900">Отделения ({items.length})</h1>
           <div className="flex gap-2 flex-wrap">
             {items.length > 0 && (
-              <button
-                onClick={handleFillImages}
-                disabled={fillingImages}
-                className="flex items-center gap-2 bg-emerald-600 text-white px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-emerald-700 disabled:opacity-50"
-              >
-                {fillingImages ? 'Заполняю фото...' : 'Подставить фото'}
-              </button>
+              <>
+                <button
+                  onClick={handleSyncMissingPresets}
+                  disabled={syncingPresets}
+                  className="flex items-center gap-2 bg-green-600 text-white px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-green-700 disabled:opacity-50"
+                >
+                  {syncingPresets ? 'Добавляю...' : 'Добавить недостающие'}
+                </button>
+                <button
+                  onClick={handleFillImages}
+                  disabled={fillingImages}
+                  className="flex items-center gap-2 bg-emerald-600 text-white px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-emerald-700 disabled:opacity-50"
+                >
+                  {fillingImages ? 'Заполняю фото...' : 'Подставить фото'}
+                </button>
+              </>
             )}
             {items.length === 0 && (
               <button

@@ -7,6 +7,7 @@ import { Lang } from '@/types';
 import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
 import clsx from 'clsx';
+import PageBackButton from '@/components/ui/PageBackButton';
 
 const categories = ['all', 'analyses', 'diagnostics', 'consultations', 'surgery', 'procedures'] as const;
 
@@ -28,9 +29,12 @@ export default function ServicesPage({ params }: { params: Promise<{ lang: strin
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-gradient-to-br from-blue-900 to-blue-950 text-white py-16">
-        <div className="container mx-auto px-3 sm:px-4 text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-3 text-balance px-1">{t.services.title}</h1>
-          <p className="text-blue-200">{t.services.subtitle}</p>
+        <div className="container mx-auto px-3 sm:px-4">
+          <PageBackButton href={`/${lang}`} label={t.common.backToHome} className="mb-6" />
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-4xl font-bold mb-3 text-balance px-1">{t.services.title}</h1>
+            <p className="text-blue-200">{t.services.subtitle}</p>
+          </div>
         </div>
       </div>
 

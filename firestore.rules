@@ -1,0 +1,56 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null;
+    }
+
+    function isValidAppointment() {
+      return request.resource.data.keys().hasAll(['name', 'phone', 'lang', 'consentGiven', 'createdAt'])
+        && request.resource.data.consentGiven == true
+        && request.resource.data.name is string
+        && request.resource.data.phone is string
+        && request.resource.data.lang in ['ru', 'uz']
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 200
+        && request.resource.data.phone.size() >= 9
+        && request.resource.data.phone.size() <= 30;
+    }
+
+    match /settings/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /appointments/{docId} {
+      allow create: if isValidAppointment();
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /doctors/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /services/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /departments/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /equipment/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /gallery/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}

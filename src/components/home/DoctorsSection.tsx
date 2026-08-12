@@ -6,6 +6,7 @@ import { ArrowRight, User } from 'lucide-react';
 import { Lang } from '@/types';
 import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
+import { doctorPhotoThumb } from '@/lib/doctorPhoto';
 
 interface DoctorsSectionProps {
   lang: Lang;
@@ -13,12 +14,12 @@ interface DoctorsSectionProps {
 
 function DoctorSkeleton() {
   return (
-    <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 animate-pulse">
-      <div className="aspect-[3/4] bg-gray-100" />
-      <div className="p-4 space-y-2">
+    <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 animate-pulse flex sm:block">
+      <div className="w-24 h-28 sm:w-auto sm:h-auto sm:aspect-[3/4] bg-gray-100 shrink-0" />
+      <div className="p-4 space-y-2 flex-1">
         <div className="h-4 bg-gray-100 rounded w-3/4" />
         <div className="h-3 bg-gray-100 rounded w-1/2" />
-        <div className="h-3 bg-gray-100 rounded w-1/3 mt-3" />
+        <div className="h-8 sm:h-3 bg-gray-100 rounded-lg sm:rounded w-1/3 mt-3" />
       </div>
     </div>
   );
@@ -27,7 +28,10 @@ function DoctorSkeleton() {
 export default function DoctorsSection({ lang }: DoctorsSectionProps) {
   const t = getT(lang);
   const { doctors, loaded } = useSiteData();
-  const displayed = doctors.slice(0, 4);
+  // Prefer doctors with photos on the homepage so the section doesn't look empty
+  const displayed = [...doctors]
+    .sort((a, b) => Number(Boolean(b.photo)) - Number(Boolean(a.photo)))
+    .slice(0, 4);
 
   return (
     <section id="doctors" className="py-20 bg-white">
@@ -47,38 +51,42 @@ export default function DoctorsSection({ lang }: DoctorsSectionProps) {
               <Link
                 key={doctor.id}
                 href={`/${lang}/doctors/${doctor.slug}`}
-                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl sm:hover:-translate-y-1 transition-all duration-300 flex sm:block"
               >
                 {/* Photo */}
-                <div className="aspect-[3/4] bg-gradient-to-br from-blue-50 to-blue-100 relative overflow-hidden">
+                <div className="w-24 h-32 sm:w-auto sm:h-auto sm:aspect-[3/4] bg-gradient-to-br from-blue-50 to-blue-100 relative overflow-hidden shrink-0">
                   {doctor.photo ? (
                     <Image
-                      src={doctor.photo}
+                      src={doctorPhotoThumb(doctor.photo)}
                       alt={lang === 'ru' ? doctor.nameRu : doctor.nameUz}
                       fill
-                      className="object-cover"
+                      className="object-cover object-top"
+                      sizes="(max-width: 640px) 96px, 25vw"
                       unoptimized
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <User size={64} className="text-blue-200" />
+                      <User size={40} className="text-blue-200 sm:w-16 sm:h-16" />
                     </div>
                   )}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
+                  <div className="absolute bottom-0 left-0 right-0 hidden sm:block bg-gradient-to-t from-black/50 to-transparent p-4">
                     <span className="text-white text-xs font-medium bg-blue-600/80 px-3 py-1 rounded-full">
                       {t.doctors.experience}: {lang === 'ru' ? doctor.experienceRu : doctor.experienceUz}
                     </span>
                   </div>
                 </div>
                 {/* Info */}
-                <div className="p-4">
-                  <h3 className="font-bold text-gray-900 mb-1 leading-tight">
+                <div className="p-4 flex-1 min-w-0">
+                  <h3 className="font-bold text-gray-900 mb-1 leading-tight text-sm sm:text-base">
                     {lang === 'ru' ? doctor.nameRu : doctor.nameUz}
                   </h3>
-                  <p className="text-blue-600 text-sm mb-3">
+                  <p className="text-blue-600 text-sm mb-3 line-clamp-2">
                     {lang === 'ru' ? doctor.specialtyRu : doctor.specialtyUz}
                   </p>
-                  <div className="w-full py-2.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium group-hover:bg-blue-600 group-hover:text-white transition-colors flex items-center justify-center gap-1">
+                  <p className="text-gray-400 text-xs mb-3 sm:hidden">
+                    {t.doctors.experience}: {lang === 'ru' ? doctor.experienceRu : doctor.experienceUz}
+                  </p>
+                  <div className="w-full py-2 sm:py-2.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium group-hover:bg-blue-600 group-hover:text-white transition-colors flex items-center justify-center gap-1">
                     {t.common.learnMore}
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </div>

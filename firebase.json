@@ -1,4 +1,7 @@
 {
+  "firestore": {
+    "rules": "firestore.rules"
+  },
   "hosting": {
     "public": "out",
     "ignore": [
@@ -6,10 +9,37 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
+    "redirects": [
       {
         "source": "/",
-        "destination": "/ru/index.html"
+        "destination": "/ru/",
+        "type": 301
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/ru/services/**",
+        "destination": "/ru/services/fallback/index.html"
+      },
+      {
+        "source": "/uz/services/**",
+        "destination": "/uz/services/fallback/index.html"
+      },
+      {
+        "source": "/ru/doctors/**",
+        "destination": "/ru/doctors/fallback/index.html"
+      },
+      {
+        "source": "/uz/doctors/**",
+        "destination": "/uz/doctors/fallback/index.html"
+      },
+      {
+        "source": "/ru/departments/**",
+        "destination": "/ru/departments/fallback/index.html"
+      },
+      {
+        "source": "/uz/departments/**",
+        "destination": "/uz/departments/fallback/index.html"
       }
     ],
     "headers": [
@@ -20,10 +50,18 @@
         ]
       },
       {
+        "source": "**/*.@(webp|jpg|jpeg|png|svg|gif|ico|woff2)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        ]
+      },
+      {
         "source": "**",
         "headers": [
           { "key": "X-Frame-Options", "value": "DENY" },
-          { "key": "X-Content-Type-Options", "value": "nosniff" }
+          { "key": "X-Content-Type-Options", "value": "nosniff" },
+          { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+          { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
         ]
       }
     ]

@@ -1,5 +1,7 @@
+import type { Metadata } from 'next';
 import { doctors as staticDoctors } from '@/data/doctors';
-import { getDoctorsFS } from '@/lib/firestore';
+import { buildPageMetadata } from '@/lib/metadata';
+import { Lang } from '@/types';
 import DoctorPageClient from './DoctorPageClient';
 
 interface DoctorPageProps {
@@ -14,15 +16,19 @@ export async function generateStaticParams() {
     'karimova-zulayho',
   ];
   const fromStatic = staticDoctors.map(d => d.slug);
-  let fromFirestore: string[] = [];
-  try {
-    const docs = await getDoctorsFS();
-    fromFirestore = docs.map(d => (d.slug || '').trim()).filter(Boolean);
-  } catch {
-    /* офлайн-сборка или недоступен Firestore */
-  }
-  const unique = new Set([...fromStatic, ...legacySlugs, ...fromFirestore]);
+  const unique = new Set([...fromStatic, ...legacySlugs]);
   return Array.from(unique).map(slug => ({ slug }));
+}
+
+export async function generateMetadata({ params }: DoctorPageProps): Promise<Metadata> {
+  const { lang, slug } = await params;
+  const isRu = lang === 'ru';
+  return buildPageMetadata({
+    lang: lang as Lang,
+    title: isRu ? 'Врач' : 'Shifokor',
+    description: isRu ? 'Страница врача детской клиники ТГМУ' : 'TSMU Bolalar Klinikasi shifokor sahifasi',
+    path: `/doctors/${slug}`,
+  });
 }
 
 export default async function DoctorPage({ params }: DoctorPageProps) {

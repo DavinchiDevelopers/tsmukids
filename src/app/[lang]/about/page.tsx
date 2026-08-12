@@ -1,14 +1,43 @@
-import { Shield, Clock, Zap, Activity, Award, Users } from 'lucide-react';
+import type { Metadata } from 'next';
+import { Shield, Clock, Zap, Activity, Award } from 'lucide-react';
 import { Lang } from '@/types';
 import { getT } from '@/i18n';
+import { getSettingsServer } from '@/lib/firestore-server';
+import type { ClinicSettings } from '@/lib/firestore';
+import { defaultSettings } from '@/contexts/SiteDataContext';
+import { buildPageMetadata } from '@/lib/metadata';
+import { getPageSeo } from '@/lib/seo-pages';
 
 interface AboutPageProps {
   params: Promise<{ lang: string }>;
 }
 
-export default async function AboutPage({ params }: AboutPageProps) {
+export async function generateMetadata({ params }: AboutPageProps): Promise<Metadata> {
   const { lang } = await params;
-  const t = getT(lang as Lang);
+  const seo = getPageSeo('about', lang as Lang);
+  return buildPageMetadata({ lang: lang as Lang, ...seo });
+}
+
+async function loadSettings(): Promise<ClinicSettings> {
+  try {
+    return (await getSettingsServer()) ?? defaultSettings;
+  } catch {
+    return defaultSettings;
+  }
+}
+
+export default async function AboutPage({ params }: AboutPageProps) {
+  const { lang: langStr } = await params;
+  const lang = langStr as Lang;
+  const t = getT(lang);
+  const settings = await loadSettings();
+
+  const stats = [
+    { value: settings.statsDoctors, label: t.hero.stats.doctors },
+    { value: settings.statsPatients, label: t.hero.stats.patients },
+    { value: settings.statsExperience, label: t.hero.stats.experience },
+    { value: settings.statsDepartments, label: t.hero.stats.departments },
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -20,7 +49,6 @@ export default async function AboutPage({ params }: AboutPageProps) {
       </div>
 
       <div className="container mx-auto px-4 py-12 space-y-10">
-        {/* Mission */}
         <div className="bg-white rounded-2xl p-5 sm:p-8 border border-gray-100">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 text-balance">
             {lang === 'ru' ? 'О клинике' : 'Klinika haqida'}
@@ -29,7 +57,6 @@ export default async function AboutPage({ params }: AboutPageProps) {
           <p className="text-gray-600 leading-relaxed">{t.about.description2}</p>
         </div>
 
-        {/* Features grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             { icon: Shield, key: 'license' },
@@ -41,45 +68,41 @@ export default async function AboutPage({ params }: AboutPageProps) {
               <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Icon size={26} className="text-blue-600" />
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">{t.about.features[key as keyof typeof t.about.features].title}</h3>
-              <p className="text-gray-500 text-sm">{t.about.features[key as keyof typeof t.about.features].desc}</p>
+              <h3 className="font-bold text-gray-900 mb-2">
+                {t.about.features[key as keyof typeof t.about.features].title}
+              </h3>
+              <p className="text-gray-500 text-sm">
+                {t.about.features[key as keyof typeof t.about.features].desc}
+              </p>
             </div>
           ))}
         </div>
 
-        {/* Stats */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-5 sm:p-8 text-white">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
-            {[
-              { value: '40+', label: t.hero.stats.doctors },
-              { value: '15 000+', label: t.hero.stats.patients },
-              { value: '10+', label: t.hero.stats.experience },
-              { value: '8', label: t.hero.stats.departments },
-            ].map((stat, i) => (
+            {stats.map((stat, i) => (
               <div key={i}>
                 <div className="text-2xl sm:text-4xl font-bold mb-1 tabular-nums">{stat.value}</div>
-                <div className="text-blue-200 text-xs sm:text-sm leading-snug text-balance px-0.5">{stat.label}</div>
+                <div className="text-blue-200 text-xs sm:text-sm leading-snug text-balance px-0.5">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Licenses */}
         <div className="bg-white rounded-2xl p-8 border border-gray-100">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            {lang === 'ru' ? 'Лицензии и сертификаты' : 'Litsenziyalar va sertifikatlar'}
+            {lang === 'ru' ? 'Лицензия' : 'Litsenziya'}
           </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              lang === 'ru' ? 'Лицензия Министерства здравоохранения РУз' : 'O\'zbekiston Sog\'liqni saqlash vazirligi litsenziyasi',
-              lang === 'ru' ? 'Сертификат ISO 9001:2015' : 'ISO 9001:2015 sertifikati',
-              lang === 'ru' ? 'Аккредитация по стандартам JCI' : 'JCI standartlari bo\'yicha akkreditatsiya',
-            ].map((cert, i) => (
-              <div key={i} className="flex items-center gap-3 p-4 bg-blue-50 rounded-xl">
-                <Award size={20} className="text-blue-600 shrink-0" />
-                <span className="text-sm text-gray-700 font-medium">{cert}</span>
-              </div>
-            ))}
+          <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-xl max-w-xl">
+            <Award size={20} className="text-blue-600 shrink-0" />
+            <span className="text-sm text-gray-700 font-medium">
+              {settings.licenseInfo ||
+                (lang === 'ru'
+                  ? 'Лицензия Министерства здравоохранения Республики Узбекистан'
+                  : "O'zbekiston Respublikasi Sog'liqni saqlash vazirligi litsenziyasi")}
+            </span>
           </div>
         </div>
       </div>

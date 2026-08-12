@@ -2,7 +2,7 @@
 
 import AdminShell from '@/components/admin/AdminShell';
 import Link from 'next/link';
-import { Settings, Stethoscope, Users, Building2, ExternalLink, Monitor, Images } from 'lucide-react';
+import { Settings, Stethoscope, Users, Building2, ExternalLink, Monitor, Images, Inbox } from 'lucide-react';
 
 const cards = [
   {
@@ -47,6 +47,13 @@ const cards = [
     desc: 'Фото клиники, палат, команды и оборудования',
     color: 'bg-pink-50 text-pink-600',
   },
+  {
+    href: '/admin/appointments',
+    icon: Inbox,
+    title: 'Заявки',
+    desc: 'Записи на приём с сайта',
+    color: 'bg-yellow-50 text-yellow-700',
+  },
 ];
 
 export default function DashboardPage() {
@@ -56,7 +63,7 @@ export default function DashboardPage() {
         <div className="mb-8 flex items-center justify-between flex-wrap gap-4">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Панель управления</h1>
-            <p className="text-gray-500 text-sm mt-1">ТГМУ — Многопрофильная Детская Клиника</p>
+            <p className="text-gray-500 text-sm mt-1">TSMU — Детская клиника ТГМУ</p>
           </div>
           <div className="flex gap-3">
             <Link

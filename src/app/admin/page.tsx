@@ -43,7 +43,7 @@ export default function AdminLoginPage() {
           </div>
         </div>
         <h1 className="text-2xl font-bold text-center text-gray-900 mb-2">Панель управления</h1>
-        <p className="text-center text-gray-400 text-sm mb-6">ТГМУ Детская Клиника</p>
+        <p className="text-center text-gray-400 text-sm mb-6">TSMU — Детская клиника ТГМУ</p>
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>

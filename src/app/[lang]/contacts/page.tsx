@@ -51,8 +51,18 @@ export default function ContactsPage({ params }: { params: Promise<{ lang: strin
                     <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>
                     {title === t.contacts.phones ? (
                       <div className="text-sm">
-                        {settings.phone1 && <a href={phone1Href} className="block text-blue-600 hover:underline">{settings.phone1}</a>}
-                        {settings.phone2 && <a href={phone2Href} className="block text-blue-600 hover:underline mt-1">{settings.phone2}</a>}
+                        {settings.phone1 && (
+                          <div className="mb-2">
+                            <p className="text-xs text-gray-500 mb-0.5">{t.contacts.phoneAdmission}</p>
+                            <a href={phone1Href} className="block text-blue-600 hover:underline">{settings.phone1}</a>
+                          </div>
+                        )}
+                        {settings.phone2 && (
+                          <div className="mb-2">
+                            <p className="text-xs text-gray-500 mb-0.5">{t.contacts.phonePolyclinic}</p>
+                            <a href={phone2Href} className="block text-blue-600 hover:underline">{settings.phone2}</a>
+                          </div>
+                        )}
                         <a href={`mailto:${settings.email}`} className="block text-gray-600 hover:text-blue-600 mt-1">{settings.email}</a>
                       </div>
                     ) : (

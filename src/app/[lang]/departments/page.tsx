@@ -8,6 +8,7 @@ import { Lang } from '@/types';
 import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
 import DeptIcon from '@/components/ui/DeptIcon';
+import PageBackButton from '@/components/ui/PageBackButton';
 
 export default function DepartmentsPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: langStr } = use(params);
@@ -18,12 +19,15 @@ export default function DepartmentsPage({ params }: { params: Promise<{ lang: st
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-gradient-to-br from-blue-900 to-blue-950 text-white py-16">
-        <div className="container mx-auto px-3 sm:px-4 text-center">
+        <div className="container mx-auto px-3 sm:px-4">
+          <PageBackButton href={`/${lang}`} label={t.common.backToHome} className="mb-6" />
+          <div className="text-center">
           <span className="inline-block bg-blue-800/50 text-blue-300 text-sm px-4 py-1.5 rounded-full mb-4">
             {t.departments.badge}
           </span>
           <h1 className="text-3xl sm:text-4xl font-bold mb-3 text-balance px-1">{t.departments.title}</h1>
           <p className="text-blue-200">{t.departments.subtitle}</p>
+          </div>
         </div>
       </div>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { Calendar } from 'lucide-react';
+import { useAppointmentModal } from '@/contexts/AppointmentModalContext';
 
 interface AppointmentButtonProps {
   label: string;
@@ -8,15 +9,16 @@ interface AppointmentButtonProps {
 }
 
 export default function AppointmentButton({ label, className }: AppointmentButtonProps) {
-  const open = () => {
-    const el = document.getElementById('appointment-modal');
-    if (el) el.style.display = 'flex';
-  };
+  const { open } = useAppointmentModal();
 
   return (
     <button
+      type="button"
       onClick={open}
-      className={className || 'w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2'}
+      className={
+        className ||
+        'w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2'
+      }
     >
       <Calendar size={18} />
       {label}

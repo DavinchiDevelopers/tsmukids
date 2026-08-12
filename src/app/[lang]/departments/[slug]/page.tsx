@@ -1,5 +1,9 @@
+import type { Metadata } from 'next';
 import { departments as staticDepartments } from '@/data/departments';
-import { getDepartmentsFS } from '@/lib/firestore';
+import { DEPARTMENT_PRESET_NAMES } from '@/data/departmentPresets';
+import { slugifyDepartmentSlug } from '@/lib/slugify';
+import { buildPageMetadata } from '@/lib/metadata';
+import { Lang } from '@/types';
 import DepartmentPageClient from './DepartmentPageClient';
 
 interface DepartmentPageProps {
@@ -8,15 +12,22 @@ interface DepartmentPageProps {
 
 export async function generateStaticParams() {
   const fromStatic = staticDepartments.map(d => d.slug);
-  let fromFirestore: string[] = [];
-  try {
-    const docs = await getDepartmentsFS();
-    fromFirestore = docs.map(d => (d.slug || '').trim()).filter(Boolean);
-  } catch {
-    /* офлайн-сборка или недоступен Firestore */
-  }
-  const unique = new Set([...fromStatic, ...fromFirestore]);
-  return Array.from(unique).map(slug => ({ slug }));
+  const fromPresets = DEPARTMENT_PRESET_NAMES.map(name => slugifyDepartmentSlug(name, ''));
+  const unique = new Set([...fromStatic, ...fromPresets]);
+  return Array.from(unique)
+    .filter(slug => slug && /^[a-z0-9-]+$/i.test(slug))
+    .map(slug => ({ slug }));
+}
+
+export async function generateMetadata({ params }: DepartmentPageProps): Promise<Metadata> {
+  const { lang, slug } = await params;
+  const isRu = lang === 'ru';
+  return buildPageMetadata({
+    lang: lang as Lang,
+    title: isRu ? 'Отделение' : "Bo'lim",
+    description: isRu ? 'Отделение детской клиники ТГМУ' : "TSMU Bolalar Klinikasi bo'limi",
+    path: `/departments/${slug}`,
+  });
 }
 
 export default async function DepartmentPage({ params }: DepartmentPageProps) {

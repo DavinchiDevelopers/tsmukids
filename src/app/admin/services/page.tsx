@@ -48,17 +48,18 @@ export default function ServicesAdminPage() {
   const [items, setItems] = useState<ServiceDoc[]>([]);
   const [loading, setLoading] = useState(true);
   const [filterCat, setFilterCat] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
   const [modal, setModal] = useState<null | 'new' | ServiceDoc>(null);
   const [form, setForm] = useState<Omit<ServiceDoc, 'id'>>(empty);
   const [saving, setSaving] = useState(false);
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [bulkImporting, setBulkImporting] = useState(false);
 
-  const load = async () => {
-    setLoading(true);
+  const load = async (showLoader = true) => {
+    if (showLoader) setLoading(true);
     const data = await getServicesFS().catch(() => []);
     setItems(data);
-    setLoading(false);
+    if (showLoader) setLoading(false);
   };
 
   useEffect(() => {
@@ -100,7 +101,7 @@ export default function ServicesAdminPage() {
         await updateService(modal.id, data);
       }
       setModal(null);
-      load();
+      await load(false);
     } catch (e) {
       console.error(e);
       const msg = e instanceof Error ? e.message : String(e);
@@ -113,7 +114,7 @@ export default function ServicesAdminPage() {
   const handleDelete = async (id: string) => {
     await deleteService(id);
     setDeleteId(null);
-    load();
+    await load(false);
   };
 
   const handleDeleteAllAndImportPricelist = async () => {
@@ -143,7 +144,7 @@ export default function ServicesAdminPage() {
           `Готово. Удалено из базы: ${removed}, загружено позиций: ${items.length}.`
         );
       }
-      load();
+      await load(false);
     } catch (e) {
       console.error(e);
       const m = e instanceof Error ? e.message : String(e);
@@ -156,7 +157,16 @@ export default function ServicesAdminPage() {
   const f = (key: keyof typeof form) => (v: string | number | undefined) =>
     setForm(prev => ({ ...prev, [key]: v }));
 
-  const filtered = filterCat === 'all' ? items : items.filter(s => s.category === filterCat);
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+  const filtered = items.filter(s => {
+    if (filterCat !== 'all' && s.category !== filterCat) return false;
+    if (!normalizedQuery) return true;
+    return (
+      s.nameRu.toLowerCase().includes(normalizedQuery) ||
+      s.nameUz.toLowerCase().includes(normalizedQuery) ||
+      s.slug.toLowerCase().includes(normalizedQuery)
+    );
+  });
 
   return (
     <AdminShell>
@@ -174,6 +184,7 @@ export default function ServicesAdminPage() {
               {bulkImporting ? 'Импорт…' : 'Прайс: очистить и загрузить'}
             </button>
             <button
+              type="button"
               onClick={openNew}
               className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-blue-700 transition-colors"
             >
@@ -186,6 +197,7 @@ export default function ServicesAdminPage() {
         {/* Category tabs */}
         <div className="flex flex-wrap gap-2 mb-5">
           <button
+            type="button"
             onClick={() => setFilterCat('all')}
             className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${filterCat === 'all' ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 border border-gray-200'}`}
           >
@@ -193,6 +205,7 @@ export default function ServicesAdminPage() {
           </button>
           {CATEGORIES.map(c => (
             <button
+              type="button"
               key={c.value}
               onClick={() => setFilterCat(c.value)}
               className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${filterCat === c.value ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 border border-gray-200'}`}
@@ -200,6 +213,16 @@ export default function ServicesAdminPage() {
               {c.label} ({items.filter(s => s.category === c.value).length})
             </button>
           ))}
+        </div>
+
+        <div className="mb-5">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+            placeholder="Поиск по названию или slug..."
+            className="w-full sm:max-w-md px-4 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm bg-white"
+          />
         </div>
 
         {loading ? (
@@ -244,12 +267,14 @@ export default function ServicesAdminPage() {
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-1 justify-end">
                         <button
+                          type="button"
                           onClick={() => openEdit(item)}
                           className="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
                         >
                           <Pencil size={14} />
                         </button>
                         <button
+                          type="button"
                           onClick={() => setDeleteId(item.id)}
                           className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                         >
@@ -271,7 +296,7 @@ export default function ServicesAdminPage() {
           <div className="bg-white rounded-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto shadow-2xl">
             <div className="flex items-center justify-between p-5 border-b border-gray-100 sticky top-0 bg-white">
               <h2 className="font-bold text-gray-900">{modal === 'new' ? 'Новая услуга' : 'Редактировать услугу'}</h2>
-              <button onClick={() => setModal(null)} className="p-1.5 rounded-lg hover:bg-gray-100">
+              <button type="button" onClick={() => setModal(null)} className="p-1.5 rounded-lg hover:bg-gray-100">
                 <X size={18} />
               </button>
             </div>
@@ -328,10 +353,11 @@ export default function ServicesAdminPage() {
               </div>
             </div>
             <div className="p-5 border-t border-gray-100 flex justify-end gap-3">
-              <button onClick={() => setModal(null)} className="px-4 py-2 rounded-xl border border-gray-200 text-sm text-gray-600 hover:bg-gray-50">
+              <button type="button" onClick={() => setModal(null)} className="px-4 py-2 rounded-xl border border-gray-200 text-sm text-gray-600 hover:bg-gray-50">
                 Отмена
               </button>
               <button
+                type="button"
                 onClick={handleSave}
                 disabled={saving || !form.nameRu}
                 className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2 rounded-xl text-sm font-medium hover:bg-blue-700 transition-colors disabled:opacity-50"
@@ -351,8 +377,9 @@ export default function ServicesAdminPage() {
             <h2 className="font-bold text-gray-900 mb-2">Удалить услугу?</h2>
             <p className="text-gray-500 text-sm mb-5">Это действие нельзя отменить.</p>
             <div className="flex gap-3 justify-end">
-              <button onClick={() => setDeleteId(null)} className="px-4 py-2 rounded-xl border border-gray-200 text-sm">Отмена</button>
+              <button type="button" onClick={() => setDeleteId(null)} className="px-4 py-2 rounded-xl border border-gray-200 text-sm">Отмена</button>
               <button
+                type="button"
                 onClick={() => handleDelete(deleteId)}
                 className="px-4 py-2 rounded-xl bg-red-600 text-white text-sm font-medium hover:bg-red-700"
               >

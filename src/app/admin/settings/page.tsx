@@ -8,30 +8,28 @@ import { auth } from '@/lib/firebase';
 import { Save, CheckCircle } from 'lucide-react';
 
 const defaultSettings: ClinicSettings = {
-  nameRu: 'Ташкентский государственный медицинский университет, многопрофильная детская клиника',
-  nameUz: 'Toshkent Davlat Tibbiyot Universiteti Bolalar Ko\'p Tarmoqli Klinikasi',
-  nameShortRu: 'ТГМУ Детская Клиника',
-  nameShortUz: 'TDTU Bolalar Klinikasi',
-  address: 'г. Ташкент, ул. Богишамол, 223',
+  nameRu: 'Ташкентский государственный медицинский университет (TSMU) — многопрофильная детская клиника',
+  nameUz: "Toshkent State Medical University (TSMU) — ko'p tarmoqli bolalar klinikasi",
+  nameShortRu: 'Детская клиника ТГМУ',
+  nameShortUz: 'TSMU Bolalar klinikasi',
+  address: 'Ташкентская область, Кибрайский район, гп. Салар, ул. Богишамол, 223А/1',
   phone1: '',
   phone2: '',
-  email: '',
+  email: 'info@tsmukids.uz',
   workingHours: 'Пн–Пт: 8:00–20:00, Сб–Вс: 9:00–17:00',
   statsDoctors: '100+',
   statsPatients: '15 000+',
   statsExperience: '20+',
   statsDepartments: '16',
-  aboutDescription1Ru: 'Многопрофильная детская клиника ТГМУ — специализированное учреждение, в котором проходят лечение дети от 3 месяцев до 18 лет. Клиника оснащена современным диагностическим и хирургическим оборудованием.',
-  aboutDescription1Uz: 'TDTU ko\'p tarmoqli bolalar klinikasi — 3 oylikdan 18 yoshgacha bo\'lgan bolalar davolanadigann ixtisoslashtirilgan muassasa. Klinika zamonaviy diagnostik va jarrohlik uskunalari bilan jihozlangan.',
+  aboutDescription1Ru: 'Многопрофильная детская клиника ТГМУ (TSMU, Tashkent State Medical University) — специализированное учреждение, в котором проходят лечение дети от 3 месяцев до 18 лет. Клиника оснащена современным диагностическим и хирургическим оборудованием.',
+  aboutDescription1Uz: "TSMU (Toshkent State Medical University) ko'p tarmoqli bolalar klinikasi — 3 oylikdan 18 yoshgacha bo'lgan bolalar davolanadigan ixtisoslashtirilgan muassasa. Klinika zamonaviy diagnostik va jarrohlik uskunalari bilan jihozlangan.",
   aboutDescription2Ru: 'В нашей клинике функционируют 15 профильных отделений на 340 коек (включая 24 реанимационных). Работают более 100 врачей различных специальностей с опытом более 20 лет.',
-  aboutDescription2Uz: 'Klinikamizda 340 o\'rinli (24 ta reanimatsiya o\'rni bilan) 15 ta ixtisoslashtirilgan bo\'lim faoliyat yuritadi. 20 yildan ortiq tajribaga ega 100 dan ortiq turli ixtisoslikdagi shifokorlar ishlaydi.',
+  aboutDescription2Uz: "Klinikamizda 340 o'rinli (24 ta reanimatsiya o'rni bilan) 15 ta ixtisoslashtirilgan bo'lim faoliyat yuritadi. 20 yildan ortiq tajribaga ega 100 dan ortiq turli ixtisoslikdagi shifokorlar ishlaydi.",
   licenseInfo: 'Лицензия МЗ РУз',
-  logoLetter: 'Т',
-  telegram: 'https://t.me/medcare_uz',
+  logoLetter: 'T',
   whatsapp: '998901234567',
-  mapEmbedUrl: '',
-  mapLabel: 'г. Ташкент, ул. Богишамол, 223',
-  appointmentTelegramWebhook: '',
+  mapEmbedUrl: 'https://yandex.ru/map-widget/v1/?oid=138576287211&ol=biz&ll=69.363348%2C41.377527&z=16&lang=ru_RU',
+  mapLabel: 'Ташкентская область, Кибрайский район, гп. Салар, ул. Богишамол, 223А/1',
   appointmentEmailWebhook: '',
 };
 
@@ -138,11 +136,11 @@ export default function SettingsPage() {
               <Field label="Название (RU)" value={data.nameRu} onChange={set('nameRu')} multiline />
               <Field label="Название (UZ)" value={data.nameUz} onChange={set('nameUz')} multiline />
               <div className="grid sm:grid-cols-2 gap-4">
-                <Field label="Короткое название (для шапки) (RU)" value={data.nameShortRu} onChange={set('nameShortRu')} placeholder="ТГМУ Детская Клиника" />
-                <Field label="Короткое название (для шапки) (UZ)" value={data.nameShortUz} onChange={set('nameShortUz')} placeholder="TDTU Bolalar Klinikasi" />
+                <Field label="Короткое название (для шапки) (RU)" value={data.nameShortRu} onChange={set('nameShortRu')} placeholder="Детская клиника ТГМУ" />
+                <Field label="Короткое название (для шапки) (UZ)" value={data.nameShortUz} onChange={set('nameShortUz')} placeholder="TSMU Bolalar Klinikasi" />
               </div>
               <div className="grid sm:grid-cols-2 gap-4">
-                <Field label="Буква лого" value={data.logoLetter} onChange={set('logoLetter')} placeholder="Т" />
+                <Field label="Буква лого" value={data.logoLetter} onChange={set('logoLetter')} placeholder="T" />
                 <Field label="Лицензия" value={data.licenseInfo} onChange={set('licenseInfo')} placeholder="Лицензия МЗ РУз №12345" />
               </div>
             </div>
@@ -152,17 +150,14 @@ export default function SettingsPage() {
           <div className="bg-white rounded-2xl p-6 border border-gray-100">
             <h2 className="font-semibold text-gray-900 mb-4">Контакты</h2>
             <div className="space-y-4">
-              <Field label="Адрес" value={data.address} onChange={set('address')} placeholder="г. Ташкент, ул. Богишамол, 223" />
+              <Field label="Адрес" value={data.address} onChange={set('address')} placeholder="Ташкентская область, Кибрайский район, гп. Салар, ул. Богишамол, 223А/1" />
               <div className="grid sm:grid-cols-2 gap-4">
                 <Field label="Телефон 1" value={data.phone1} onChange={set('phone1')} placeholder="+998 71 XXX XX XX" />
                 <Field label="Телефон 2" value={data.phone2} onChange={set('phone2')} placeholder="+998 90 XXX XX XX" />
               </div>
               <Field label="Email" value={data.email} onChange={set('email')} placeholder="info@clinic.uz" />
               <Field label="Режим работы" value={data.workingHours} onChange={set('workingHours')} />
-              <div className="grid sm:grid-cols-2 gap-4">
-                <Field label="Telegram" value={data.telegram} onChange={set('telegram')} placeholder="https://t.me/username" />
-                <Field label="WhatsApp" value={data.whatsapp} onChange={set('whatsapp')} placeholder="998901234567" />
-              </div>
+              <Field label="WhatsApp" value={data.whatsapp} onChange={set('whatsapp')} placeholder="998901234567" />
               <Field
                 label="Карта (URL iframe src)"
                 value={data.mapEmbedUrl ?? ''}
@@ -173,7 +168,7 @@ export default function SettingsPage() {
                 label="Подпись к карте"
                 value={data.mapLabel ?? ''}
                 onChange={set('mapLabel')}
-                placeholder="г. Ташкент, ул. Богишамол, 223"
+                placeholder="Ташкентская область, Кибрайский район, гп. Салар, ул. Богишамол, 223А/1"
               />
             </div>
           </div>
@@ -182,19 +177,13 @@ export default function SettingsPage() {
             <h2 className="font-semibold text-gray-900 mb-4">Интеграция записи на прием</h2>
             <div className="space-y-4">
               <Field
-                label="Webhook Telegram"
-                value={data.appointmentTelegramWebhook ?? ''}
-                onChange={set('appointmentTelegramWebhook')}
-                placeholder="https://... (ваш endpoint для отправки в Telegram)"
-              />
-              <Field
                 label="Webhook Email"
                 value={data.appointmentEmailWebhook ?? ''}
                 onChange={set('appointmentEmailWebhook')}
                 placeholder="https://... (ваш endpoint для отправки email)"
               />
               <p className="text-xs text-gray-500">
-                Форма отправляет заявку в оба webhook URL и сохраняет в Firestore коллекцию appointments.
+                Форма отправляет заявку на webhook URL и сохраняет в Firestore коллекцию appointments.
               </p>
             </div>
           </div>

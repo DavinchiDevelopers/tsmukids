@@ -5,8 +5,14 @@ import Footer from '@/components/layout/Footer';
 import FloatingButtons from '@/components/layout/FloatingButtons';
 import AppointmentModal from '@/components/forms/AppointmentModal';
 import SiteDataProvider from '@/contexts/SiteDataContext';
+import { AppointmentModalProvider } from '@/contexts/AppointmentModalContext';
+import OrganizationJsonLd from '@/components/seo/OrganizationJsonLd';
+import { buildPageMetadata } from '@/lib/metadata';
+import { getPageSeo } from '@/lib/seo-pages';
+import { getSiteDataServer } from '@/lib/firestore-server';
 import { langs } from '@/i18n';
 import { Lang } from '@/types';
+import { SITE_NAME_RU, SITE_NAME_UZ } from '@/lib/branding';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -19,22 +25,18 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
-  const isRu = lang === 'ru';
+  const seo = getPageSeo('home', lang as Lang);
+  const siteName = lang === 'ru' ? SITE_NAME_RU : SITE_NAME_UZ;
+
   return {
+    ...buildPageMetadata({ lang: lang as Lang, ...seo }),
     title: {
-      default: isRu ? 'MedCare Clinic — Многопрофильная клиника в Ташкенте' : 'MedCare Clinic — Toshkentdagi ko\'p tarmoqli klinika',
-      template: '%s | MedCare Clinic',
+      default: seo.title,
+      template: `%s | ${siteName}`,
     },
-    description: isRu
-      ? 'Современная многопрофильная клиника в Ташкенте. МРТ, КТ, УЗИ, анализы, хирургия, консультации специалистов. Запись онлайн.'
-      : 'Toshkentdagi zamonaviy ko\'p tarmoqli klinika. MRT, KT, UZI, tahlillar, jarrohlik, mutaxassis maslahatlari. Onlayn yozilish.',
-    keywords: isRu
-      ? ['клиника Ташкент', 'МРТ Ташкент', 'врач Ташкент', 'анализы Ташкент', 'хирургия Ташкент']
-      : ['klinika Toshkent', 'MRT Toshkent', 'shifokor Toshkent'],
-    openGraph: {
-      siteName: 'MedCare Clinic',
-      locale: lang === 'ru' ? 'ru_UZ' : 'uz_UZ',
-    },
+    keywords: lang === 'ru'
+      ? ['ТГМУ клиника', 'TSMU', 'детская клиника Ташкент', 'детский врач Ташкент', 'хирургия детей']
+      : ['TSMU', 'TSMU Kids', 'bolalar klinikasi Toshkent', 'bolalar shifokori', 'bolalar jarrohligi'],
   };
 }
 
@@ -45,15 +47,27 @@ export default async function LangLayout({ children, params }: LayoutProps) {
     notFound();
   }
 
+  const siteData = await getSiteDataServer().catch(() => undefined);
+  const initialData = siteData
+    ? {
+        ...siteData,
+        settings: siteData.settings ?? undefined,
+      }
+    : undefined;
+
   return (
-    <SiteDataProvider>
-      <Header lang={lang as Lang} />
-      <main className="pt-16 pb-24 md:pb-8">
-        {children}
-      </main>
-      <Footer lang={lang as Lang} />
-      <FloatingButtons />
-      <AppointmentModal lang={lang as Lang} />
+    <SiteDataProvider initialData={initialData}>
+      <AppointmentModalProvider>
+        <OrganizationJsonLd settings={initialData?.settings} lang={lang as Lang} />
+        <Header lang={lang as Lang} />
+        <main className="pt-16 pb-24 md:pb-8">
+          {children}
+        </main>
+        <Footer lang={lang as Lang} />
+        <FloatingButtons />
+        <AppointmentModal lang={lang as Lang} />
+      </AppointmentModalProvider>
     </SiteDataProvider>
   );
 }
+
