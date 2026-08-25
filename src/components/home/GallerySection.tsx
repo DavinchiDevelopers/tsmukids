@@ -63,7 +63,11 @@ export default function GallerySection({ lang }: GallerySectionProps) {
               key={`skeleton-${i}`}
               className={`aspect-video bg-gradient-to-br ${colors[i % colors.length]} rounded-2xl animate-pulse`}
             />
-          )) : filtered.map((item, i) => (
+          )) : filtered.length === 0 ? (
+            <div className="col-span-full text-center py-12 text-gray-400 text-sm">
+              {lang === 'ru' ? 'Фотографии скоро появятся' : 'Rasmlar tez orada qo‘shiladi'}
+            </div>
+          ) : filtered.map((item, i) => (
             <div
               key={item.id}
               className={`aspect-video bg-gradient-to-br ${colors[i % colors.length]} rounded-2xl flex items-center justify-center relative overflow-hidden group cursor-pointer`}

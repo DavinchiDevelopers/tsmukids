@@ -25,7 +25,9 @@ export default function OrganizationJsonLd({ settings, lang }: OrganizationJsonL
     url: absolutePageUrl(`/${lang}/`),
     logo: absoluteAssetUrl(SITE_LOGO_PATH),
     image: absoluteAssetUrl(SITE_OG_IMAGE_PATH),
-    telephone: (s.phone1 || '').replace(/\s/g, '') || undefined,
+    telephone: [s.phone1, s.phone2, s.phone3]
+      .filter(Boolean)
+      .map((p) => p!.replace(/\s/g, '')),
     email: s.email || undefined,
     address: {
       '@type': 'PostalAddress',

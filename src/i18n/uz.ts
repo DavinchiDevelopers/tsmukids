@@ -1,7 +1,7 @@
 const uz = {
   header: {
     tagline: 'Birinchi kunlardan g\'amxo\'rlik',
-    workingShort: 'Har kuni 8:00 – 20:00',
+    workingShort: 'Kun-u tun',
   },
   nav: {
     home: 'Bosh sahifa',
@@ -29,7 +29,7 @@ const uz = {
       departments: 'Yo\'nalishlar',
     },
     features: {
-      hours: { title: 'Qulay vaqt', desc: 'Har kuni 8:00 dan 20:00 gacha qabul' },
+      hours: { title: 'Qulay vaqt', desc: 'Kun-u tun qabul' },
       location: { title: 'Qulay joylashuv', desc: 'Mo\'ljal: TTA' },
       safety: { title: 'Xavfsizlik va sifat', desc: 'Xalqaro standartlar va sifat nazorati' },
       support: { title: '24/7 qo\'llab-quvvatlash', desc: 'Siz va farzandingiz uchun doim aloqadamiz' },
@@ -144,8 +144,9 @@ const uz = {
     phones: 'Telefonlar',
     phoneAdmission: 'Qabul bo‘limi',
     phonePolyclinic: 'Poliklinika',
+    phoneMobile: 'Mobil',
     workingHours: 'Ish tartibi',
-    workingHoursValue: 'Du–Ju: 8:00–20:00\nSh–Ya: 9:00–17:00',
+    workingHoursValue: 'Kun-u tun',
     emergency: 'Favqulodda yordam: 24/7',
   },
   appointment: {
@@ -232,8 +233,8 @@ const uz = {
     description: 'Bolalar uchun to\'liq diagnostika va davolash spektriga ega TSMU ko\'p tarmoqli bolalar klinikasi.',
     links: 'Tezkor havolalar',
     workingHours: 'Ish tartibi',
-    workingHoursValue: 'Du–Ju: 8:00–20:00',
-    workingHoursWeekend: 'Sh–Ya: 9:00–17:00',
+    workingHoursValue: 'Kun-u tun',
+    workingHoursWeekend: '',
     emergency: 'Tez yordam: 24/7',
     rights: 'Barcha huquqlar himoyalangan.',
     privacy: 'Maxfiylik siyosati',

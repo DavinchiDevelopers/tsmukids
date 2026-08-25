@@ -10,7 +10,7 @@ import {
   ServiceDoc,
 } from '@/lib/firestore';
 import { deleteAllServicesInFirestore, importServicesBatched, type ServiceSeed } from '@/lib/servicesImport';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from '@/lib/firebase';
 import { auth } from '@/lib/firebase';
 import { Plus, Pencil, Trash2, X, Save, Database } from 'lucide-react';
 
@@ -119,7 +119,7 @@ export default function ServicesAdminPage() {
 
   const handleDeleteAllAndImportPricelist = async () => {
     const msg =
-      'Удалить ВСЕ текущие услуги в Firebase и загрузить полный прайс из /import/services-seed.json? Это действие нельзя отменить.';
+      'Удалить ВСЕ текущие услуги и загрузить полный прайс из /import/services-seed.json? Это действие нельзя отменить.';
     if (typeof window !== 'undefined' && !window.confirm(msg)) return;
     setBulkImporting(true);
     try {

@@ -15,8 +15,9 @@ export const defaultSettings: ClinicSettings = {
   address: 'Ташкентская область, Кибрайский район, гп. Салар, ул. Богишамол, 223А/1',
   phone1: '+998 71 260 31 16',
   phone2: '+998 71 260 37 51',
+  phone3: '+998 95 555 20 50',
   email: 'info@tsmukids.uz',
-  workingHours: 'Пн–Пт: 8:00–20:00, Сб–Вс: 9:00–17:00',
+  workingHours: 'Круглосуточно',
   statsDoctors: '100+',
   statsPatients: '15 000+',
   statsExperience: '20+',
@@ -82,29 +83,25 @@ export default function SiteDataProvider({
 
   useEffect(() => {
     setData(prev => ({ ...prev, refreshing: true }));
-    import('@/lib/firestore').then(({ getSettings, getDoctorsFS, getServicesFS, getDepartmentsFS, getEquipmentFS, getGalleryFS }) =>
-      Promise.all([
-        getSettings().catch(() => null),
-        getDoctorsFS().catch(() => [] as DoctorDoc[]),
-        getServicesFS().catch(() => [] as ServiceDoc[]),
-        getDepartmentsFS().catch(() => [] as DepartmentDoc[]),
-        getEquipmentFS().catch(() => [] as EquipmentDoc[]),
-        getGalleryFS().catch(() => [] as GalleryDoc[]),
-      ]).then(([settings, doctors, services, departments, equipment, gallery]) => {
-        setData(prev => ({
-          settings: settings ? mergeSettings(settings) : prev.settings,
-          // Keep SSR/snapshot data if the new project is still empty
-          doctors: doctors.length ? doctors : prev.doctors,
-          services: services.length ? services : prev.services,
-          departments: departments.length
-            ? mergeRequiredDepartments(departments)
-            : prev.departments,
-          equipment: equipment.length ? equipment : prev.equipment,
-          gallery: gallery.length ? gallery : prev.gallery,
-          loaded: true,
-          refreshing: false,
-        }));
-      }),
+    import('@/lib/firestore').then(({ getSiteData }) =>
+      getSiteData()
+        .then(site => {
+          setData(prev => ({
+            settings: site.settings ? mergeSettings(site.settings) : prev.settings,
+            doctors: site.doctors.length ? site.doctors : prev.doctors,
+            services: site.services.length ? site.services : prev.services,
+            departments: site.departments.length
+              ? mergeRequiredDepartments(site.departments)
+              : prev.departments,
+            equipment: site.equipment.length ? site.equipment : prev.equipment,
+            gallery: site.gallery.length ? site.gallery : prev.gallery,
+            loaded: true,
+            refreshing: false,
+          }));
+        })
+        .catch(() => {
+          setData(prev => ({ ...prev, loaded: true, refreshing: false }));
+        }),
     );
   }, []);
 

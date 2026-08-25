@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-08-11T11:18:35.147Z",
+  "exportedAt": "2026-08-25T16:40:50.467Z",
   "settings": {
     "statsExperience": "20+",
     "phone2": "+998 71 260 37 51",
@@ -9,7 +9,7 @@
     "mapLabel": "Ташкентская область, Кибрайский район, гп. Салар, ул. Богишамол, 223А/1",
     "address": "Ташкентская область, Кибрайский район, гп. Салар, ул. Богишамол, 223А/1",
     "licenseInfo": "Лицензия МЗ РУз",
-    "workingHours": "Пн–Пт: 8:00–20:00, Сб–Вс: 9:00–17:00",
+    "workingHours": "Круглосуточно",
     "whatsapp": "998901234567",
     "phone1": "+998 71 260 31 16",
     "aboutDescription2Uz": "Klinikamizda 340 o'rinli (24 ta reanimatsiya o'rni bilan) 15 ta ixtisoslashtirilgan bo'lim faoliyat yuritadi. 20 yildan ortiq tajribaga ega 100 dan ortiq turli ixtisoslikdagi shifokorlar ishlaydi.",
@@ -22,7 +22,8 @@
     "nameShortUz": "TSMU Bolalar klinikasi",
     "logoLetter": "T",
     "email": "info@tsmukids.uz",
-    "nameUz": "Toshkent State Medical University (TSMU) — ko'p tarmoqli bolalar klinikasi"
+    "nameUz": "Toshkent State Medical University (TSMU) — ko'p tarmoqli bolalar klinikasi",
+    "phone3": "+998 95 555 20 50"
   },
   "doctors": [
     {
@@ -16795,5 +16796,150 @@
       "category": "equipment"
     }
   ],
-  "gallery": []
+  "gallery": [
+    {
+      "id": "gal-01",
+      "category": "clinic",
+      "titleRu": "Фасад поликлиники",
+      "titleUz": "Poliklinika binosi",
+      "image": "/gallery/clinic-01.webp",
+      "order": 0
+    },
+    {
+      "id": "gal-02",
+      "category": "clinic",
+      "titleRu": "Холл клиники",
+      "titleUz": "Klinika holli",
+      "image": "/gallery/clinic-02.webp",
+      "order": 1
+    },
+    {
+      "id": "gal-03",
+      "category": "clinic",
+      "titleRu": "Зона ожидания",
+      "titleUz": "Kutish zonasi",
+      "image": "/gallery/clinic-03.webp",
+      "order": 2
+    },
+    {
+      "id": "gal-04",
+      "category": "clinic",
+      "titleRu": "Детский холл",
+      "titleUz": "Bolalar holli",
+      "image": "/gallery/clinic-04.webp",
+      "order": 3
+    },
+    {
+      "id": "gal-05",
+      "category": "clinic",
+      "titleRu": "Ресепшн",
+      "titleUz": "Qabulxona",
+      "image": "/gallery/clinic-05.webp",
+      "order": 4
+    },
+    {
+      "id": "gal-06",
+      "category": "clinic",
+      "titleRu": "Зал ожидания",
+      "titleUz": "Kutish zali",
+      "image": "/gallery/clinic-06.webp",
+      "order": 5
+    },
+    {
+      "id": "gal-07",
+      "category": "clinic",
+      "titleRu": "Интерьер клиники",
+      "titleUz": "Klinika interyeri",
+      "image": "/gallery/clinic-07.webp",
+      "order": 6
+    },
+    {
+      "id": "gal-08",
+      "category": "rooms",
+      "titleRu": "Коридор отделений",
+      "titleUz": "Bo‘limlar koridori",
+      "image": "/gallery/clinic-08.webp",
+      "order": 7
+    },
+    {
+      "id": "gal-09",
+      "category": "rooms",
+      "titleRu": "Проход к кабинетам",
+      "titleUz": "Kabinetlar yo‘lagi",
+      "image": "/gallery/clinic-09.webp",
+      "order": 8
+    },
+    {
+      "id": "gal-10",
+      "category": "rooms",
+      "titleRu": "Коридор стационара",
+      "titleUz": "Statsionar koridori",
+      "image": "/gallery/clinic-10.webp",
+      "order": 9
+    },
+    {
+      "id": "gal-11",
+      "category": "rooms",
+      "titleRu": "Отделения клиники",
+      "titleUz": "Klinika bo‘limlari",
+      "image": "/gallery/clinic-11.webp",
+      "order": 10
+    },
+    {
+      "id": "gal-12",
+      "category": "rooms",
+      "titleRu": "Кабинеты специалистов",
+      "titleUz": "Mutaxassis kabinetlari",
+      "image": "/gallery/clinic-12.webp",
+      "order": 11
+    },
+    {
+      "id": "gal-13",
+      "category": "rooms",
+      "titleRu": "Коридор поликлиники",
+      "titleUz": "Poliklinika koridori",
+      "image": "/gallery/clinic-13.webp",
+      "order": 12
+    },
+    {
+      "id": "gal-14",
+      "category": "rooms",
+      "titleRu": "Диагностический блок",
+      "titleUz": "Diagnostika bloki",
+      "image": "/gallery/clinic-14.webp",
+      "order": 13
+    },
+    {
+      "id": "gal-15",
+      "category": "clinic",
+      "titleRu": "Пространство для детей",
+      "titleUz": "Bolalar uchun joy",
+      "image": "/gallery/clinic-15.webp",
+      "order": 14
+    },
+    {
+      "id": "gal-16",
+      "category": "clinic",
+      "titleRu": "Зона ожидания у окон",
+      "titleUz": "Deraza yonidagi kutish zonasi",
+      "image": "/gallery/clinic-16.webp",
+      "order": 15
+    },
+    {
+      "id": "gal-17",
+      "category": "clinic",
+      "titleRu": "Светлый холл",
+      "titleUz": "Yorug‘ hol",
+      "image": "/gallery/clinic-17.webp",
+      "order": 16
+    },
+    {
+      "id": "gal-18",
+      "category": "clinic",
+      "titleRu": "Детская зона ожидания",
+      "titleUz": "Bolalar kutish zonasi",
+      "image": "/gallery/clinic-18.webp",
+      "order": 17
+    }
+  ]
 }

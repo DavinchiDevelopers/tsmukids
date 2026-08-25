@@ -12,7 +12,7 @@ import {
   DoctorDoc,
   DepartmentDoc,
 } from '@/lib/firestore';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from '@/lib/firebase';
 import { auth } from '@/lib/firebase';
 import { slugifyDoctorSlug } from '@/lib/slugify';
 import { mergeRequiredDepartments, ensureRequiredDepartmentsInFirestore } from '@/lib/requiredDepartments';

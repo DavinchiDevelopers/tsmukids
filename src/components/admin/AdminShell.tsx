@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from '@/lib/firebase';
 import { auth } from '@/lib/firebase';
 import Logo from '@/components/layout/Logo';
 import { SITE_NAME_RU } from '@/lib/branding';

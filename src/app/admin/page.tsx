@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { signInWithEmailAndPassword, onAuthStateChanged } from '@/lib/firebase';
 import { auth } from '@/lib/firebase';
 import { Lock } from 'lucide-react';
 

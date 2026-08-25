@@ -1,20 +1,48 @@
-import {
-  doc,
-  getDoc,
-  setDoc,
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  query,
-  orderBy,
-} from 'firebase/firestore';
-import { db } from './firebase';
+/** Типы CMS + клиент к PHP API (/api/index.php) вместо Firebase. */
 
-/** Firestore не принимает `undefined` в полях документа */
 export function stripUndefined<T extends Record<string, unknown>>(data: T): Record<string, unknown> {
   return Object.fromEntries(Object.entries(data).filter(([, v]) => v !== undefined));
+}
+
+function apiBase(): string {
+  if (typeof window !== 'undefined') {
+    return `${window.location.origin}/api/index.php`;
+  }
+  return process.env.NEXT_PUBLIC_API_BASE?.replace(/\/$/, '') || 'http://127.0.0.1/api/index.php';
+}
+
+async function api<T>(
+  route: string,
+  options: RequestInit & { query?: Record<string, string> } = {},
+): Promise<T> {
+  const { query, ...init } = options;
+  const url = new URL(apiBase());
+  url.searchParams.set('r', route);
+  if (query) {
+    for (const [k, v] of Object.entries(query)) {
+      url.searchParams.set(k, v);
+    }
+  }
+  const res = await fetch(url.toString(), {
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+      ...(init.headers || {}),
+    },
+    ...init,
+  });
+  if (!res.ok) {
+    let message = res.statusText;
+    try {
+      const body = await res.json();
+      if (body?.error) message = body.error;
+    } catch {
+      /* ignore */
+    }
+    throw new Error(message || `API ${res.status}`);
+  }
+  if (res.status === 204) return undefined as T;
+  return (await res.json()) as T;
 }
 
 // ── Settings ──────────────────────────────────────────────────────────────────
@@ -27,6 +55,7 @@ export interface ClinicSettings {
   address: string;
   phone1: string;
   phone2: string;
+  phone3?: string;
   email: string;
   workingHours: string;
   statsDoctors: string;
@@ -46,12 +75,22 @@ export interface ClinicSettings {
 }
 
 export async function getSettings(): Promise<ClinicSettings | null> {
-  const snap = await getDoc(doc(db, 'settings', 'clinic'));
-  return snap.exists() ? (snap.data() as ClinicSettings) : null;
+  return api<ClinicSettings>('settings');
 }
 
 export async function saveSettings(data: ClinicSettings): Promise<void> {
-  await setDoc(doc(db, 'settings', 'clinic'), stripUndefined(data as unknown as Record<string, unknown>));
+  await api('settings', { method: 'PUT', body: JSON.stringify(stripUndefined(data as unknown as Record<string, unknown>)) });
+}
+
+export async function getSiteData(): Promise<{
+  settings: ClinicSettings;
+  doctors: DoctorDoc[];
+  services: ServiceDoc[];
+  departments: DepartmentDoc[];
+  equipment: EquipmentDoc[];
+  gallery: GalleryDoc[];
+}> {
+  return api('site');
 }
 
 // ── Services ──────────────────────────────────────────────────────────────────
@@ -71,22 +110,36 @@ export interface ServiceDoc {
 }
 
 export async function getServicesFS(): Promise<ServiceDoc[]> {
-  const q = query(collection(db, 'services'), orderBy('order', 'asc'));
-  const snap = await getDocs(q).catch(() => getDocs(collection(db, 'services')));
-  return snap.docs.map(d => ({ id: d.id, ...d.data() } as ServiceDoc));
+  return api<ServiceDoc[]>('collection', { query: { name: 'services' } });
 }
 
 export async function saveService(data: Omit<ServiceDoc, 'id'>): Promise<string> {
-  const ref = await addDoc(collection(db, 'services'), stripUndefined(data as Record<string, unknown>));
-  return ref.id;
+  const res = await api<{ id: string }>('collection', {
+    method: 'POST',
+    query: { name: 'services' },
+    body: JSON.stringify(stripUndefined(data as Record<string, unknown>)),
+  });
+  return res.id;
 }
 
 export async function updateService(id: string, data: Partial<ServiceDoc>): Promise<void> {
-  await updateDoc(doc(db, 'services', id), stripUndefined(data as Record<string, unknown>));
+  await api('collection', {
+    method: 'PUT',
+    query: { name: 'services', id },
+    body: JSON.stringify(stripUndefined(data as Record<string, unknown>)),
+  });
 }
 
 export async function deleteService(id: string): Promise<void> {
-  await deleteDoc(doc(db, 'services', id));
+  await api('collection', { method: 'DELETE', query: { name: 'services', id } });
+}
+
+export async function replaceServices(items: Omit<ServiceDoc, 'id'>[] | ServiceDoc[]): Promise<void> {
+  await api('collection/replace', {
+    method: 'POST',
+    query: { name: 'services' },
+    body: JSON.stringify({ items }),
+  });
 }
 
 // ── Doctors ───────────────────────────────────────────────────────────────────
@@ -115,22 +168,28 @@ export interface DoctorDoc {
 }
 
 export async function getDoctorsFS(): Promise<DoctorDoc[]> {
-  const q = query(collection(db, 'doctors'), orderBy('order', 'asc'));
-  const snap = await getDocs(q).catch(() => getDocs(collection(db, 'doctors')));
-  return snap.docs.map(d => ({ id: d.id, ...d.data() } as DoctorDoc));
+  return api<DoctorDoc[]>('collection', { query: { name: 'doctors' } });
 }
 
 export async function saveDoctor(data: Omit<DoctorDoc, 'id'>): Promise<string> {
-  const ref = await addDoc(collection(db, 'doctors'), stripUndefined(data as Record<string, unknown>));
-  return ref.id;
+  const res = await api<{ id: string }>('collection', {
+    method: 'POST',
+    query: { name: 'doctors' },
+    body: JSON.stringify(stripUndefined(data as Record<string, unknown>)),
+  });
+  return res.id;
 }
 
 export async function updateDoctor(id: string, data: Partial<DoctorDoc>): Promise<void> {
-  await updateDoc(doc(db, 'doctors', id), stripUndefined(data as Record<string, unknown>));
+  await api('collection', {
+    method: 'PUT',
+    query: { name: 'doctors', id },
+    body: JSON.stringify(stripUndefined(data as Record<string, unknown>)),
+  });
 }
 
 export async function deleteDoctor(id: string): Promise<void> {
-  await deleteDoc(doc(db, 'doctors', id));
+  await api('collection', { method: 'DELETE', query: { name: 'doctors', id } });
 }
 
 // ── Departments ───────────────────────────────────────────────────────────────
@@ -152,22 +211,28 @@ export interface DepartmentDoc {
 }
 
 export async function getDepartmentsFS(): Promise<DepartmentDoc[]> {
-  const q = query(collection(db, 'departments'), orderBy('order', 'asc'));
-  const snap = await getDocs(q).catch(() => getDocs(collection(db, 'departments')));
-  return snap.docs.map(d => ({ id: d.id, ...d.data() } as DepartmentDoc));
+  return api<DepartmentDoc[]>('collection', { query: { name: 'departments' } });
 }
 
 export async function saveDepartment(data: Omit<DepartmentDoc, 'id'>): Promise<string> {
-  const ref = await addDoc(collection(db, 'departments'), stripUndefined(data as Record<string, unknown>));
-  return ref.id;
+  const res = await api<{ id: string }>('collection', {
+    method: 'POST',
+    query: { name: 'departments' },
+    body: JSON.stringify(stripUndefined(data as Record<string, unknown>)),
+  });
+  return res.id;
 }
 
 export async function updateDepartment(id: string, data: Partial<DepartmentDoc>): Promise<void> {
-  await updateDoc(doc(db, 'departments', id), stripUndefined(data as Record<string, unknown>));
+  await api('collection', {
+    method: 'PUT',
+    query: { name: 'departments', id },
+    body: JSON.stringify(stripUndefined(data as Record<string, unknown>)),
+  });
 }
 
 export async function deleteDepartment(id: string): Promise<void> {
-  await deleteDoc(doc(db, 'departments', id));
+  await api('collection', { method: 'DELETE', query: { name: 'departments', id } });
 }
 
 // ── Equipment ─────────────────────────────────────────────────────────────────
@@ -184,22 +249,28 @@ export interface EquipmentDoc {
 }
 
 export async function getEquipmentFS(): Promise<EquipmentDoc[]> {
-  const q = query(collection(db, 'equipment'), orderBy('order', 'asc'));
-  const snap = await getDocs(q).catch(() => getDocs(collection(db, 'equipment')));
-  return snap.docs.map(d => ({ id: d.id, ...d.data() } as EquipmentDoc));
+  return api<EquipmentDoc[]>('collection', { query: { name: 'equipment' } });
 }
 
 export async function saveEquipment(data: Omit<EquipmentDoc, 'id'>): Promise<string> {
-  const ref = await addDoc(collection(db, 'equipment'), stripUndefined(data as Record<string, unknown>));
-  return ref.id;
+  const res = await api<{ id: string }>('collection', {
+    method: 'POST',
+    query: { name: 'equipment' },
+    body: JSON.stringify(stripUndefined(data as Record<string, unknown>)),
+  });
+  return res.id;
 }
 
 export async function updateEquipment(id: string, data: Partial<EquipmentDoc>): Promise<void> {
-  await updateDoc(doc(db, 'equipment', id), stripUndefined(data as Record<string, unknown>));
+  await api('collection', {
+    method: 'PUT',
+    query: { name: 'equipment', id },
+    body: JSON.stringify(stripUndefined(data as Record<string, unknown>)),
+  });
 }
 
 export async function deleteEquipment(id: string): Promise<void> {
-  await deleteDoc(doc(db, 'equipment', id));
+  await api('collection', { method: 'DELETE', query: { name: 'equipment', id } });
 }
 
 // ── Appointments ──────────────────────────────────────────────────────────────
@@ -218,19 +289,19 @@ export interface AppointmentRequestDoc {
 }
 
 export async function saveAppointmentRequest(data: Omit<AppointmentRequestDoc, 'id'>): Promise<string> {
-  const ref = await addDoc(collection(db, 'appointments'), stripUndefined(data as Record<string, unknown>));
-  return ref.id;
+  const res = await api<{ id: string }>('appointments', {
+    method: 'POST',
+    body: JSON.stringify(stripUndefined(data as Record<string, unknown>)),
+  });
+  return res.id;
 }
 
 export async function getAppointmentsFS(): Promise<AppointmentRequestDoc[]> {
-  const snap = await getDocs(collection(db, 'appointments'));
-  return snap.docs
-    .map(d => ({ id: d.id, ...d.data() } as AppointmentRequestDoc))
-    .sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
+  return api<AppointmentRequestDoc[]>('appointments');
 }
 
 export async function deleteAppointment(id: string): Promise<void> {
-  await deleteDoc(doc(db, 'appointments', id));
+  await api('appointments', { method: 'DELETE', query: { id } });
 }
 
 // ── Gallery ───────────────────────────────────────────────────────────────────
@@ -245,20 +316,26 @@ export interface GalleryDoc {
 }
 
 export async function getGalleryFS(): Promise<GalleryDoc[]> {
-  const q = query(collection(db, 'gallery'), orderBy('order', 'asc'));
-  const snap = await getDocs(q).catch(() => getDocs(collection(db, 'gallery')));
-  return snap.docs.map(d => ({ id: d.id, ...d.data() } as GalleryDoc));
+  return api<GalleryDoc[]>('collection', { query: { name: 'gallery' } });
 }
 
 export async function saveGalleryItem(data: Omit<GalleryDoc, 'id'>): Promise<string> {
-  const ref = await addDoc(collection(db, 'gallery'), stripUndefined(data as Record<string, unknown>));
-  return ref.id;
+  const res = await api<{ id: string }>('collection', {
+    method: 'POST',
+    query: { name: 'gallery' },
+    body: JSON.stringify(stripUndefined(data as Record<string, unknown>)),
+  });
+  return res.id;
 }
 
 export async function updateGalleryItem(id: string, data: Partial<GalleryDoc>): Promise<void> {
-  await updateDoc(doc(db, 'gallery', id), stripUndefined(data as Record<string, unknown>));
+  await api('collection', {
+    method: 'PUT',
+    query: { name: 'gallery', id },
+    body: JSON.stringify(stripUndefined(data as Record<string, unknown>)),
+  });
 }
 
 export async function deleteGalleryItem(id: string): Promise<void> {
-  await deleteDoc(doc(db, 'gallery', id));
+  await api('collection', { method: 'DELETE', query: { name: 'gallery', id } });
 }

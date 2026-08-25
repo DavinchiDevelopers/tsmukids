@@ -7,6 +7,7 @@ import { Lang } from '@/types';
 import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
 import { doctorPhotoThumb } from '@/lib/doctorPhoto';
+import { cmsHref } from '@/lib/cmsPath';
 
 interface DoctorsSectionProps {
   lang: Lang;
@@ -50,7 +51,7 @@ export default function DoctorsSection({ lang }: DoctorsSectionProps) {
             : displayed.map((doctor) => (
               <Link
                 key={doctor.id}
-                href={`/${lang}/doctors/${doctor.slug}`}
+                href={cmsHref(lang, 'doctors', doctor.slug)}
                 className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl sm:hover:-translate-y-1 transition-all duration-300 flex sm:block"
               >
                 {/* Photo */}

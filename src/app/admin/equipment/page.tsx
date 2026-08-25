@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import AdminShell from '@/components/admin/AdminShell';
 import { getEquipmentFS, saveEquipment, updateEquipment, deleteEquipment, EquipmentDoc } from '@/lib/firestore';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from '@/lib/firebase';
 import { auth } from '@/lib/firebase';
 import { Plus, Pencil, Trash2, X, Save } from 'lucide-react';
 import Image from 'next/image';

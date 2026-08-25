@@ -7,6 +7,7 @@ import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
 import AppointmentButton from '@/components/ui/AppointmentButton';
 import PageBackButton from '@/components/ui/PageBackButton';
+import { cmsHref } from '@/lib/cmsPath';
 
 interface Props {
   lang: string;
@@ -97,7 +98,7 @@ export default function ServicePageClient({ lang: langStr, slug }: Props) {
                   {relatedServices.map(s => (
                     <Link
                       key={s.slug}
-                      href={`/${lang}/services/${s.slug}`}
+                      href={cmsHref(lang, 'services', s.slug)}
                       className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between py-3 border-b border-gray-50 hover:text-blue-600 transition-colors group"
                     >
                       <span className="text-sm text-gray-700 group-hover:text-blue-600 min-w-0">

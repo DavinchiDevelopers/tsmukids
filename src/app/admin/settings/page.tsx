@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import AdminShell from '@/components/admin/AdminShell';
 import { getSettings, saveSettings, ClinicSettings } from '@/lib/firestore';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from '@/lib/firebase';
 import { auth } from '@/lib/firebase';
 import { Save, CheckCircle } from 'lucide-react';
 
@@ -14,9 +14,10 @@ const defaultSettings: ClinicSettings = {
   nameShortUz: 'TSMU Bolalar klinikasi',
   address: 'Ташкентская область, Кибрайский район, гп. Салар, ул. Богишамол, 223А/1',
   phone1: '',
-  phone2: '',
+  phone2: '+998 71 260 37 51',
+  phone3: '+998 95 555 20 50',
   email: 'info@tsmukids.uz',
-  workingHours: 'Пн–Пт: 8:00–20:00, Сб–Вс: 9:00–17:00',
+  workingHours: 'Круглосуточно',
   statsDoctors: '100+',
   statsPatients: '15 000+',
   statsExperience: '20+',
@@ -153,7 +154,8 @@ export default function SettingsPage() {
               <Field label="Адрес" value={data.address} onChange={set('address')} placeholder="Ташкентская область, Кибрайский район, гп. Салар, ул. Богишамол, 223А/1" />
               <div className="grid sm:grid-cols-2 gap-4">
                 <Field label="Телефон 1" value={data.phone1} onChange={set('phone1')} placeholder="+998 71 XXX XX XX" />
-                <Field label="Телефон 2" value={data.phone2} onChange={set('phone2')} placeholder="+998 90 XXX XX XX" />
+                <Field label="Телефон 2" value={data.phone2} onChange={set('phone2')} placeholder="+998 71 XXX XX XX" />
+                <Field label="Телефон 3 (мобильный)" value={data.phone3 ?? ''} onChange={set('phone3')} placeholder="+998 95 XXX XX XX" />
               </div>
               <Field label="Email" value={data.email} onChange={set('email')} placeholder="info@clinic.uz" />
               <Field label="Режим работы" value={data.workingHours} onChange={set('workingHours')} />

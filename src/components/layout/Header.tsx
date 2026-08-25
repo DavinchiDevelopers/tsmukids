@@ -32,8 +32,12 @@ export default function Header({ lang }: HeaderProps) {
   const otherLang = lang === 'ru' ? 'uz' : 'ru';
   const switchPath = pathname.replace(`/${lang}`, `/${otherLang}`);
 
-  const phone = settings.phone1;
-  const phoneHref = `tel:${phone.replace(/\s/g, '')}`;
+  const phone1 = settings.phone1;
+  const phone2 = settings.phone2;
+  const phone3 = settings.phone3;
+  const phone1Href = `tel:${phone1.replace(/\s/g, '')}`;
+  const phone2Href = phone2 ? `tel:${phone2.replace(/\s/g, '')}` : '';
+  const phone3Href = phone3 ? `tel:${phone3.replace(/\s/g, '')}` : '';
 
   const [logoLine1, logoLine2] = lang === 'ru'
     ? ['Детская клиника ТГМУ', 'TSMU Kids']
@@ -95,17 +99,26 @@ export default function Header({ lang }: HeaderProps) {
               {otherLang.toUpperCase()}
             </Link>
 
-            {/* Phone */}
-            <a
-              href={phoneHref}
-              className="hidden md:flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
-            >
+            {/* Phones */}
+            <div className="hidden md:flex items-center gap-2 text-gray-700">
               <Phone size={18} className="text-blue-600 shrink-0" />
               <div className="leading-tight whitespace-nowrap">
-                <div className="text-sm font-semibold text-gray-900">{phone}</div>
+                <a href={phone1Href} className="block text-sm font-semibold text-gray-900 hover:text-blue-600 transition-colors">
+                  {phone1}
+                </a>
+                {phone2 && (
+                  <a href={phone2Href} className="block text-sm font-semibold text-gray-900 hover:text-blue-600 transition-colors">
+                    {phone2}
+                  </a>
+                )}
+                {phone3 && (
+                  <a href={phone3Href} className="block text-sm font-semibold text-gray-900 hover:text-blue-600 transition-colors">
+                    {phone3}
+                  </a>
+                )}
                 <div className="text-[11px] text-gray-500">{t.header.workingShort}</div>
               </div>
-            </a>
+            </div>
 
             {/* CTA */}
             <button
@@ -155,9 +168,21 @@ export default function Header({ lang }: HeaderProps) {
                 >
                   {otherLang.toUpperCase()}
                 </Link>
-                <a href={phoneHref} className="text-sm text-gray-700 flex items-center gap-1">
-                  <Phone size={14} /> {phone}
-                </a>
+                <div className="flex flex-col gap-1 text-sm text-gray-700">
+                  <a href={phone1Href} className="flex items-center gap-1">
+                    <Phone size={14} /> {phone1}
+                  </a>
+                  {phone2 && (
+                    <a href={phone2Href} className="flex items-center gap-1 pl-4">
+                      {phone2}
+                    </a>
+                  )}
+                  {phone3 && (
+                    <a href={phone3Href} className="flex items-center gap-1 pl-4">
+                      {phone3}
+                    </a>
+                  )}
+                </div>
               </div>
             </nav>
           </div>

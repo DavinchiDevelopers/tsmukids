@@ -10,9 +10,10 @@ export default function ContactsPage({ params }: { params: Promise<{ lang: strin
   const { lang } = use(params);
   const t = getT(lang as Lang);
   const { settings } = useSiteData();
-  const phoneLines = [settings.phone1, settings.phone2].filter(Boolean).join('\n');
+  const phoneLines = [settings.phone1, settings.phone2, settings.phone3].filter(Boolean).join('\n');
   const phone1Href = `tel:${(settings.phone1 || '').replace(/\s/g, '')}`;
   const phone2Href = `tel:${(settings.phone2 || '').replace(/\s/g, '')}`;
+  const phone3Href = `tel:${(settings.phone3 || '').replace(/\s/g, '')}`;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -61,6 +62,12 @@ export default function ContactsPage({ params }: { params: Promise<{ lang: strin
                           <div className="mb-2">
                             <p className="text-xs text-gray-500 mb-0.5">{t.contacts.phonePolyclinic}</p>
                             <a href={phone2Href} className="block text-blue-600 hover:underline">{settings.phone2}</a>
+                          </div>
+                        )}
+                        {settings.phone3 && (
+                          <div className="mb-2">
+                            <p className="text-xs text-gray-500 mb-0.5">{t.contacts.phoneMobile}</p>
+                            <a href={phone3Href} className="block text-blue-600 hover:underline">{settings.phone3}</a>
                           </div>
                         )}
                         <a href={`mailto:${settings.email}`} className="block text-gray-600 hover:text-blue-600 mt-1">{settings.email}</a>

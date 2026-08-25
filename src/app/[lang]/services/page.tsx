@@ -8,6 +8,7 @@ import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
 import clsx from 'clsx';
 import PageBackButton from '@/components/ui/PageBackButton';
+import { cmsHref } from '@/lib/cmsPath';
 
 const categories = ['all', 'analyses', 'diagnostics', 'consultations', 'surgery', 'procedures'] as const;
 
@@ -70,7 +71,7 @@ export default function ServicesPage({ params }: { params: Promise<{ lang: strin
           {filtered.map(service => (
             <Link
               key={service.slug}
-              href={`/${lang}/services/${service.slug}`}
+              href={cmsHref(lang, 'services', service.slug)}
               className="group bg-white rounded-xl p-5 border border-gray-100 hover:shadow-lg hover:border-blue-100 transition-all"
             >
               <div className="flex items-start justify-between gap-3">

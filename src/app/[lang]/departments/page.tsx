@@ -9,6 +9,7 @@ import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
 import DeptIcon from '@/components/ui/DeptIcon';
 import PageBackButton from '@/components/ui/PageBackButton';
+import { cmsHref } from '@/lib/cmsPath';
 
 export default function DepartmentsPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: langStr } = use(params);
@@ -36,7 +37,7 @@ export default function DepartmentsPage({ params }: { params: Promise<{ lang: st
           {departments.map((dept) => (
             <Link
               key={dept.slug}
-              href={`/${lang}/departments/${dept.slug}`}
+              href={cmsHref(lang, 'departments', dept.slug)}
               className="group bg-white rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100"
             >
               <div className="aspect-video relative bg-gradient-to-br from-blue-100 to-blue-200">

@@ -90,6 +90,15 @@ export default function Footer({ lang }: FooterProps) {
                   </div>
                 </li>
               )}
+              {settings.phone3 && (
+                <li className="flex items-start gap-2">
+                  <Phone size={16} className="text-blue-400 mt-0.5 shrink-0" />
+                  <div>
+                    <p className="text-xs text-gray-500">{t.contacts.phoneMobile}</p>
+                    <a href={`tel:${settings.phone3.replace(/\s/g, '')}`} className="text-sm text-gray-400 hover:text-white transition-colors">{settings.phone3}</a>
+                  </div>
+                </li>
+              )}
               {settings.email && (
                 <li className="flex items-center gap-2">
                   <Mail size={16} className="text-blue-400 shrink-0" />
@@ -107,10 +116,12 @@ export default function Footer({ lang }: FooterProps) {
                 <Clock size={16} className="text-blue-400 shrink-0" />
                 <span className="text-sm text-gray-400">{t.footer.workingHoursValue}</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Clock size={16} className="text-blue-400 shrink-0" />
-                <span className="text-sm text-gray-400">{t.footer.workingHoursWeekend}</span>
-              </li>
+              {t.footer.workingHoursWeekend ? (
+                <li className="flex items-center gap-2">
+                  <Clock size={16} className="text-blue-400 shrink-0" />
+                  <span className="text-sm text-gray-400">{t.footer.workingHoursWeekend}</span>
+                </li>
+              ) : null}
               <li className="mt-3 px-3 py-2 bg-red-900/30 border border-red-800 rounded-lg">
                 <span className="text-sm text-red-400 font-medium">{t.footer.emergency}</span>
               </li>

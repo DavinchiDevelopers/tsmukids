@@ -1,7 +1,7 @@
 const ru = {
   header: {
     tagline: 'Забота с первых дней',
-    workingShort: 'Ежедневно 8:00 – 20:00',
+    workingShort: 'Круглосуточно',
   },
   nav: {
     home: 'Главная',
@@ -29,7 +29,7 @@ const ru = {
       departments: 'Направлений',
     },
     features: {
-      hours: { title: 'Удобное время', desc: 'Приём ежедневно с 8:00 до 20:00' },
+      hours: { title: 'Удобное время', desc: 'Приём круглосуточно' },
       location: { title: 'Удобное расположение', desc: 'Ориентир: ТГМУ' },
       safety: { title: 'Безопасность и качество', desc: 'Международные стандарты и контроль качества' },
       support: { title: 'Поддержка 24/7', desc: 'Мы всегда на связи для вас и вашего ребёнка' },
@@ -144,8 +144,9 @@ const ru = {
     phones: 'Телефоны',
     phoneAdmission: 'Приёмное отделение',
     phonePolyclinic: 'Поликлиника',
+    phoneMobile: 'Мобильный',
     workingHours: 'Режим работы',
-    workingHoursValue: 'Пн–Пт: 8:00–20:00\nСб–Вс: 9:00–17:00',
+    workingHoursValue: 'Круглосуточно',
     emergency: 'Экстренная помощь: 24/7',
   },
   appointment: {
@@ -232,8 +233,8 @@ const ru = {
     description: 'Многопрофильная детская клиника ТГМУ с полным спектром диагностики и лечения для детей.',
     links: 'Быстрые ссылки',
     workingHours: 'Режим работы',
-    workingHoursValue: 'Пн–Пт: 8:00–20:00',
-    workingHoursWeekend: 'Сб–Вс: 9:00–17:00',
+    workingHoursValue: 'Круглосуточно',
+    workingHoursWeekend: '',
     emergency: 'Скорая: 24/7',
     rights: 'Все права защищены.',
     privacy: 'Политика конфиденциальности',

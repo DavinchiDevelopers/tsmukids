@@ -11,6 +11,7 @@ import DeptIcon from '@/components/ui/DeptIcon';
 import PageBackButton from '@/components/ui/PageBackButton';
 import { getDoctorsForDepartment } from '@/lib/departmentDoctors';
 import { doctorPhotoThumb } from '@/lib/doctorPhoto';
+import { cmsHref } from '@/lib/cmsPath';
 
 interface Props {
   lang: string;
@@ -154,7 +155,7 @@ export default function DepartmentPageClient({ lang: langStr, slug }: Props) {
               {deptDoctors.map(doctor => (
                 <Link
                   key={doctor.slug}
-                  href={`/${lang}/doctors/${doctor.slug}`}
+                  href={cmsHref(lang, 'doctors', doctor.slug)}
                   className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl sm:hover:-translate-y-1 transition-all duration-300 flex sm:block"
                 >
                   <div className="w-24 h-32 sm:w-auto sm:h-auto sm:aspect-[3/4] bg-gradient-to-br from-blue-50 to-blue-100 relative overflow-hidden shrink-0">

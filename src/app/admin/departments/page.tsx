@@ -9,7 +9,7 @@ import {
   deleteDepartment,
   DepartmentDoc,
 } from '@/lib/firestore';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from '@/lib/firebase';
 import { auth } from '@/lib/firebase';
 import { slugifyDepartmentSlug } from '@/lib/slugify';
 import { Plus, Pencil, Trash2, X, Save } from 'lucide-react';

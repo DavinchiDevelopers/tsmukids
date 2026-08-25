@@ -14,6 +14,7 @@ export default function ContactsSection({ lang }: ContactsSectionProps) {
   const { settings } = useSiteData();
   const phone1Href = `tel:${(settings.phone1 || '').replace(/\s/g, '')}`;
   const phone2Href = `tel:${(settings.phone2 || '').replace(/\s/g, '')}`;
+  const phone3Href = `tel:${(settings.phone3 || '').replace(/\s/g, '')}`;
 
   return (
     <section id="contacts" className="py-20 bg-gray-50">
@@ -57,6 +58,12 @@ export default function ContactsSection({ lang }: ContactsSectionProps) {
                     <div className="mb-2">
                       <p className="text-xs text-gray-500 mb-0.5">{t.contacts.phonePolyclinic}</p>
                       <a href={phone2Href} className="block text-blue-600 hover:underline text-sm">{settings.phone2}</a>
+                    </div>
+                  )}
+                  {settings.phone3 && (
+                    <div className="mb-2">
+                      <p className="text-xs text-gray-500 mb-0.5">{t.contacts.phoneMobile}</p>
+                      <a href={phone3Href} className="block text-blue-600 hover:underline text-sm">{settings.phone3}</a>
                     </div>
                   )}
                   <a href={`mailto:${settings.email}`} className="block text-gray-600 hover:text-blue-600 text-sm flex items-center gap-1 mt-2">

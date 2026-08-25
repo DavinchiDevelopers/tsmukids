@@ -10,7 +10,7 @@ import {
   deleteGalleryItem,
   GalleryDoc,
 } from '@/lib/firestore';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from '@/lib/firebase';
 import { auth } from '@/lib/firebase';
 import { Plus, Pencil, Trash2, X, Save } from 'lucide-react';
 

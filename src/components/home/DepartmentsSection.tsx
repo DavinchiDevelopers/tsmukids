@@ -7,6 +7,7 @@ import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
 import { DepartmentDoc } from '@/lib/firestore';
 import DeptIcon from '@/components/ui/DeptIcon';
+import { cmsHref } from '@/lib/cmsPath';
 
 interface DepartmentsSectionProps {
   lang: Lang;
@@ -79,7 +80,7 @@ export default function DepartmentsSection({ lang }: DepartmentsSectionProps) {
                     {getDescription(dept)}
                   </p>
                   <Link
-                    href={`/${lang}/departments/${dept.slug}`}
+                    href={cmsHref(lang, 'departments', dept.slug)}
                     className="flex w-full items-center justify-center py-2.5 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium group-hover:bg-blue-600 group-hover:text-white transition-colors"
                   >
                     {t.departments.learnMore}

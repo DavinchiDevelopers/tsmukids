@@ -12,6 +12,7 @@ import AppointmentButton from '@/components/ui/AppointmentButton';
 import PageBackButton from '@/components/ui/PageBackButton';
 import { doctors as staticDoctors } from '@/data/doctors';
 import { departments as staticDepartments } from '@/data/departments';
+import { cmsHref } from '@/lib/cmsPath';
 
 interface Props {
   lang: string;
@@ -52,12 +53,12 @@ export default function DoctorPageClient({ lang: langStr, slug }: Props) {
   const phoneHref = `tel:${settings.phone1.replace(/\s/g, '')}`;
 
   useEffect(() => {
-    if (!loaded || refreshing || !doctor || slug === resolvedSlug) return;
-    const targetPath = `/${lang}/doctors/${resolvedSlug}`;
-    if (pathname !== targetPath) {
-      router.replace(targetPath);
-    }
-  }, [doctor, lang, loaded, pathname, resolvedSlug, router, slug]);
+    if (!loaded || refreshing || !doctor || !resolvedSlug) return;
+    // Не уводим с fallback/?slug=…; с устаревшего pretty-URL — на fallback
+    if (pathname.includes('/fallback')) return;
+    if (slug === resolvedSlug) return;
+    router.replace(cmsHref(lang, 'doctors', resolvedSlug));
+  }, [doctor, lang, loaded, pathname, refreshing, resolvedSlug, router, slug]);
 
   if (!doctor && (!loaded || refreshing)) {
     return (
