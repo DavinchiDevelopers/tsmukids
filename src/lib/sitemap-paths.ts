@@ -14,6 +14,7 @@ const STATIC_PAGES = [
   'equipment',
   'prices',
   'gallery',
+  'vacancies',
   'contacts',
   'privacy',
 ] as const;

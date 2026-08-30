@@ -9,9 +9,9 @@ import type {
 
 export const defaultSettings: ClinicSettings = {
   nameRu: 'Ташкентский государственный медицинский университет (TSMU) — многопрофильная детская клиника',
-  nameUz: "Toshkent State Medical University (TSMU) — ko'p tarmoqli bolalar klinikasi",
-  nameShortRu: 'Детская клиника ТГМУ',
-  nameShortUz: 'TSMU Bolalar klinikasi',
+  nameUz: "Toshkent Davlat Tibbiyot Universiteti (TDTU) — ko'p tarmoqli bolalar klinikasi",
+  nameShortRu: 'Многопрофильная детская клиника ТГМУ',
+  nameShortUz: "TDTU Bolalar ko'p tarmoqli klinikasi",
   address: 'Ташкентская область, Кибрайский район, гп. Салар, ул. Богишамол, 223А/1',
   phone1: '+998 71 260 31 16',
   phone2: '+998 71 260 37 51',
@@ -23,7 +23,7 @@ export const defaultSettings: ClinicSettings = {
   statsExperience: '20+',
   statsDepartments: '16',
   aboutDescription1Ru: 'Многопрофильная детская клиника ТГМУ (TSMU, Tashkent State Medical University) — специализированное учреждение, в котором проходят лечение дети от 3 месяцев до 18 лет. Клиника оснащена современным диагностическим и хирургическим оборудованием.',
-  aboutDescription1Uz: "TSMU (Toshkent State Medical University) ko'p tarmoqli bolalar klinikasi — 3 oylikdan 18 yoshgacha bo'lgan bolalar davolanadigan ixtisoslashtirilgan muassasa.",
+  aboutDescription1Uz: "TDTU (Toshkent Davlat Tibbiyot Universiteti) ko'p tarmoqli bolalar klinikasi — 3 oylikdan 18 yoshgacha bo'lgan bolalar davolanadigan ixtisoslashtirilgan muassasa.",
   aboutDescription2Ru: 'В клинике функционируют 15 профильных отделений на 340 коек. Работают более 100 врачей с опытом более 20 лет.',
   aboutDescription2Uz: "Klinikada 340 o'rinli 15 ta ixtisoslashtirilgan bo'lim faoliyat yuritadi. 100 dan ortiq tajribali shifokorlar ishlaydi.",
   licenseInfo: 'Лицензия МЗ РУз',

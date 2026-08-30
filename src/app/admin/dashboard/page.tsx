@@ -1,7 +1,11 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import AdminShell from '@/components/admin/AdminShell';
 import Link from 'next/link';
+import { defaultSettings } from '@/contexts/SiteDataContext';
+import { getSettings } from '@/lib/firestore';
+import { SITE_UNIVERSITY_ABBR } from '@/lib/branding';
 import { Settings, Stethoscope, Users, Building2, ExternalLink, Monitor, Images, Inbox } from 'lucide-react';
 
 const cards = [
@@ -57,13 +61,25 @@ const cards = [
 ];
 
 export default function DashboardPage() {
+  const [clinicName, setClinicName] = useState(defaultSettings.nameShortRu);
+
+  useEffect(() => {
+    getSettings()
+      .then(s => {
+        if (s?.nameShortRu?.trim()) setClinicName(s.nameShortRu.trim());
+      })
+      .catch(() => {
+        /* keep default */
+      });
+  }, []);
+
   return (
     <AdminShell>
       <div className="max-w-4xl mx-auto">
         <div className="mb-8 flex items-center justify-between flex-wrap gap-4">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Панель управления</h1>
-            <p className="text-gray-500 text-sm mt-1">TSMU — Детская клиника ТГМУ</p>
+            <p className="text-gray-500 text-sm mt-1">{SITE_UNIVERSITY_ABBR} — {clinicName}</p>
           </div>
           <div className="flex gap-3">
             <Link

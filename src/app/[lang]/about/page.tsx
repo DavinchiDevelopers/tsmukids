@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { Shield, Clock, Zap, Activity, Award } from 'lucide-react';
+import Link from 'next/link';
+import { Shield, Clock, Zap, Activity, Award, ArrowRight, Monitor } from 'lucide-react';
 import { Lang } from '@/types';
 import { getT } from '@/i18n';
 import { getSettingsServer } from '@/lib/firestore-server';
@@ -59,23 +60,58 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
-            { icon: Shield, key: 'license' },
-            { icon: Clock, key: 'stationery' },
-            { icon: Zap, key: 'emergency' },
-            { icon: Activity, key: 'equipment' },
-          ].map(({ icon: Icon, key }) => (
-            <div key={key} className="bg-white rounded-2xl p-6 border border-gray-100 text-center">
-              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Icon size={26} className="text-blue-600" />
+            { icon: Shield, key: 'license' as const },
+            { icon: Clock, key: 'stationery' as const },
+            { icon: Zap, key: 'emergency' as const },
+            { icon: Activity, key: 'equipment' as const, href: `/${lang}/equipment` },
+          ].map(({ icon: Icon, key, href }) => {
+            const body = (
+              <>
+                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Icon size={26} className="text-blue-600" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">
+                  {t.about.features[key].title}
+                </h3>
+                <p className="text-gray-500 text-sm">
+                  {t.about.features[key].desc}
+                </p>
+              </>
+            );
+            return href ? (
+              <Link
+                key={key}
+                href={href}
+                className="bg-white rounded-2xl p-6 border border-gray-100 text-center hover:border-blue-200 hover:shadow-sm transition-all block"
+              >
+                {body}
+              </Link>
+            ) : (
+              <div key={key} className="bg-white rounded-2xl p-6 border border-gray-100 text-center">
+                {body}
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">
-                {t.about.features[key as keyof typeof t.about.features].title}
-              </h3>
-              <p className="text-gray-500 text-sm">
-                {t.about.features[key as keyof typeof t.about.features].desc}
-              </p>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+
+        <div
+          id="equipment"
+          className="bg-white rounded-2xl p-5 sm:p-8 border border-gray-100 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8"
+        >
+          <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center shrink-0">
+            <Monitor size={28} className="text-blue-600" />
+          </div>
+          <div className="min-w-0 flex-1">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{t.about.equipmentTitle}</h2>
+            <p className="text-gray-600 leading-relaxed">{t.about.equipmentText}</p>
+          </div>
+          <Link
+            href={`/${lang}/equipment`}
+            className="inline-flex items-center justify-center gap-2 shrink-0 bg-blue-600 text-white px-5 py-3 rounded-xl text-sm font-medium hover:bg-blue-700 transition-colors"
+          >
+            {t.about.equipmentLink}
+            <ArrowRight size={16} />
+          </Link>
         </div>
 
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-5 sm:p-8 text-white">

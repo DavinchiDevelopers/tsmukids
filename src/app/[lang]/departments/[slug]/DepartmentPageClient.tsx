@@ -41,19 +41,19 @@ export default function DepartmentPageClient({ lang: langStr, slug }: Props) {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="text-center max-w-md">
           <h1 className="text-2xl font-bold text-gray-900 mb-2">
-            {lang === 'ru' ? 'Направление не найдено' : "Yo'nalish topilmadi"}
+            {lang === 'ru' ? 'Отделение не найдено' : "Bo'lim topilmadi"}
           </h1>
           <p className="text-gray-500 mb-6">
             {lang === 'ru'
-              ? 'Проверьте ссылку или вернитесь к списку направлений.'
-              : "Havolani tekshiring yoki yo'nalishlar ro'yxatiga qayting."}
+              ? 'Проверьте ссылку или вернитесь к списку отделений.'
+              : "Havolani tekshiring yoki bo'limlar ro'yxatiga qayting."}
           </p>
           <Link
             href={`/${lang}/departments`}
             className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 transition-colors"
           >
             <ArrowLeft size={16} />
-            {lang === 'ru' ? 'К направлениям' : "Yo'nalishlar ro'yxatiga"}
+            {lang === 'ru' ? 'К отделениям' : "Bo'limlar ro'yxatiga"}
           </Link>
         </div>
       </div>
@@ -100,7 +100,7 @@ export default function DepartmentPageClient({ lang: langStr, slug }: Props) {
       <div className="container mx-auto px-3 sm:px-4 py-12 space-y-8">
         <div className="bg-white rounded-2xl p-6 border border-gray-100">
           <h2 className="text-xl font-bold text-gray-900 mb-4">
-            {lang === 'ru' ? 'О направлении' : "Yo'nalish haqida"}
+            {lang === 'ru' ? 'Об отделении' : "Bo'lim haqida"}
           </h2>
           <p className="text-gray-600 leading-relaxed">
             {lang === 'ru' ? currentDept.descriptionRu : currentDept.descriptionUz}

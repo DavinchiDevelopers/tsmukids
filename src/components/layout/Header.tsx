@@ -1,18 +1,41 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { Menu, X, Phone, Calendar } from 'lucide-react';
 import { Lang } from '@/types';
 import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
 import { useAppointmentModal } from '@/contexts/AppointmentModalContext';
 import Logo from '@/components/layout/Logo';
+import { langSwitchHref } from '@/lib/cmsPath';
 import clsx from 'clsx';
 
 interface HeaderProps {
   lang: Lang;
+}
+
+function LangSwitchLink({
+  lang,
+  className,
+  onClick,
+}: {
+  lang: Lang;
+  className?: string;
+  onClick?: () => void;
+}) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const otherLang = lang === 'ru' ? 'uz' : 'ru';
+  const qs = searchParams.toString();
+  const href = langSwitchHref(pathname, lang, otherLang, qs);
+
+  return (
+    <Link href={href} onClick={onClick} className={className}>
+      {otherLang.toUpperCase()}
+    </Link>
+  );
 }
 
 export default function Header({ lang }: HeaderProps) {
@@ -22,15 +45,15 @@ export default function Header({ lang }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const { settings } = useSiteData();
   const { open: openAppointment } = useAppointmentModal();
+  const otherLang = lang === 'ru' ? 'uz' : 'ru';
+  // SSR / до гидрации — без query; LangSwitchLink поправит ?slug=
+  const switchPathFallback = langSwitchHref(pathname, lang, otherLang);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  const otherLang = lang === 'ru' ? 'uz' : 'ru';
-  const switchPath = pathname.replace(`/${lang}`, `/${otherLang}`);
 
   const phone1 = settings.phone1;
   const phone2 = settings.phone2;
@@ -39,21 +62,21 @@ export default function Header({ lang }: HeaderProps) {
   const phone2Href = phone2 ? `tel:${phone2.replace(/\s/g, '')}` : '';
   const phone3Href = phone3 ? `tel:${phone3.replace(/\s/g, '')}` : '';
 
-  const [logoLine1, logoLine2] = lang === 'ru'
-    ? ['Детская клиника ТГМУ', 'TSMU Kids']
-    : ['TSMU Bolalar klinikasi', 'TSMU Kids'];
-
+  const logoLine1 = lang === 'ru' ? settings.nameShortRu : settings.nameShortUz;
   const navLinks = [
     { href: `/${lang}`, label: t.nav.home },
     { href: `/${lang}/about`, label: t.nav.about },
     { href: `/${lang}/departments`, label: t.nav.departments },
     { href: `/${lang}/doctors`, label: t.nav.doctors },
     { href: `/${lang}/services`, label: t.nav.services },
-    { href: `/${lang}/equipment`, label: t.nav.equipment },
     { href: `/${lang}/prices`, label: t.nav.prices },
     { href: `/${lang}/gallery`, label: t.nav.gallery },
+    { href: `/${lang}/vacancies`, label: t.nav.vacancies },
     { href: `/${lang}/contacts`, label: t.nav.contacts },
   ];
+
+  const langSwitchClass =
+    'flex items-center gap-1 px-3 py-1.5 rounded-full border border-gray-200 text-sm font-medium text-gray-600 hover:border-blue-500 hover:text-blue-600 transition-colors';
 
   return (
     <header className={clsx(
@@ -63,11 +86,10 @@ export default function Header({ lang }: HeaderProps) {
       <div className="mx-auto max-w-[1600px] px-3 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between gap-2 min-w-0">
           {/* Logo */}
-          <Link href={`/${lang}`} className="flex items-center gap-2 min-w-0 shrink-0">
+          <Link href={`/${lang}`} className="flex items-center gap-2 min-w-0 flex-1 xl:flex-none xl:shrink-0 pr-2">
             <Logo alt={lang === 'ru' ? 'Логотип клиники' : 'Klinika logotipi'} />
-            <div className="min-w-0">
-              <span className="font-bold text-gray-900 text-[11px] sm:text-sm leading-tight block truncate">{logoLine1}</span>
-              <span className="font-bold text-gray-900 text-[11px] sm:text-sm leading-tight block truncate">{logoLine2}</span>
+            <div className="min-w-0 max-w-[min(52vw,22rem)] sm:max-w-none">
+              <span className="font-bold text-gray-900 text-[10px] sm:text-sm leading-tight block whitespace-normal sm:whitespace-nowrap">{logoLine1}</span>
             </div>
           </Link>
 
@@ -90,14 +112,16 @@ export default function Header({ lang }: HeaderProps) {
           </nav>
 
           {/* Right side */}
-          <div className="flex items-center gap-2 xl:gap-3">
-            {/* Language switch */}
-            <Link
-              href={switchPath}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-full border border-gray-200 text-sm font-medium text-gray-600 hover:border-blue-500 hover:text-blue-600 transition-colors"
+          <div className="flex items-center gap-1.5 sm:gap-2 xl:gap-3 shrink-0">
+            <Suspense
+              fallback={
+                <Link href={switchPathFallback} className={langSwitchClass}>
+                  {otherLang.toUpperCase()}
+                </Link>
+              }
             >
-              {otherLang.toUpperCase()}
-            </Link>
+              <LangSwitchLink lang={lang} className={langSwitchClass} />
+            </Suspense>
 
             {/* Phones */}
             <div className="hidden md:flex items-center gap-2 text-gray-700">
@@ -130,13 +154,15 @@ export default function Header({ lang }: HeaderProps) {
               {t.hero.appointmentBtn}
             </button>
 
-            {/* Burger */}
+            {/* Burger — высокий контраст на белой шапке */}
             <button
+              type="button"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="xl:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
+              className="xl:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border-2 border-gray-800 bg-white text-gray-900 shadow-sm hover:bg-gray-50 active:bg-gray-100"
               aria-label="Menu"
+              aria-expanded={menuOpen}
             >
-              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+              {menuOpen ? <X size={24} strokeWidth={2.5} /> : <Menu size={24} strokeWidth={2.5} />}
             </button>
           </div>
         </div>
@@ -161,13 +187,23 @@ export default function Header({ lang }: HeaderProps) {
                 </Link>
               ))}
               <div className="flex items-center gap-3 px-4 pt-3 border-t border-gray-100 mt-2">
-                <Link
-                  href={switchPath}
-                  onClick={() => setMenuOpen(false)}
-                  className="px-3 py-1.5 rounded-full border border-gray-200 text-sm font-medium text-gray-600"
+                <Suspense
+                  fallback={
+                    <Link
+                      href={switchPathFallback}
+                      onClick={() => setMenuOpen(false)}
+                      className="px-3 py-1.5 rounded-full border border-gray-200 text-sm font-medium text-gray-600"
+                    >
+                      {otherLang.toUpperCase()}
+                    </Link>
+                  }
                 >
-                  {otherLang.toUpperCase()}
-                </Link>
+                  <LangSwitchLink
+                    lang={lang}
+                    onClick={() => setMenuOpen(false)}
+                    className="px-3 py-1.5 rounded-full border border-gray-200 text-sm font-medium text-gray-600"
+                  />
+                </Suspense>
                 <div className="flex flex-col gap-1 text-sm text-gray-700">
                   <a href={phone1Href} className="flex items-center gap-1">
                     <Phone size={14} /> {phone1}

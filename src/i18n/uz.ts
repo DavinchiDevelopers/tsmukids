@@ -6,17 +6,18 @@ const uz = {
   nav: {
     home: 'Bosh sahifa',
     about: 'Klinika haqida',
-    departments: 'Yo\'nalishlar',
+    departments: 'Bo\'limlar',
     doctors: 'Shifokorlar',
     services: 'Xizmatlar',
     equipment: 'Uskunalar',
     prices: 'Narxlar',
     gallery: 'Galereya',
+    vacancies: 'Vakansiyalar',
     contacts: 'Aloqa',
     makeAppointment: 'Yozilish',
   },
   hero: {
-    badge: 'TSMU bolalar klinikasi',
+    badge: "TDTU Bolalar ko'p tarmoqli klinikasi",
     title: 'Sog\'lig\'ingiz',
     titleAccent: 'bizning asosiy ustuvorligimiz',
     subtitle: 'Zamonaviy uskunalar, tajribali bolalar mutaxassislari, 3 oylikdan 18 yoshgacha bolalar uchun to\'liq diagnostika va davolash.',
@@ -26,7 +27,7 @@ const uz = {
       doctors: 'Shifokorlar',
       patients: 'Yilik bemorlar',
       experience: 'Yillik tajriba',
-      departments: 'Yo\'nalishlar',
+      departments: 'Bo\'limlar',
     },
     features: {
       hours: { title: 'Qulay vaqt', desc: 'Kun-u tun qabul' },
@@ -38,7 +39,7 @@ const uz = {
   about: {
     badge: 'Biz haqimizda',
     title: 'Yangi avlod klinikasi',
-    description1: 'TSMU — isbot asosidagi tibbiyot va har bir bolaga g\'amxo\'rlik tamoyillariga asoslangan ko\'p tarmoqli bolalar klinikasi. Biz ilg\'or texnologiyalarni insoniy yondashuvga uyg\'unlashtirgan.',
+    description1: 'TDTU — isbot asosidagi tibbiyot va har bir bolaga g\'amxo\'rlik tamoyillariga asoslangan ko\'p tarmoqli bolalar klinikasi. Biz ilg\'or texnologiyalarni insoniy yondashuvga uyg\'unlashtirgan.',
     description2: 'Bizda zamonaviy diagnostika uskunalari, operatsiya bloklari va 340 o\'rinli qulay statsionar mavjud. Klinikaning har bir mutaxassisi bolalar bilan ishlashda ko\'p yillik tajribaga ega professional.',
     features: {
       license: { title: 'Sog\'liqni saqlash vazirligi litsenziyasi', desc: 'Rasmiy sertifikatlangan klinika' },
@@ -46,12 +47,15 @@ const uz = {
       emergency: { title: 'Tez yordam', desc: 'Favqulodda yordam kecha-kunduz' },
       equipment: { title: 'Uskunalar', desc: 'Yangi avlod MRT, KT, UZI' },
     },
+    equipmentTitle: 'Uskunalar',
+    equipmentText: 'Klinikaning zamonaviy diagnostika va jarrohlik uskunalari — MRT, KT, UZI va boshqa tizimlar.',
+    equipmentLink: 'Uskunalarni ko\'rish',
   },
   departments: {
     badge: 'Bo\'limlar',
-    title: 'Bizning yo\'nalishlar',
+    title: 'Bizning bo\'limlar',
     subtitle: 'Bir tom ostida tibbiy yordamning to\'liq spektri',
-    viewAll: 'Barcha yo\'nalishlarni ko\'rish',
+    viewAll: 'Barcha bo\'limlarni ko\'rish',
     learnMore: 'Batafsil',
   },
   doctors: {
@@ -116,6 +120,19 @@ const uz = {
       team: 'Jamoa',
     },
   },
+  vacancies: {
+    title: 'Vakansiyalar',
+    subtitle: 'TDTU bolalar klinikasi jamoasiga qo‘shiling',
+    emptyTitle: 'Hozircha ochiq vakansiyalar yo‘q',
+    emptyText: 'Rezyume qoldiring — mos lavozim paydo bo‘lganda bog‘lanamiz.',
+    writeUs: 'Bizga yozing',
+    apply: 'Ariza yuborish',
+    schedule: 'Ish grafigi',
+    scheduleDay: 'Kunduzgi',
+    scheduleDuty: 'Navbatchi',
+    rate: 'Stavka',
+    salary: 'Oylik maosh',
+  },
   prices: {
     badge: 'Narxlar',
     title: 'Xizmatlar narxi',
@@ -170,13 +187,13 @@ const uz = {
   },
   privacy: {
     title: 'Maxfiylik siyosati',
-    subtitle: 'Ushbu siyosat TSMU Bolalar Klinikasi sayti tashrif buyuruvchilarining shaxsiy ma\'lumotlarini yig\'ish, saqlash va foydalanish tartibini tavsiflaydi.',
+    subtitle: 'Ushbu siyosat TDTU Bolalar Klinikasi sayti tashrif buyuruvchilarining shaxsiy ma\'lumotlarini yig\'ish, saqlash va foydalanish tartibini tavsiflaydi.',
     backHome: 'Bosh sahifaga qaytish',
     sections: [
       {
         title: '1. Shaxsiy ma\'lumotlar operatori',
         paragraphs: [
-          'Shaxsiy ma\'lumotlar operatori — Toshkent State Medical University (TSMU) ko\'p tarmoqli bolalar klinikasi.',
+          'Shaxsiy ma\'lumotlar operatori — Toshkent Davlat Tibbiyot Universiteti (TDTU) ko\'p tarmoqli bolalar klinikasi.',
           'Manzil: Toshkent viloyati, Qibray tumani, Salar shaharchasi, Bog\'ishamol ko\'chasi, 223A/1. Aloqa ma\'lumotlari «Aloqa» sahifasida keltirilgan.',
         ],
       },
@@ -230,7 +247,7 @@ const uz = {
     ],
   },
   footer: {
-    description: 'Bolalar uchun to\'liq diagnostika va davolash spektriga ega TSMU ko\'p tarmoqli bolalar klinikasi.',
+    description: 'Bolalar uchun to\'liq diagnostika va davolash spektriga ega TDTU ko\'p tarmoqli bolalar klinikasi.',
     links: 'Tezkor havolalar',
     workingHours: 'Ish tartibi',
     workingHoursValue: 'Kun-u tun',
@@ -245,7 +262,7 @@ const uz = {
     allDoctors: 'Barcha shifokorlar',
     allServices: 'Barcha xizmatlar',
     backToHome: 'Bosh sahifaga',
-    backToDepartments: "Yo'nalishlarga",
+    backToDepartments: "Bo'limlarga",
     backToDoctors: "Shifokorlarga",
     backToServices: 'Xizmatlarga',
     backToPrices: 'Narxlar ro\'yxatiga',

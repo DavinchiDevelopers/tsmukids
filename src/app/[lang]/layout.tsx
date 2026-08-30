@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     },
     keywords: lang === 'ru'
       ? ['ТГМУ клиника', 'TSMU', 'детская клиника Ташкент', 'детский врач Ташкент', 'хирургия детей']
-      : ['TSMU', 'TSMU Kids', 'bolalar klinikasi Toshkent', 'bolalar shifokori', 'bolalar jarrohligi'],
+      : ['TDTU', 'bolalar klinikasi Toshkent', 'bolalar shifokori', 'bolalar jarrohligi'],
   };
 }
 

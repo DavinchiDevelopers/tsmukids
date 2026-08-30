@@ -67,7 +67,7 @@ export interface ClinicSettings {
   aboutDescription2Ru: string;
   aboutDescription2Uz: string;
   licenseInfo: string;
-  logoLetter: string;
+  logoLetter?: string;
   whatsapp: string;
   mapEmbedUrl?: string;
   mapLabel?: string;

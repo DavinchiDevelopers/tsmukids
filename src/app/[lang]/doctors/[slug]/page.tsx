@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: DoctorPageProps): Promise<Met
   return buildPageMetadata({
     lang: lang as Lang,
     title: isRu ? 'Врач' : 'Shifokor',
-    description: isRu ? 'Страница врача детской клиники ТГМУ' : 'TSMU Bolalar Klinikasi shifokor sahifasi',
+    description: isRu ? 'Страница врача детской клиники ТГМУ' : 'TDTU Bolalar Klinikasi shifokor sahifasi',
     path: `/doctors/${slug}`,
   });
 }

@@ -26,6 +26,7 @@ export default function Footer({ lang }: FooterProps) {
     { href: `/${lang}/services`, label: t.nav.services },
     { href: `/${lang}/prices`, label: t.nav.prices },
     { href: `/${lang}/gallery`, label: t.nav.gallery },
+    { href: `/${lang}/vacancies`, label: t.nav.vacancies },
     { href: `/${lang}/contacts`, label: t.nav.contacts },
   ];
 

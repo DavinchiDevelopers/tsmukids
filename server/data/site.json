@@ -14,14 +14,14 @@
     "aboutDescription2Uz": "Klinikamizda 340 o'rinli (24 ta reanimatsiya o'rni bilan) 15 ta ixtisoslashtirilgan bo'lim faoliyat yuritadi. 20 yildan ortiq tajribaga ega 100 dan ortiq turli ixtisoslikdagi shifokorlar ishlaydi.",
     "aboutDescription2Ru": "В нашей клинике функционируют 15 профильных отделений на 340 коек (включая 24 реанимационных). Работают более 100 врачей различных специальностей с опытом более 20 лет.",
     "statsPatients": "15 000+",
-    "aboutDescription1Uz": "TSMU (Toshkent State Medical University) ko'p tarmoqli bolalar klinikasi — 3 oylikdan 18 yoshgacha bo'lgan bolalar davolanadigan ixtisoslashtirilgan muassasa.",
+    "aboutDescription1Uz": "TDTU (Toshkent State Medical University) ko'p tarmoqli bolalar klinikasi — 3 oylikdan 18 yoshgacha bo'lgan bolalar davolanadigan ixtisoslashtirilgan muassasa.",
     "nameRu": "Ташкентский государственный медицинский университет (TSMU) — многопрофильная детская клиника",
     "aboutDescription1Ru": "Многопрофильная детская клиника ТГМУ (TSMU, Tashkent State Medical University) — специализированное учреждение, в котором проходят лечение дети от 3 месяцев до 18 лет. Клиника оснащена современным диагностическим и хирургическим оборудованием.",
-    "nameShortRu": "Детская клиника ТГМУ",
-    "nameShortUz": "TSMU Bolalar klinikasi",
+    "nameShortRu": "Многопрофильная детская клиника ТГМУ",
+    "nameShortUz": "TDTU Bolalar ko'p tarmoqli klinikasi",
     "logoLetter": "T",
     "email": "info@tsmukids.uz",
-    "nameUz": "Toshkent State Medical University (TSMU) — ko'p tarmoqli bolalar klinikasi",
+    "nameUz": "Toshkent Davlat Tibbiyot Universiteti (TDTU) — ko'p tarmoqli bolalar klinikasi",
     "phone3": "+998 95 555 20 50"
   },
   "doctors": [
@@ -36,7 +36,7 @@
       "experienceUz": "Ish tajribasi: 12 yil",
       "bioRu": "Заведующий отделением \nПластический хирург\nСтаж 12 лет\nЭксперт в области: Детской пластической хирургии\nСтажировки: США, Германия, Канада, Япония, Корея, Австралия и др.\nЗанимается пациентами с расщелиной губы и нёба, врождёнными дефектами лица, конечностей, аномалиями ушных раковин \n",
       "bioUz": "Mutaxassislik yo‘nalishi: bolalar plastik jarrohligi bo‘yicha ekspert\nStajirovkalar: AQSH, Germaniya, Kanada, Yaponiya, Koreya, Avstraliya va boshqalar\nLab va tanglay yoriqlari, yuz va qo‘l-oyoqning tug‘ma nuqsonlari, quloq suprasi anomaliyalari bo‘lgan bemorlar bilan shug‘ullanadi",
-      "department": "plastic-surgery",
+      "department": "1",
       "photo": "",
       "order": 0
     },
@@ -50,7 +50,7 @@
       "experienceUz": "Ish tajribasi: 10 yil",
       "bioRu": "Эксперт в области: Детской пластической хирургии\nЗанимается пациентами с ожогами, проводит реконструктивные операции после ожоговых пациентов, лечениями гемангиомы, врожденными аномалиями конечностей (синдактилия, полидактилия) \n",
       "bioUz": "Mutaxassislik yo‘nalishi: bolalar plastik jarrohligi bo‘yicha ekspert\nKuyish bilan bog‘liq holatlar bilan shug‘ullanadi, kuyishdan keyingi rekonstruktiv operatsiyalarni amalga oshiradi, gemangiomalarni davolaydi, qo‘l-oyoqning tug‘ma nuqsonlari (sindaktiliya, polidaktiliya) bilan ishlaydi",
-      "department": "plastic-surgery",
+      "department": "1",
       "photo": "",
       "order": 1,
       "nameRu": "Расулов Мухаммад-Азиз Мухаммед-Зохир угли"
@@ -62,7 +62,7 @@
       "experienceUz": "Ish tajribasi: 23 yil",
       "bioRu": "Учёная степень: доктор философии (PhD)\nЗаведующий отделением",
       "bioUz": "Ilmiy darajasi: falsafa doktori (PhD)\nBo‘lim mudiri\nMutaxassislik yo‘nalishi: bolalar jarrohligi\nMalaka oshirish: Germaniya, Koreya, Xitoy va boshqalar\nO‘pkaning tug‘ma va orttirilgan kasalliklari (o‘pka kistalari, bronxoektaz, o‘pka va plevraning yiringli-yallig‘lanish kasalliklari), nafas yo‘llaridagi yot jismlar, shuningdek qizilo‘ngachning kuyishdan keyingi va operatsiyadan keyingi torayishlari bo‘lgan bemorlarni davolash bilan shug‘ullanadi",
-      "department": "surgery",
+      "department": "dept-mpwpwitr70f50ud49ooj",
       "order": 3,
       "experienceRu": "Стаж 23 года",
       "specialtyUz": " Jarrohi, endoskopist",
@@ -77,7 +77,7 @@
       "experienceUz": "Ish tajribasi: 11 yil",
       "bioRu": "Учёная степень: доктор философии (PhD)\nСпециализация: детская хирургия\nЗанимается лечением пациентов с врождёнными и приобретёнными заболеваниями лёгких (кисты лёгких, бронхоэктазы, гнойно-воспалительные заболевания лёгких и плевры), инородными телами дыхательных путей, а также сужением пищевода после ожогов и операций",
       "bioUz": "Ilmiy darajasi: falsafa doktori (PhD)\nMutaxassislik yo‘nalishi: bolalar jarrohligi\nO‘pkaning tug‘ma va orttirilgan kasalliklari (o‘pka kistalari, bronxoektaz, o‘pka va plevraning yiringli-yallig‘lanish kasalliklari), nafas yo‘llaridagi yot jismlar, shuningdek qizilo‘ngachning kuyishdan keyingi va operatsiyadan keyingi torayishlari bo‘lgan bemorlarni davolash bilan shug‘ullanadi",
-      "department": "surgery",
+      "department": "dept-mpwpwitr70f50ud49ooj",
       "order": 4,
       "experienceRu": "Стаж 11 лет",
       "specialtyUz": " Jarrohi",
@@ -96,7 +96,7 @@
       "experienceUz": "Ish staji: 40 yil",
       "bioRu": "Заведующий отделением Травматологии ортопедии Научная стпень: Доцент Стаж 40 лет Эксперт в области: Детской ортопед травматолог Стажировки: Индии и Кореа. Занимается пациентами всё выди операция ортопедии и травматологии.",
       "bioUz": "Travmatologiya va ortopediya bo‘limi mudiri\n\nIlmiy darajasi: dotsent\nIsh staji: 40 yil\n\nMutaxassisligi: bolalar ortopedi-travmatologi\n\nStajirovka o‘tgan: Hindiston va Koreyada\n\nFaoliyati: ortopediya va travmatologiya yo‘nalishida barcha turdagi operatsiyalarni amalga oshiradi, bemorlarni davolaydi.",
-      "department": "traumatology",
+      "department": "test",
       "order": 5,
       "photo": "/images/doctors/usmanxanov-orifxon-aubxanovich.webp"
     },
@@ -111,24 +111,24 @@
       "experienceUz": "Ish staji: 16 yil",
       "bioRu": "Эксперт в области: Детский ортопед травматолог Стажировки: России. Занимается пациентами всё выди операция ортопедии и травматологии переведи",
       "bioUz": "Ortoped-travmatolog\nMutaxassisligi: bolalar ortopedi-travmatologi\n\nStajirovka o‘tgan: Rossiyada\n\nFaoliyati: ortopediya va travmatologiya yo‘nalishida barcha turdagi operatsiyalarni amalga oshiradi, bemorlarni davolaydi.",
-      "department": "traumatology",
+      "department": "test",
       "order": 6,
       "photo": "/images/doctors/muslimov-nigmatilla-sunnatillaevich.webp"
     },
     {
       "id": "1jgiBZcK54zd8BZvaKV0",
-      "slug": "azizov-abduhalil-abdukadirovich",
-      "nameRu": "Азизов Абдухалил Абдукадирович",
-      "nameUz": "Azizov Abduxalil Abduqodirovich",
-      "specialtyRu": "Ортопед травматолог",
-      "specialtyUz": "Ortoped-travmatolog",
-      "experienceRu": "Стаж 17 лет",
-      "experienceUz": "Ish staji: 17 yil",
-      "bioRu": "Стажировки: России и Китай. Занимается пациентами всё виды операция ортопедии и травматологии",
-      "bioUz": "Stajirovka o‘tgan: Rossiya va Xitoyda\n\nFaoliyati: ortopediya va travmatologiya yo‘nalishida barcha turdagi operatsiyalarni amalga oshiradi, bemorlarni davolaydi.",
-      "department": "traumatology",
+      "slug": "abduhalilov-rustam-uktam-ugli",
+      "nameRu": "Абдухалилов Рустам Уктам угли",
+      "nameUz": "Abduxalilov Rustam Uktam o‘g‘li",
+      "specialtyRu": "Врач-ординатор, детский невролог экстренного поста",
+      "specialtyUz": "Ordinar shifokor, shoshilinch post bolalar nevrologi",
+      "experienceRu": "Стаж 9 лет",
+      "experienceUz": "Ish tajribasi: 9 yil",
+      "bioRu": "Врач-ординатор, детский невролог экстренного поста.\n\nЭксперт в области: перинатальной неврологии, заболеваний периферической нервной системы, эпилепсии, реабилитологии, нейрофизиологии, вертебрологии, инсультологии, иглорефлексотерапии.",
+      "bioUz": "Ordinar shifokor, shoshilinch post bolalar nevrologi.\n\nMutaxassislik: perinatal nevrologiya, periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya, neyrofiziologiya, vertebrologiya, insultologiya, ignorefleksoterapiya.",
+      "department": "dept-ypjjupwone39whuz7nw1",
       "photo": "",
-      "order": 7
+      "order": 72
     },
     {
       "id": "bQqrcUjz3uMMf1t3z20M",
@@ -141,7 +141,7 @@
       "experienceUz": "Ish staji: 13 yil",
       "bioRu": "Стажировки: России. Занимается пациентами всё виды операция ортопедии и травматологии",
       "bioUz": "Stajirovka o‘tgan: Rossiyada\n\nFaoliyati: ortopediya va travmatologiya yo‘nalishida barcha turdagi operatsiyalarni amalga oshiradi, bemorlarni davolaydi.",
-      "department": "traumatology",
+      "department": "test",
       "order": 8,
       "photo": "/images/doctors/umarov-mirvoxid-zoxidovich.webp"
     },
@@ -156,7 +156,7 @@
       "experienceUz": "Ish staji: 25 yil",
       "bioRu": "Стажировки: России. Занимается пациентами всё виды операция ортопедии и травматологии!",
       "bioUz": "Stajirovka o‘tgan: Rossiyada\n\nFaoliyati: ortopediya va travmatologiya yo‘nalishida barcha turdagi operatsiyalarni amalga oshiradi, bemorlarni davolaydi.",
-      "department": "traumatology",
+      "department": "test",
       "photo": "",
       "order": 9
     },
@@ -171,7 +171,7 @@
       "experienceUz": "Ish staji: 8 yil",
       "bioRu": "Стажировки: России и Казакистан. Занимается пациентами всё виды операция ортопедии и травматологии.",
       "bioUz": "Stajirovka o‘tgan: Rossiya va Qozog‘istonda\n\nFaoliyati: ortopediya va travmatologiya yo‘nalishida barcha turdagi operatsiyalarni amalga oshiradi, bemorlarni davolaydi.",
-      "department": "traumatology",
+      "department": "test",
       "photo": "",
       "order": 10
     },
@@ -186,7 +186,7 @@
       "experienceUz": "Ish staji: 18 yil",
       "bioRu": "Эксперт в области: Детский травматолог-ортопед Занимается пациентами всё виды операция ортопедии и травматологии и экстренная травматология",
       "bioUz": "Mutaxassisligi: bolalar travmatolog-ortopedi\n\nFaoliyati: ortopediya va travmatologiya yo‘nalishida barcha turdagi operatsiyalarni amalga oshiradi, bemorlarni davolaydi, shuningdek shoshilinch travmatologik yordam ko‘rsatadi.",
-      "department": "traumatology",
+      "department": "test",
       "order": 11,
       "photo": "/images/doctors/samadov-ulugmurod-maxmanazarovich.webp"
     },
@@ -201,7 +201,7 @@
       "experienceUz": "Ish staji: 20 yil",
       "bioRu": "Эксперт в области: Детский травматолог- ортопед Занимается пациентами всё виды операция ортопедии и травматологии",
       "bioUz": "Mutaxassisligi: bolalar travmatolog-ortopedi\n\nFaoliyati: ortopediya va travmatologiya yo‘nalishida barcha turdagi operatsiyalarni amalga oshiradi, bemorlarni davolaydi.",
-      "department": "surgery",
+      "department": "test",
       "order": 12,
       "photo": "/images/doctors/nurmamatov-kosimjon-egamberdievich.webp"
     },
@@ -216,7 +216,7 @@
       "experienceUz": "Ish staji: 20 yil",
       "bioRu": "Эксперт в области: Детский травматолог-ортопед. Занимается пациентами всё виды операция ортопедии и травматологии и экстренная травматология",
       "bioUz": "Mutaxassisligi: bolalar travmatolog-ortopedi\n\nFaoliyati: ortopediya va travmatologiya yo‘nalishida barcha turdagi operatsiyalarni amalga oshiradi, bemorlarni davolaydi, shuningdek shoshilinch travmatologik yordam ko‘rsatadi.",
-      "department": "traumatology",
+      "department": "test",
       "photo": "",
       "order": 13
     },
@@ -231,7 +231,7 @@
       "experienceUz": "Ish staji: 15 yil",
       "bioRu": "Эксперт в области: Детский травматолог-ортопед. Занимается пациентами всё виды операция ортопедии и травматологии и экстренная травматология ",
       "bioUz": "Mutaxassisligi: bolalar travmatolog-ortopedi\n\nFaoliyati: ortopediya va travmatologiya yo‘nalishida barcha turdagi operatsiyalarni amalga oshiradi, bemorlarni davolaydi, shuningdek shoshilinch travmatologik yordam ko‘rsatadi.",
-      "department": "traumatology",
+      "department": "test",
       "order": 14,
       "photo": "/images/doctors/boynazarov-tolibjon-xaitmurodovich.webp"
     },
@@ -246,7 +246,7 @@
       "experienceUz": "Ish staji: 8 yil",
       "bioRu": "Эксперт в области: Детский травматолог-ортопед. Занимается пациентами всё виды операция травматологический и экстренная травматология",
       "bioUz": "Mutaxassisligi: bolalar travmatolog-ortopedi\n\nFaoliyati: travmatologiya va ortopediya yo‘nalishida barcha turdagi operatsiyalarni amalga oshiradi, bemorlarni davolaydi, shuningdek shoshilinch travmatologik yordam ko‘rsatadi.",
-      "department": "traumatology",
+      "department": "test",
       "order": 15,
       "photo": "/images/doctors/bobobekov-sherzod-mansurovich.webp"
     },
@@ -261,7 +261,7 @@
       "experienceUz": "Ish staji: 7 yil",
       "bioRu": "Эксперт в области: Детский травматолог-ортопед. Занимается пациентами всё виды операция травматологический и экстренная травматология",
       "bioUz": "Mutaxassisligi: bolalar travmatolog-ortopedi\n\nFaoliyati: travmatologiya va ortopediya yo‘nalishida barcha turdagi operatsiyalarni amalga oshiradi, bemorlarni davolaydi, shuningdek shoshilinch travmatologik yordam ko‘rsatadi.",
-      "department": "traumatology",
+      "department": "test",
       "order": 16,
       "photo": "/images/doctors/nishonov-lutfulla-dilshodovich.webp"
     },
@@ -276,7 +276,7 @@
       "experienceUz": "Ish staji: 6 yil",
       "bioRu": "Эксперт в области: Детский травматолог-ортопед. Занимается пациентами всё виды операция травматологический и экстренная травматология",
       "bioUz": "Mutaxassisligi: bolalar travmatolog-ortopedi\n\nFaoliyati: travmatologiya va ortopediya yo‘nalishida barcha turdagi operatsiyalarni amalga oshiradi, bemorlarni davolaydi, shuningdek shoshilinch travmatologik yordam ko‘rsatadi.",
-      "department": "traumatology",
+      "department": "test",
       "photo": "",
       "order": 17
     },
@@ -291,7 +291,7 @@
       "experienceUz": "Ish staji: 18 yil",
       "bioRu": "Заведующий отделением Врач Рентгенолог высшей категории Стаж 18 лет Квалификация :Ультразвуковая диагностика и Рентген 01.01.2026 Стажировки: Москва, Турция",
       "bioUz": "Bo‘lim mudiri\nOliy toifali rentgenolog shifokor\nIsh staji: 18 yil\n\nMalakasi:\nUltratovush diagnostikasi va rentgen, 01.01.2026\n\nStajirovkalar:\nMoskva, Turkiya",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "order": 18,
       "photo": "/images/doctors/abzalova-gavxar-maxmadaminovna.webp"
     },
@@ -306,7 +306,7 @@
       "experienceUz": "Ish staji: 16 yil",
       "bioRu": "Эксперт в области: Детской радиологии(МРТ,МСКТ.Рентген)",
       "bioUz": "Mutaxassislik yo‘nalishi:\nBolalar radiologiyasi (MRT, MSKT, rentgen)",
-      "department": "surgery",
+      "department": "diagnostika",
       "order": 19,
       "photo": "/images/doctors/sharipov-azamat-ubaydulloevich.webp"
     },
@@ -321,7 +321,7 @@
       "experienceUz": "Ish staji: 5 yil",
       "bioRu": "Врач Рентгенолог 2 категории Закончил: ТМА, Радиология (клиническая ординатура) Стаж 5 лет Эксперт по владениям: рентген ОГК, опорно-двигательная система, лор органов, контраст ЖКТ, ирригография, экскретроная урография (взрослый и детский), рентген при неонотологии.",
       "bioUz": "2-toifali rentgenolog shifokor\n\nTa’lim:\nTMA, Radiologiya (klinik ordinatura)\n\nIsh staji: 5 yil\n\nMutaxassislik ko‘nikmalari:\nKo‘krak qafasi rentgeni (OGK), tayanch-harakat tizimi, LOR a’zolari, kontrastli O‘G‘T (oshqozon-ichak trakti) tekshiruvlari, irrigografiya, ekskretor urografiya (kattalar va bolalar), neonatologiyada rentgen tekshiruvlari",
-      "department": "surgery",
+      "department": "diagnostika",
       "order": 20,
       "photo": "/images/doctors/ablamitov-elmurad-qurbanqul.webp"
     },
@@ -336,7 +336,7 @@
       "experienceUz": "Ish staji: 26 yil",
       "bioRu": "Квалификации: 2023 г нейросонография общий Узи 2026г.",
       "bioUz": "Malakasi:\n2023-yil – neyrosonografiya, umumiy UZI\n2026-yil – umumiy UZI",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "order": 21,
       "photo": "/images/doctors/saidkarimova-shaxnoza-mirzakirovna.webp"
     },
@@ -351,7 +351,7 @@
       "experienceUz": "Ish staji: 11 yil",
       "bioRu": "Квалификация 03.03.2025г На тему Клиник амалиетида ультратовуш диагностикаси",
       "bioUz": "Malakasi:\n03.03.2025 – “Klinik amaliyotda ultratovush diagnostikasi”",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "photo": "",
       "order": 22
     },
@@ -366,7 +366,7 @@
       "experienceUz": "Ish staji: 16 yil",
       "bioRu": "Квалификация: 1.04.2025 На тему Клиник амалиетида ультратовуш диагностикаси",
       "bioUz": "Malakasi:\n01.04.2025 – “Klinik amaliyotda ultratovush diagnostikasi”",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "photo": "",
       "order": 23
     },
@@ -381,7 +381,7 @@
       "experienceUz": "Ish staji: 13 yil",
       "bioRu": "Квалификация: 1.04.2025 На тему Клиник амалиетида ультратовуш диагностикаси",
       "bioUz": "Malakasi:\n01.04.2025 – “Klinik amaliyotda ultratovush diagnostikasi”",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "photo": "",
       "order": 24
     },
@@ -396,7 +396,7 @@
       "experienceUz": "Ish staji: 30 yil",
       "bioRu": "Эксперт в области: Детской рентгенологии",
       "bioUz": "Mutaxassislik yo‘nalishi:\nBolalar rentgenologiyasi",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "order": 25,
       "photo": "/images/doctors/kazakbaeva-kunduz-saidazimovna.webp"
     },
@@ -411,7 +411,7 @@
       "experienceUz": "Ish staji: 6 yil",
       "bioRu": "Училась: 2017-2019 йил Российской Федерации Национальный Медицинский исследовательский центр сердечно-сосудистой хирургии имени А.Н Бакулева.Отдел «Функциональная диагностика» 2022-2023 Ташкентский педиатрический институт. Кафедра «Радиалогия» Роботаю до сих пор 1)Тошкент Давлат Тиббиет Университетининг Болалар Куп Тармокли клиникаси. Давлат Муассаси.04.09.2023 2)Республика Болалар Тиббий Реабилитация Маркази.Давлат Муассаси.13.04.2026",
       "bioUz": "Ta’lim:\n2017–2019 – Rossiya Federatsiyasi, A.N. Bakulev nomidagi Milliy yurak-qon tomir jarrohligi ilmiy markazi, “Funktsional diagnostika” bo‘limi\n2022–2023 – Toshkent Pediatriya tibbiyot instituti, “Radiologiya” kafedrasi\n\nIsh faoliyati:\n2023-yildan hozirgacha – Toshkent davlat tibbiyot universitetining Bolalar ko‘p tarmoqli klinikasi (davlat muassasasi)\n2026-yildan – Respublika bolalar tibbiy reabilitatsiya markazi (davlat muassasasi)",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "photo": "",
       "order": 26
     },
@@ -426,7 +426,7 @@
       "experienceUz": "Ish staji: 6 yil",
       "bioRu": "Эксперт в области: детской рентгенологии",
       "bioUz": "Mutaxassislik yo‘nalishi:\nBolalar rentgenologiyasi",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "order": 27,
       "photo": "/images/doctors/madumarov-azimjon-abdullo.webp"
     },
@@ -441,7 +441,7 @@
       "experienceUz": "Ish staji: 28 yil",
       "bioRu": "Заведующая отделением Врач высшей категории Стаж 28 лет Стажировки: Санкт-Петербург, Россия",
       "bioUz": "Bo‘lim mudiri\nOliy toifali shifokor\nIsh staji: 28 yil\n\nStajirovkalar:\nSankt-Peterburg, Rossiya",
-      "department": "pulmonology",
+      "department": "pediatriya",
       "order": 28,
       "photo": "/images/doctors/agzamxojaeva-nilufar-shamsiddinovna.webp"
     },
@@ -456,7 +456,7 @@
       "experienceUz": "Ish staji: 3 yil",
       "bioRu": "Соискатель 1 года обучения (PhD)",
       "bioUz": "Ilmiy faoliyati:\nPhD bo‘yicha 1-bosqich doktorant (izlanuvchi)",
-      "department": "surgery",
+      "department": "pediatriya",
       "photo": "",
       "order": 29
     },
@@ -471,7 +471,7 @@
       "bioUz": "Raxmatullayev Akmal Abadbekovich, tibbiyot fanlari doktori, professor. Toshkent Davlat tibbiyot universiteti “Bolalar xirurgiyasi, urologiya, bolalar urologiyasi, anesteziologiya va reanimatologiya, bolalar anesteziologiyasi va reanimatologiyasi” kafedrasi mudiri. 1996 yilda Toshkent pediatriya tibbiyot institutini tamomlagan. 2008 yilda “Дифференцированная коррекция первичного пузырно-мочеточникового рефлюкса у детей» mavzusida 14.00.35 - Bolalar xirurgiyasi mutaxassisligi bo’yicha nomzodlik dissertatsiyasini himoya qilgan. 2019 yilda “Диагностика и хирургическое лечение аномалий развития уретеровезикального сегмента у детей” mavzusida 14.00.35 - Bolalar xirurgiyasi mutaxassisligi bo’yicha doktorlik (DSc) dissertatsiyasini himoya qilgan. Janubiy Koreya, Italiya, Rossiya federatsiyasi, Xitoy, Turkiya kabi davlatlarning yetakchi klinikalarida malaka oshirgan. 150 dan ortiq ilmiy ishlar chop etgan, shulardan “Bolalar xirurgiyasi” 2 tomdan iborat darslik xammuallifi. 6 ta patent, 3 ta monografiya, 10 tadan ortiq uslubiy va o’quv uslubiy qo’llanmalar muallifi. Xozirgi kunda professor A.A.Raxmatullayev rahbarligida 1 ta doktorlik (DSc), 3 ta nomzodlik (PhD) dissertatsiyalari muvaffaqiyatli ximoya qilingan va bir nechta shogirdlari tomonidan ilmiy izlanishlar olib borilmoqda. ESPU (European Society for Paediatric Urology), ELSA (Endoscopic and Laparoscopic Surgeons of Asia), APAPU (Asia Pacific Association of Pediatric Urologists) Xalqaro jamiyatlari a’zosi. Muntazam ravishda Xalqaro va Respublika miqyosidagi, dunyoni barcha davlatlaridagi o’tkaziladigan yirik anjumanlarda o’z ilmiy ishlarining natijalari taqdimoti bilan muntazam ishtirok etib xamda tashkilotchi sifatida anjumanlar tashkil etib keladi. Ilmiy va amaliy faoliyat turi: Bolalar endoskopik xirurgiyasi, bolalar urologiyasi.",
       "photo": "",
       "order": 30,
-      "department": "urology",
+      "department": "dept-566nqhlznqkdamfb1qm2",
       "specialtyUz": "Jarrohligi, urologiya",
       "specialtyRu": "Хирург, Урология."
     },
@@ -487,7 +487,7 @@
       "bioRu": "Заведующий отделением: Хошимов Тулкин Рахимович\n\n1980–1986 гг. — студент Среднеазиатского педиатрического медицинского института\n1986–1987 гг. — врач клиники Среднеазиатского педиатрического медицинского института\n1987–1990 гг. — хирург Центральной детской поликлиники\n1990–1992 гг. — заведующий хирургическим отделением клиники Среднеазиатского педиатрического медицинского института\n1992–1995 гг. — аспирант Среднеазиатского педиатрического медицинского института\n1995–2003 гг. — заведующий приёмным отделением клиники Среднеазиатского педиатрического медицинского института\n2003–2021 гг. — заместитель главного врача по хирургической работе клиники Среднеазиатского педиатрического медицинского института\nС 2021 г. по настоящее время — заведующий урологическим отделением клиники Среднеазиатского педиатрического медицинского института\n\nХошимов Тулкин Рахимович активно участвует в проведении многочисленных благотворительных акций республиканского масштаба. Повышал квалификацию в клиниках Южной Кореи, Турции, Сингапура, Малайзии и Индии, поддерживает тесные профессиональные связи с зарубежными коллегами.\n\nУчастник Европейской ассоциации урологов.",
       "bioUz": "Булим бошлиги :Хошимов Тулкин Рахимовеч -1980-1986йил – Урта Осиё тиббиёт педиатирия институти талабаси - 1986-1987йил –Урта Осиё тиббиёт педиатирия институти клиникаси шифокори -1987-1990йил Болалар марказий поликлиникаси жаррохи - 1990-1992 йил Урта Осиё тиббиёт педиатирия институти клиникаси хирургия булим бошлиги 1992-1995йил Урта Осиё тиббиёт педиатирия институти аспиранти 1995-2003йил Урта Осиё тиббиёт педиатирия институти клиникаси кабул булим бошлиги 2003-2021йил Урта Осиё тиббиёт педиатирия институти клиникаси хирургия ишлари буйича бош шифокор муовини 2021-хозиргача Урта Осиё тиббиёт педиатирия институти клиникаси урология булим бошлиги. Хошимов Тулкин Рахимовеч. Республика микиёсида жуда куп бегараз аксияларни утказишда катнашади.Бир неча хорижий давлатлар клиникаларида Жанубий Кореа,Туркия,Сингапур,Малайзия,Хиндистон давлатлар клиникаларида уз малакасини оширган ва хозирги кунда якиндан алокалари бор., Европа Урологлар Ассоциациясининг иштирокчиси.",
       "order": 31,
-      "department": "urology",
+      "department": "dept-566nqhlznqkdamfb1qm2",
       "photo": "/images/doctors/xashimov-tulkun-raximovich.webp"
     },
     {
@@ -501,7 +501,7 @@
       "experienceUz": "40 yillik tajriba",
       "bioRu": "Асамов Султонмурод Рахматуллаевич — высококвалифицированный уролог клиники Ташкентского педиатрического медицинского института с 40-летним стажем.\n\nВ течение своей профессиональной деятельности оказывал помощь тяжёлым пациентам в отделениях оперативной нефрологии и гемодиализа, а также пролечил тысячи пациентов в урологическом отделении как консервативными, так и хирургическими методами. На протяжении многих лет выполнял операции воспитанникам детских домов.\n\nРегулярно выезжал в регионы республики для оказания медицинской помощи населению. Участвовал в совместных операциях со специалистами из Турции, Индии, России, Беларуси, Кыргызстана и Казахстана.\n\nПодготовил многих современных урологов, обучая их методам лечения пациентов и тонкостям хирургического мастерства. Одновременно внедрял в клиническую практику современные эндоскопические и абдоминальные методы, внеся значительный вклад в развитие отрасли.\n\nЯвляется активным членом организации ELSA (Endoscopic and Laparoscopic Surgeons of Asia), участником Европейской ассоциации урологов. Принимает активное участие в международных конгрессах и конференциях, проводимых совместно с ведущими специалистами из США, Турции, Южной Кореи, Индии и стран СНГ.",
       "bioUz": "Асамов Султонмурод Раҳматуллаевич — 40 йиллик тажрибага эга, Тошкент педиатрия тиббиёт институти клиникасининг юқори тоифали урологи бўлиб, ўз фаолияти давомида оператив нефрология ва гемодиализ бўлимларида оғир беморларга ёрдам берган, урология бўлимида минглаб беморларни консерватив ва жарроҳлик йўли билан даволаган, болалар уйларидаги тарбияланувчиларга узоқ йиллар давомида операциялар қилган. Республикамиз ҳудудларига мунтазам равишда чиқиб хизмат кўрсатган. Туркия, Ҳиндистон, Россия, Беларусь, Қирғизистон ва Қозоғистон мутахассислари билан қўшма операцияларда иштирок этган, кўплаб ҳозирги урологларни тайёрлаб, уларга беморларни даволаш ва жарроҳлик қилиш сир-асрорларини ўргатган, шу билан бирга замонавий эндоскопик ва абдоминал усулларни клиник амалиётига жорий қилиб, соҳа ривожига катта ҳисса қўшган. ЕLSА ташкилотининг фаол аъзоси, Европа Урологлар Ассоциациясининг иштирокчиси сифатида Америка, Туркия, Жанубий Корея, Ҳиндистон ва барча МДҲ республикаларидан етакчи мутахассислар билан ҳамкорликда ўтказилган халқаро анжуман ва конференцияларда фаол иштирок этаётган фидойи шифокордир.",
-      "department": "urology",
+      "department": "dept-566nqhlznqkdamfb1qm2",
       "order": 32,
       "photo": "/images/doctors/asamov-sultanmurat-raxmatullaevich.webp"
     },
@@ -516,7 +516,7 @@
       "experienceUz": "15 yillik tajriba",
       "bioRu": "Пулатов Фарход Темурович\n\nОрдинатор, уролог-цистоскопист, прошёл курс эндоурологии. Врач высшей категории.\n\n1991–1997 гг. — студент Ташкентского педиатрического медицинского института\n1997–1998 гг. — врач-интерн (анестезиолог-реаниматолог) Бухарской областной детской больницы\n1998–2000 гг. — врач-анестезиолог-реаниматолог Бухарской областной детской больницы\n2000–2002 гг. — клиническая ординатура на кафедре детской хирургии Ташкентского педиатрического медицинского института\n2002–2003 гг. — старший лаборант кафедры детской хирургии Ташкентского педиатрического медицинского института\n2003–2004 гг. — хирург приёмного отделения клиники Ташкентского педиатрического медицинского института\n2004–2021 гг. — врач-ординатор отделения экстренной хирургии клиники Ташкентского педиатрического медицинского института\nС 2020 г. по настоящее время — врач-ординатор лабораторного отделения клиники Ташкентского педиатрического медицинского института\nС 2014 г. по настоящее время — ординатор урологического отделения\n\nИмеет большой практический опыт в области урологии и экстренной хирургии.",
       "bioUz": "Пулатов Фарход Темурович Ординатор, уролог – цистоскопист, эндоурология курсини тамомлаган. Олий тоифалий шифокор. 1991-1997 йй.- Тошкент педиатрия тиббиет институти талабаси. 1997-1998 йй.- Бухоро вилояти Болалар шифохонаси анестезиолог-реаниматологи врач-интерн интернатура 1998-2000 йй.- Бухоро вилояти болалар шифохонаси анестезиолог-реаниматологи шифокори 2000-2002 йй.- ТошПМИ Болалар хиругия кафедрасида клиник ординатура. 2002-2003 йй.- ТошПМИ Болалар хиругия кафедраси катта лаборанти. 2003-2004 йй.- ТошПМИ клиникаси кабул булим жаррохи. 2004-2021 йй.- 2020 й. - х.в. - ТошПМИ клиникаси Шошилинч жаррохлик булими врач ординатори. ТошПМИ клиникаси Лабаротория булими врач ординатори 2014 й – х.в – урология булими ординатори.",
-      "department": "urology",
+      "department": "dept-566nqhlznqkdamfb1qm2",
       "order": 33,
       "photo": "/images/doctors/pulatov-farxod-temirovich.webp"
     },
@@ -531,7 +531,7 @@
       "experienceUz": "15 yillik tajriba",
       "bioRu": "Абдиев Бекзод Ризвонович (род. в 1988 г.)\n\n2008–2015 гг. — студент Среднеазиатского педиатрического медицинского института\n2015–2018 гг. — магистратура по направлению «Детская хирургия»\nС 2018 г. по настоящее время — ординатор урологического отделения клиники Среднеазиатского педиатрического медицинского института\n\nВ 2025 году защитил кандидатскую диссертацию (PhD).",
       "bioUz": "Абдиев Бекзод Ризвоновеч 1988 йил тугулган 2008-2015 йилгача - Урта Осиё тиббиёт педиатирия институти талабаси 2015-2018 йилгача –Болалар хирургияси йуналишида магитратура. 2018-Хозиргача - Урта Осиё тиббиёт педиатирия институти клиникаси урология булим ординатори. 2025йил PhD номзодлик диссертациясини ёклади.",
-      "department": "urology",
+      "department": "dept-566nqhlznqkdamfb1qm2",
       "order": 34,
       "photo": "/images/doctors/abdiev-bekzod-rizvanovich.webp"
     },
@@ -546,7 +546,7 @@
       "experienceUz": "стажи: 35 йил",
       "bioRu": "Тураева Нодира Назаровна Зав Отд. Детский хирург Высшей категория Д.М.Н. ",
       "bioUz": "Тураева Нодира Назаровна — бўлим мудири, болалар хирурги, олий тоифали шифокор, тиббиёт фанлари доктори",
-      "department": "surgery",
+      "department": "dept-mpwpwitr70f50ud49ooj",
       "photo": "",
       "order": 35
     },
@@ -561,7 +561,7 @@
       "experienceUz": "13 yillik tajriba",
       "bioRu": "Кубеев Ботир Нажмиддинович десткий хирург 2 категория",
       "bioUz": "Кубеев Ботир Нажмиддинович — болалар хирурги, 2-тоифали шифокор.",
-      "department": "surgery",
+      "department": "dept-mpwpwitr70f50ud49ooj",
       "order": 36,
       "photo": "/images/doctors/kubeev-batirbek-najmiddinovich.webp"
     },
@@ -576,7 +576,7 @@
       "experienceUz": "12 yillik tajriba",
       "bioRu": "Нематов Алишер Шермухаммедович детский хирург высшей категория. Лапароскопист. pHD",
       "bioUz": "Нематов Алишер Шермухаммедович — болалар хирурги, олий тоифали шифокор, лапароскопист, PhD.",
-      "department": "surgery",
+      "department": "dept-mpwpwitr70f50ud49ooj",
       "order": 37,
       "photo": "/images/doctors/nematov-alisher-shermuxammadovich.webp"
     },
@@ -591,7 +591,7 @@
       "experienceUz": "стажи: 8 йил",
       "bioRu": "Рашидов Жасур Комилович детский хирург. 2 категория",
       "bioUz": "Рашидов Жасур Комилович — болалар хирурги, 2-тоифали шифокор",
-      "department": "surgery",
+      "department": "dept-mpwpwitr70f50ud49ooj",
       "order": 38,
       "photo": "/images/doctors/rashidov-jasur-komilovich.webp"
     },
@@ -606,7 +606,7 @@
       "experienceUz": "13 yillik tajriba",
       "bioRu": "Султонов Тимур Исмоилович десткий хирург. 1 категория. Колоноскопист.",
       "bioUz": "Султонов Тимур Исмоилович — болалар хирурги, 1-тоифали шифокор, колоноскопист.",
-      "department": "surgery",
+      "department": "dept-mpwpwitr70f50ud49ooj",
       "order": 39,
       "photo": "/images/doctors/sultanov-temur-ismailovich.webp"
     },
@@ -621,7 +621,7 @@
       "experienceUz": "26 yillik tajriba",
       "bioRu": "Заведующая отделением Арипова Гулнара Маликовна. Кардиоревматолог врач высшей категории.\nповышала квалификацию в Кореи, России.\n",
       "bioUz": "Бўлим мудираси\nАрипова Гулнара Маликовна.\nОлий тоифали кардиоревматолог шифокор.\nКорея ва Россияда малакасини оширган.",
-      "department": "cardiorheumatology",
+      "department": "dept-dazoncijritgvj6pz8cs",
       "order": 40,
       "photo": "/images/doctors/aripova-gulnora-malikovna.webp"
     },
@@ -636,7 +636,7 @@
       "experienceUz": "31 yillik tajriba",
       "bioRu": "Заведующий отделением Врач лаборант Стаж 31 лет Квалификация :клиник имунохимик (IFA,IXLA) МОЛЕКУЛЯР ДИАГНОСТИ-КА 01,03,2025 TURLI NOZOLOGIYA IABORATOR TAXLIL NATIJALARI INTERPRITATSIYASI 30,04,2025",
       "bioUz": "Бўлим мудираси\nЛаборант шифокор\nИш стажи: 31 йил\n\nМалакаси: клиник иммунохимик (IFA, IXLA), молекуляр диагностика\n01.03.2025\n\nТурли нозологиялар бўйича лаборатор таҳлил натижаларини интерпретация қилиш\n30.04.2025",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "order": 41,
       "photo": "/images/doctors/baxramjanova-xilola-xojimurotovna.webp"
     },
@@ -651,7 +651,7 @@
       "experienceUz": "33 yillik tajriba",
       "bioRu": "Врач лаборант высшей категории  квалификация:klinik amaliyotda imunoferment analizi va zanjirli polimeraza reaksiyasi 29,04,2023",
       "bioUz": "Олий тоифали лаборант шифокор\n\nМалакаси: клиник амалиётда иммунофермент таҳлил ва полимераз занжир реакцияси\n29.04.2023",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "photo": "",
       "order": 42
     },
@@ -666,7 +666,7 @@
       "experienceUz": "стажи: 33 йил",
       "bioRu": "Врач лаборант высшей категории",
       "bioUz": "Олий тоифали лаборант шифокор",
-      "department": "surgery",
+      "department": "diagnostika",
       "order": 43,
       "photo": "/images/doctors/zakirova-lobar-vaxabovna.webp"
     },
@@ -683,7 +683,7 @@
       "bioUz": "2-тоифали лаборант шифокор\nМалакаси: 2025 — лаборатор таҳлилларнинг клиник талқини",
       "photo": "",
       "order": 44,
-      "department": "diagnostics"
+      "department": "diagnostika"
     },
     {
       "id": "o7VvFnPIVziOm0pR2DOg",
@@ -696,7 +696,7 @@
       "experienceUz": "Tajriba 11 yil",
       "bioRu": "Врач лаборант 1 категории Квалификация 2024 клиник лаборатория диагностика",
       "bioUz": "1-тоифали лаборант шифокор\nМалакаси 2024 — клиник лаборатория диагностика",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "photo": "",
       "order": 45
     },
@@ -711,7 +711,7 @@
       "experienceUz": "стажи 10 йил",
       "bioRu": "Врач лаборант 1 категория  Квалификация: turli nazologiya laborator tahlil natijalari interpritatsiyasi",
       "bioUz": "1-тоифали лаборант шифокор\nМалакаси: турли нозологиялар бўйича лаборатор таҳлил натижаларини интерпретация қилиш",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "photo": "",
       "order": 46
     },
@@ -726,7 +726,7 @@
       "experienceUz": "стажи 12 йил",
       "bioRu": "Врач лаборант 2 категория  Квалификация: 29.11.2025 КЛИНИК имунологик (ихла , Ифа)Молекляр диа-гностика (зпр) усулларда тахлил натижаларини тогри бахолаш",
       "bioUz": "2-тоифали лаборант шифокор\nМалакаси: 29.11.2025 — клиник иммунологик (ИХЛА, ИФА) ва молекуляр диагностика (ПЗР) усулларида таҳлил натижаларини тўғри баҳолаш",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "order": 47,
       "photo": "/images/doctors/rahmonova-zilola-dilshodovna.webp"
     },
@@ -741,7 +741,7 @@
       "experienceUz": "Tajriba 1 yil",
       "bioRu": "Врач лаборант",
       "bioUz": "Лаборант шифокор",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "order": 48,
       "photo": "/images/doctors/matchanova-bonu-baxtior.webp"
     },
@@ -756,7 +756,7 @@
       "experienceUz": "стажи: 24 йил",
       "bioRu": "Врач лаборант\nКвалификация: 01,04,2024 Mikrobiologiya ,imunologiya va molikulyar genetika asoslarui kafedrasida Sayfutdinov Zayniddin Asamutdinovich raxbarligida",
       "bioUz": "Лаборант шифокор\nМалакаси: 01.04.2024 — Микробиология, иммунология ва молекуляр генетика асослари кафедрасида Сайфутдинов Зайниддин Асомутдинович раҳбарлигида",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "photo": "",
       "order": 49
     },
@@ -771,7 +771,7 @@
       "experienceUz": "Стажи 30 йил",
       "bioRu": "Врач лаборант Высшей категории квалификаця: klinik imunologik (ixla, Ifa) va molekular diagnostika (zpr) usullarda taxlil natijalarini togri baholash",
       "bioUz": "Олий тоифали лаборант шифокор\nМалакаси: клиник иммунологик (ИХЛА, ИФА) ва молекуляр диагностика (ПЗР) усулларида таҳлил натижаларини тўғри баҳолаш",
-      "department": "diagnostics",
+      "department": "diagnostika",
       "photo": "",
       "order": 50
     },
@@ -786,7 +786,7 @@
       "experienceUz": "",
       "bioRu": "Заведующий кафедрой офтальмологии, доктор медицинских наук, профессор.",
       "bioUz": "Офтальмология кафедраси мудири, тиббиёт фанлари доктори, профессор",
-      "department": "ophthalmology",
+      "department": "3",
       "photo": "",
       "order": 51
     },
@@ -801,7 +801,7 @@
       "experienceUz": "",
       "bioRu": "Заведующий отделением офтальмологии, врач высшей категории.",
       "bioUz": "Офтальмология бўлим мудири, олий тоифали шифокор",
-      "department": "ophthalmology",
+      "department": "3",
       "order": 52,
       "photo": "/images/doctors/muratova-ilmira-xodievna.webp"
     },
@@ -816,7 +816,7 @@
       "experienceUz": "",
       "bioRu": "Доцент кафедры, кандидат медицинских наук",
       "bioUz": "Кафедра доценти, тиббиёт фанлари номзоди",
-      "department": "ophthalmology",
+      "department": "3",
       "photo": "",
       "order": 53
     },
@@ -831,7 +831,7 @@
       "experienceUz": "",
       "bioRu": "Доцент кафедры, кандидат медицинских наук.",
       "bioUz": "Кафедра доценти, тиббиёт фанлари номзоди",
-      "department": "ophthalmology",
+      "department": "3",
       "photo": "",
       "order": 54
     },
@@ -846,7 +846,7 @@
       "experienceUz": "",
       "bioRu": "Офтальмолог консультативно-диагностической поликлиники, врач высшей категории.",
       "bioUz": "Консультатив -диагностика поликлиникаси офтальмологи, Олий тоифали шифокор",
-      "department": "ophthalmology",
+      "department": "3",
       "order": 55,
       "photo": "/images/doctors/gulamova-gulnoza-maxamatovna.webp"
     },
@@ -861,7 +861,7 @@
       "experienceUz": "",
       "bioRu": "Ординатор отделения, врач высшей категории.",
       "bioUz": "Бўлим ординатори, олий тоифали шифокор",
-      "department": "ophthalmology",
+      "department": "3",
       "order": 56,
       "photo": "/images/doctors/sattarova-zulxumor-abdixashimovna.webp"
     },
@@ -876,7 +876,7 @@
       "experienceUz": "",
       "bioRu": "Ординатор отделения, врач высшей категории.",
       "bioUz": "Бўлим ординатори, олий тоифали шифокор",
-      "department": "ophthalmology",
+      "department": "3",
       "order": 57,
       "photo": "/images/doctors/najimuddinova-dilnoza-kudratillaevna.webp"
     },
@@ -891,7 +891,7 @@
       "experienceUz": "",
       "bioRu": "Ординатор отделения, врач первой категории.",
       "bioUz": "Бўлим ординатори, биринчи тоифали шифокор",
-      "department": "ophthalmology",
+      "department": "3",
       "order": 58,
       "photo": "/images/doctors/xakimova-guzal-xusanovna.webp"
     },
@@ -906,7 +906,7 @@
       "experienceUz": "",
       "bioRu": "Ординатор отделения, врач первой категории.",
       "bioUz": "Бўлим ординатори, биринчи тоифали шифокор",
-      "department": "ophthalmology",
+      "department": "3",
       "order": 59,
       "photo": "/images/doctors/primov-uchqun-elmurodovich.webp"
     },
@@ -921,7 +921,7 @@
       "experienceUz": "",
       "bioRu": "Ординатор отделения, врач второй категории.",
       "bioUz": "Бўлим ординатори, иккинчи тоифали шифокор",
-      "department": "ophthalmology",
+      "department": "3",
       "photo": "",
       "order": 60
     },
@@ -936,7 +936,7 @@
       "experienceUz": "",
       "bioRu": "Доктор медицинских наук, профессор Специалист высшей категории, ученый, внесший значительный вклад в развитие детской оториноларингологии в Узбекистане.\n📋 Общая информация\nСаидакрам Аскарович является одним из ведущих экспертов Узбекистана в области ЛОР-заболеваний. Его деятельность сочетает в себе многолетний опыт практикующего хирурга, глубокую научно-исследовательскую работу и преподавание в ведущих медицинских вузах страны.\n•\tУченая степень: Доктор медицинских наук (DSc).\n•\tУченое звание: Профессор.\n•\tМесто работы: Профессор кафедры оториноларингологии, детской оториноларингологии и стоматологии Ташкентского педиатрического медицинского института (ТашПМИ).\n•\tКлиническая база: Ведет прием в клинике ТашПМИ (САМПИ) и специализированных ЛОР-центрах.\n🔬 Научная деятельность и достижения\nПрофессор Хасанов известен своими разработками в области малоинвазивной хирургии и лечения хронических заболеваний верхних дыхательных путей у детей.\nКлючевые направления исследований:\n•\tИнновационные методы лечения: Разработка беспункционных методов лечения гайморитов и фронтитов.\n•\tДетская оториноларингология: Совершенствование диагностики и хирургического лечения аденоидов у детей.\n•\tПрофилактика заболеваний: Исследование распространенности и профилактики хронического тонзиллита.\n•\tМеждисциплинарные исследования: Изучение влияния нарушений носового дыхания на развитие зубочелюстной системы.\nПрофессор является автором более 150 научных публикаций, учебных пособий и методических рекомендаций, используемых при подготовке молодых врачей.\n🩺 Практическая специализация\nВ своей клинической практике Саидакрам Аскарович применяет современные эндоскопические технологии, позволяющие проводить операции с минимальной травматичностью.\nСпектр услуг:\n•\tЛечение острых и хронических синуситов (гайморит, этмоидит).\n•\tХирургическое лечение заболеваний глотки (тонзиллит, аденоиды).\n•\tКоррекция патологий носового дыхания.\n•\tКонсультации и ведение пациентов со сложными патологиями ЛОР-органов.\n\n",
       "bioUz": "Тиббиёт фанлари доктори, профессор. Олий тоифали мутахассис, Ўзбекистонда болалар оториноларингологияси ривожига катта ҳисса қўшган олим.\n\n📋 Умумий маълумот\nСаидакрам Аскарович Ўзбекистоннинг ЛОР касалликлари соҳасидаги етакчи мутахассисларидан бири ҳисобланади. Унинг фаолияти амалиётчи жарроҳ сифатидаги кўп йиллик тажриба, чуқур илмий тадқиқотлар ва мамлакатнинг етакчи тиббиёт олийгоҳларидаги педагогик фаолиятни ўзида мужассам этган.\n\n• Илмий даражаси: Тиббиёт фанлари доктори (DSc).\n• Илмий унвони: Профессор.\n• Иш жойи: Тошкент педиатрия тиббиёт институти (ТошПТИ) оториноларингология, болалар оториноларингологияси ва стоматология кафедраси профессори.\n• Клиник базаси: ТошПТИ (САМПИ) клиникаси ва ихтисослаштирилган ЛОР марказларида қабул олиб боради.\n\n🔬 Илмий фаолияти ва ютуқлари\nПрофессор Хасанов болаларда юқори нафас йўлларининг сурункали касалликларини даволаш ва кам инвазив жарроҳлик усулларини ишлаб чиқиш бўйича илмий ишлари билан танилган.\n\nАсосий тадқиқот йўналишлари:\n• Инновацион даволаш усуллари: гайморит ва фронтитни пункциясиз даволаш усулларини ишлаб чиқиш.\n• Болалар оториноларингологияси: болаларда аденоидларни диагностика қилиш ва жарроҳлик йўли билан даволашни такомиллаштириш.\n• Касалликларни профилактика қилиш: сурункали тонзиллит тарқалиши ва унинг олдини олишни ўрганиш.\n• Фанлараро тадқиқотлар: бурун орқали нафас олиш бузилишларининг тиш-жағ тизими ривожланишига таъсирини ўрганиш.\n\nПрофессор 150 дан ортиқ илмий мақолалар, ўқув қўлланмалар ва ёш шифокорларни тайёрлашда қўлланиладиган методик тавсиялар муаллифи ҳисобланади.\n\n🩺 Амалий ихтисослиги\nСаидакрам Аскарович клиник амалиётида замонавий эндоскопик технологиялардан фойдаланади, бу эса операцияларни минимал жароҳат билан ўтказиш имконини беради.\n\nХизматлар спектри:\n• Ўткир ва сурункали синуситларни (гайморит, этмоидит) даволаш.\n• Ҳалқум касалликларини жарроҳлик йўли билан даволаш (тонзиллит, аденоидлар).\n• Бурун орқали нафас олиш патологияларини тузатиш.\n• ЛОР аъзоларининг мураккаб патологиялари бўлган беморларга консультация ва даволаш ишларини олиб бориш.",
-      "department": "ent",
+      "department": "4",
       "photo": "",
       "order": 61
     },
@@ -951,7 +951,7 @@
       "experienceUz": "",
       "bioRu": "Доктор медицинских наук, профессор\nВрач-оториноларинголог высшей категории, видный ученый и педагог, внесший огромный вклад в развитие отохирургии и ринологии в Республике Узбекистан.\n\n📋 Общая информация\nХуррам Эсанкулович — признанный эксперт в области диагностики и хирургического лечения заболеваний уха, горла и носа. Его научно-практическая деятельность тесно связана с развитием высокотехнологичной медицинской помощи как для взрослых, так и для детей.\n\nУченая степень: Доктор медицинских наук (DSc).\n\nУченое звание: Профессор.\n\nМесто работы: Кафедра оториноларингологии, детской оториноларингологии и стоматологии Ташкентского педиатрического медицинского института (ТашПМИ).\n\nПрофессиональный статус: главный оториноларинголог республики узбекистан\n\n🔬 Научная деятельность и вклад в медицину\nПрофессор Карабаев активно занимается развитием микрохирургии уха и внедрением современных стандартов лечения ЛОР-патологий. Под его руководством защищен ряд кандидатских и докторских диссертаций.\n\n",
       "bioUz": "Тиббиёт фанлари доктори, профессор\nОлий тоифали врач-оториноларинголог, Ўзбекистон Республикасида отохирургия ва ринология ривожига улкан ҳисса қўшган таниқли олим ва педагог.\n\n📋 Умумий маълумот\nХуррам Эсанқулович қулоқ, томоқ ва бурун касалликларини диагностика қилиш ҳамда жарроҳлик йўли билан даволаш соҳасида тан олинган мутахассис ҳисобланади. Унинг илмий-амалий фаолияти катталар ва болалар учун юқори технологияли тиббий ёрдамни ривожлантириш билан чамбарчас боғлиқ.\n\n• Илмий даражаси: Тиббиёт фанлари доктори (DSc).\n• Илмий унвони: Профессор.\n• Иш жойи: Тошкент педиатрия тиббиёт институти (ТошПТИ) оториноларингология, болалар оториноларингологияси ва стоматология кафедраси.\n• Профессионал мақоми: Ўзбекистон Республикаси бош оториноларингологи.\n\n🔬 Илмий фаолияти ва тиббиётга қўшган ҳиссаси\nПрофессор Карабаев қулоқ микрохирургиясини ривожлантириш ва ЛОР патологияларини даволашнинг замонавий стандартларини жорий этиш билан фаол шуғулланади. Унинг раҳбарлигида қатор номзодлик ва докторлик диссертациялари ҳимоя қилинган.",
-      "department": "ent",
+      "department": "4",
       "photo": "",
       "order": 62
     },
@@ -966,7 +966,7 @@
       "experienceUz": "",
       "bioRu": "Кандидат медицинский наук  Высококвалифицированный ЛОР-хирург, ученый и педагог, эксперт в области диагностики и лечения сложных патологий верхних дыхательных путей и уха.\n📋 Общая информация\nХабибулло Нусратуллаевич успешно совмещает многолетнюю хирургическую практику с активной научно-исследовательской работой. Он занимается подготовкой будущих поколений врачей и внедрением современных стандартов ЛОР-помощи.\n•\tУченая степень: кмн.\n•\tУченое звание: доцент\n•\tМесто работы: Кафедра оториноларингологии, детской оториноларингологии и стоматологии Ташкентского педиатрического медицинского института (ТашПМИ).\n•\tСпециализация: Оториноларингология (взрослая и детская).\n🔬 Научная деятельность и вклад в медицину\nНаучные труды профессора Абдулаева направлены на улучшение результатов хирургического лечения и снижение рисков осложнений при различных ЛОР-патологиях\n",
       "bioUz": "Тиббиёт фанлари номзоди\nЮқори малакали ЛОР-жарроҳ, олим ва педагог, юқори нафас йўллари ҳамда қулоқнинг мураккаб патологияларини диагностика қилиш ва даволаш соҳасида мутахассис.\n\n📋 Умумий маълумот\nХабибулло Нусратуллаевич кўп йиллик жарроҳлик амалиётини фаол илмий-тадқиқот ишлари билан муваффақиятли олиб боради. У келажак шифокорларини тайёрлаш ва ЛОР ёрдамининг замонавий стандартларини жорий этиш билан шуғулланади.\n\n• Илмий даражаси: Тиббиёт фанлари номзоди (к.м.н.).\n• Илмий унвони: Доцент.\n• Иш жойи: Тошкент педиатрия тиббиёт институти (ТошПТИ) оториноларингология, болалар оториноларингологияси ва стоматология кафедраси.\n• Ихтисослиги: Оториноларингология (катталар ва болалар).\n\n🔬 Илмий фаолияти ва тиббиётга қўшган ҳиссаси\nПрофессор Абдулаевнинг илмий ишлари турли ЛОР патологияларида жарроҳлик даволаш натижаларини яхшилаш ва асоратлар хавфини камайтиришга қаратилган.",
-      "department": "ent",
+      "department": "4",
       "photo": "",
       "order": 63
     },
@@ -981,7 +981,7 @@
       "experienceUz": "",
       "bioRu": "Доктор медицинских наук, Врач-оториноларинголог высшей категории, авторитетный ученый и педагог, эксперт в области взрослой и детской оториноларингологии.\n📋 Общая информация\nУлугбек Башруллаевич является одним из ключевых специалистов Ташкентского педиатрического медицинского института. успешно совмещает многолетнюю практическую работу врача-хирурга, обучение молодых специалистов и активную научно-исследовательскую деятельность.\n•\tУченая степень: Доктор медицинских наук (DSc).\n•\tУченое звание: доцент\n•\tМесто работы: Кафедра оториноларингологии, детской оториноларингологии и стоматологии Ташкентского педиатрического медицинского института (ТашПМИ).\n•\tКлиническая база: Ведет консультативный прием и оперативную деятельность в клинике ТашПМИ (САМПИ).\n🔬 Научная деятельность и вклад в науку\nНаучные исследования профессора Мухитдинова направлены на оптимизацию методов лечения воспалительных и аллергических заболеваний ЛОР-органов, а также на разработку органосохраняющих хирургических подходов.\nНаправления исследований:\nОсновные клинические направления:\n•\tДиагностика и лечение затрудненного носового дыхания (искривление перегородки, полипы, вазомоторный ринит).\n•\tКонсервативное и оперативное лечение хронических заболеваний глотки и гортани.\n•\tЭндоскопическая диагностика заболеваний носоглотки у детей.\n•\tВедение пациентов со сложными, трудноподдающимися лечению формами синуситов.\n🏛️ Профессиональный статус и общественная деятельность\n•\tПостоянный участник республиканских и международных конгрессов, съездов и научно-практических конференций оториноларингологов.\n•\tПринимает активное участие в работе Ассоциации оториноларингологов Узбекистана.\n•\tОсуществляет научное руководство и наставничество для магистров, клинических ординаторов и молодых исследователей.\n",
       "bioUz": "Тиббиёт фанлари доктори, олий тоифали врач-оториноларинголог, катталар ва болалар оториноларингологияси соҳасидаги нуфузли олим ва педагог.\n\n📋 Умумий маълумот\nУлуғбек Башруллаевич Тошкент педиатрия тиббиёт институтининг етакчи мутахассисларидан бири ҳисобланади. У кўп йиллик жарроҳлик амалиёти, ёш мутахассисларни ўқитиш ва фаол илмий-тадқиқот ишларини муваффақиятли бирлаштириб келмоқда.\n\n• Илмий даражаси: Тиббиёт фанлари доктори (DSc).\n• Илмий унвони: Доцент.\n• Иш жойи: Тошкент педиатрия тиббиёт институти (ТошПТИ) оториноларингология, болалар оториноларингологияси ва стоматология кафедраси.\n• Клиник базаси: ТошПТИ (САМПИ) клиникасида консультацион қабул ва жарроҳлик фаолиятини олиб боради.\n\n🔬 Илмий фаолияти ва фанга қўшган ҳиссаси\nПрофессор Мухитдиновнинг илмий тадқиқотлари ЛОР аъзоларининг яллиғланиш ва аллергик касалликларини даволаш усулларини такомиллаштириш, шунингдек органни сақлаб қолувчи жарроҳлик ёндашувларини ишлаб чиқишга қаратилган.\n\nТадқиқот йўналишлари:\nАсосий клиник йўналишлар:\n• Бурун орқали нафас олиш қийинлашувини диагностика қилиш ва даволаш (бурун тўсиғининг қийшайиши, полиплар, вазомотор ринит).\n• Ҳалқум ва ҳиқилдоқнинг сурункали касалликларини консерватив ва жарроҳлик йўли билан даволаш.\n• Болаларда носоғиз соҳаси касалликларини эндоскопик диагностика қилиш.\n• Даволаш қийин бўлган мураккаб синусит шакллари билан оғриган беморларни олиб бориш.\n\n🏛️ Профессионал мақоми ва жамоатчилик фаолияти\n• Республика ва халқаро конгресслар, қурултойлар ҳамда оториноларингологларнинг илмий-амалий конференцияларининг доимий иштирокчиси.\n• Ўзбекистон оториноларингологлар ассоциацияси фаолиятида фаол қатнашади.\n• Магистрлар, клиник ординаторлар ва ёш тадқиқотчиларга илмий раҳбарлик ва устозлик қилади.",
-      "department": "ent",
+      "department": "4",
       "photo": "",
       "order": 64
     },
@@ -996,7 +996,7 @@
       "experienceUz": "",
       "bioRu": "Доктор философии, PhD Врач-оториноларинголог высшей категории, ведущий эксперт в области детской и взрослой оториноларингологии,.\n📋 Общая информация\nВисола Шоназаровна — признанный специалист в сфере диагностики, консервативного и хирургического лечения заболеваний ЛОР-органов. Она успешно совмещает многолетнюю клиническую практику, проведение сложнейших операций, научно-исследовательскую деятельность и подготовку молодых медицинских кадров.\n•\tУченая степень: Доктор философии, PhD\n•\tМесто работы: Кафедра оториноларингологии, детской оториноларингологии и стоматологии Ташкентского педиатрического медицинского института (ТашПМИ).\n•\tКлиническая база: Консультирует и оперирует в клинике ТашПМИ (САМПИ), а также в ведущих медицинских центрах Ташкента.\n🔬 Научная деятельность и вклад в медицину\nНаучные исследования профессора Хамраевой посвящены поиску и внедрению наиболее безопасных, эффективных и малоинвазивных методов лечения патологий уха, горла и носа, особенно в детском возрасте.\nКлючевые направления исследований:\n•\tИнновации в ринологии: Оптимизация тактики комплексного лечения острых и хронических риносинуситов (гайморитов, фронтитов, этмоидитов).\n•\tПатологии слухового аппарата: Профилактика, ранняя диагностика и лечение экссудативных и гнойных отитов у детей.\n•\tИммунобиологические аспект ЛОР-заболеваний: Изучение факторов местного иммунитета слизистых оболочек дыхательных путей при затяжных инфекциях.\nавтором многочисленных научных трудов, монографий, учебных пособий и патентов на изобретения, активно применяемых на практике врачами по всей республике.\n🩺 Практическая специализация\nВ своей практической работе Висола Шоназаровна использует современное высокотехнологичное оборудование и видеоэндоскопические системы, что обеспечивает высокую точность диагностики и минимальную травматичность операций.\nСпектр оказываемой помощи:\n•\tПроведение эндоскопического осмотра носоглотки и околоносовых пазух.\n•\tХирургическое лечение заболеваний глоточного кольца (аденотомия, тонзиллэктомия).\n•\tФункциональная хирургия полости носа (септопластика, щадящая редукция носовых раковин для восстановления дыхания).\n•\tСанирующая и реконструктивная микрохирургия уха,  слухоулучщаюшые операции  на ухе-все виды тимпанопластики\n•\tЭкспертное консультирование и ведение пациентов в сложных, рецидивирующих и спорных клинических случаях.\n",
       "bioUz": "Фалсафа доктори (PhD), олий тоифали врач-оториноларинголог, болалар ва катталар оториноларингологияси соҳасидаги етакчи мутахассис.\n\n📋 Умумий маълумот\nВисола Шоназаровна ЛОР аъзолари касалликларини диагностика қилиш, консерватив ва жарроҳлик йўли билан даволаш соҳасида тан олинган мутахассис ҳисобланади. У кўп йиллик клиник амалиёт, мураккаб операцияларни бажариш, илмий-тадқиқот ишлари ва ёш тиббиёт кадрларини тайёрлашни муваффақиятли олиб боради.\n\n• Илмий даражаси: Фалсафа доктори (PhD).\n• Иш жойи: Тошкент педиатрия тиббиёт институти (ТошПТИ) оториноларингология, болалар оториноларингологияси ва стоматология кафедраси.\n• Клиник базаси: ТошПТИ (САМПИ) клиникасида ҳамда Тошкентнинг етакчи тиббиёт марказларида консультация ва жарроҳлик амалиётларини олиб боради.\n\n🔬 Илмий фаолияти ва тиббиётга қўшган ҳиссаси\nПрофессор Хамраеванинг илмий тадқиқотлари қулоқ, томоқ ва бурун патологияларини, айниқса болаларда, хавфсиз, самарали ва кам инвазив усуллар билан даволашни такомиллаштиришга қаратилган.\n\nАсосий тадқиқот йўналишлари:\n• Ринологияда инновациялар: ўткир ва сурункали риносинуситларни (гайморит, фронтит, этмоидит) комплекс даволаш тактикасини оптималлаштириш.\n• Эшитиш аппарати патологиялари: болаларда экссудатив ва йирингли отитларнинг профилактикаси, эрта диагностикаси ва даволаш.\n• ЛОР касалликларининг иммунобиологик жиҳатлари: нафас йўллари шиллиқ қаватининг маҳаллий иммунитет омилларини узоқ давом этувчи инфекциялар шароитида ўрганиш.\n\nУ республика бўйлаб амалиётда қўлланилаётган кўплаб илмий ишлар, монографиялар, ўқув қўлланмалар ва ихтиролар учун патентлар муаллифи ҳисобланади.\n\n🩺 Амалий ихтисослиги\nВисола Шоназаровна ўз амалиётида замонавий юқори технологияли ускуналар ва видеоэндоскопик тизимлардан фойдаланади, бу эса юқори аниқликда диагностика ва минимал жароҳатли операцияларни таъминлайди.\n\nКўрсатиладиган ёрдам турлари:\n• Носоғиз ва ён бурун бўшлиқларини эндоскопик текшириш.\n• Ҳалқум ҳалқаси касалликларини жарроҳлик йўли билан даволаш (аденотомия, тонзиллэктомия).\n• Бурун бўшлиғининг функционал жарроҳлиги (септопластика, нафас олишни тиклаш учун бурун чаноқларини эҳтиёткорлик билан қисқартириш).\n• Қулоқнинг санацияловчи ва реконструктив микрохирургияси, эшитишни яхшиловчи операциялар — тимпанопластиканинг барча турлари.\n• Мураккаб, қайта-қайта кузатиладиган ва баҳсли клиник ҳолатларда эксперт консультацияси ва беморларни олиб бориш.",
-      "department": "ent",
+      "department": "4",
       "photo": "",
       "order": 65
     },
@@ -1011,24 +1011,24 @@
       "experienceUz": "24 yoshda",
       "bioRu": "Проходил стажеровку в нескоих зарубежных городов (Турция,Китай ,Япония) Высшая Категория.",
       "bioUz": "Туркия, Хитой ва Япония каби бир нечта хорижий давлатларда стажировка ўтаган. Олий тоифали мутахассис.",
-      "department": "reanimation",
+      "department": "dept-suaz5avxjrloezvpbeld",
       "photo": "",
       "order": 66
     },
     {
       "id": "hMpOaET12wa8OGkB7SwL",
-      "slug": "gaziev-bahtiyor-hushanovich",
-      "nameRu": "Газиев Бахтиёр Хушанович",
-      "nameUz": "Gaziev Baxtiyor Xushanovich",
-      "specialtyRu": "Анестезиолог-реаниматолог",
-      "specialtyUz": "Anesteziolog-reanimatolog",
-      "experienceRu": "30 лет ",
-      "experienceUz": "30 yoshda",
-      "bioRu": "Врач высшей категории.",
-      "bioUz": "Oliy toifali shifokor.",
-      "department": "reanimation",
-      "photo": "",
-      "order": 67
+      "slug": "gazieva-gulnoza-mahamadzhanovna",
+      "nameRu": "Газиева Гулноза Махамаджановна",
+      "nameUz": "Gaziyeva Gulnoza Maxamajanovna",
+      "specialtyRu": "Детский невролог, нейросурдолог и нейрофизиолог",
+      "specialtyUz": "Bolalar nevrologi, neyrosurdolog va neyrofiziolog",
+      "experienceRu": "Стаж 20 лет",
+      "experienceUz": "Ish tajribasi: 20 yil",
+      "bioRu": "Детский невролог, нейросурдолог и нейрофизиолог.\n\nЭксперт в области: перинатальной неврологии, заболеваний центральной и периферической нервной системы, эпилепсии, реабилитологии.",
+      "bioUz": "Bolalar nevrologi, neyrosurdolog va neyrofiziolog.\n\nMutaxassislik: perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "photo": "/images/doctors/gazieva-gulnoza-maxamatjanovna.webp",
+      "order": 74
     },
     {
       "id": "wpKRj26KZrLbVABGb6Yk",
@@ -1041,7 +1041,7 @@
       "experienceUz": "27 yoshda",
       "bioRu": "Проходила стажировку в Турции. Врач высшей категории.",
       "bioUz": "Туркияда стажировка ўтаган. Олий тоифали шифокор.",
-      "department": "reanimation",
+      "department": "dept-suaz5avxjrloezvpbeld",
       "order": 68,
       "photo": "/images/doctors/tursunova-manzura-saydazimovna.webp"
     },
@@ -1056,7 +1056,7 @@
       "experienceUz": "30 yoshda",
       "bioRu": "Врач высшей категории.",
       "bioUz": "Oliy toifali shifokor.",
-      "department": "reanimation",
+      "department": "dept-suaz5avxjrloezvpbeld",
       "photo": "",
       "order": 69
     },
@@ -1071,7 +1071,7 @@
       "experienceUz": "17 yoshda",
       "bioRu": "Врач высшей категории.",
       "bioUz": "Oliy toifali shifokor.",
-      "department": "reanimation",
+      "department": "dept-suaz5avxjrloezvpbeld",
       "photo": "",
       "order": 70
     },
@@ -1086,7 +1086,7 @@
       "experienceUz": "15 yil",
       "bioRu": "Врач высшей категории.",
       "bioUz": "Oliy toifali shifokor.",
-      "department": "reanimation",
+      "department": "dept-suaz5avxjrloezvpbeld",
       "photo": "",
       "order": 71
     },
@@ -1101,7 +1101,7 @@
       "experienceUz": "3 yil",
       "bioRu": "Врач второй категории.",
       "bioUz": "Ikkinchi toifali shifokor.",
-      "department": "reanimation",
+      "department": "dept-suaz5avxjrloezvpbeld",
       "order": 72,
       "photo": "/images/doctors/orolov-odil-xusanovich.webp"
     },
@@ -1230,14 +1230,14 @@
       "slug": "sattorov-adham-sadriddinovich",
       "nameRu": "Сатторов Адхам Садриддинович",
       "nameUz": "Sattorov Adham Sadriddinovich",
-      "specialtyRu": "Невролог, нейрофизиолог",
-      "specialtyUz": "Nevrolog, neyrofiziolog",
-      "experienceRu": "Стаж работы: 13 лет",
+      "specialtyRu": "Детский невролог, нейрофизиолог",
+      "specialtyUz": "Bolalar nevrologi, neyrofiziolog",
+      "experienceRu": "Стаж 13 лет",
       "experienceUz": "Ish tajribasi: 13 yil",
-      "bioRu": "Детский невролог, нейрофизиолог\n\nКвалификационная категория: Вторая квалификационная категория.\n\nСтаж работы: 13 лет.\n\nСпециализируется на диагностике и лечении заболеваний центральной и периферической нервной системы у детей. Занимается реабилитацией детей с задержкой психического и физического развития. Является специалистом по фармакопунктуре и иглорефлексотерапии (акупунктуре).",
-      "bioUz": "Bolalar nevrologi, neyrofiziolog\n\nMalaka toifasi: Ikkinchi malaka toifasi.\n\nIsh tajribasi: 13 yil.\n\nBolalarda markaziy va periferik asab tizimining kasalliklarini tashxislash va davolashga ixtisoslashgan. Aqliy va jismoniy rivojlanishida kechikkan bolalarni reabilitatsiya qilishga qaratilgan. Farmakopunktur va akupunktur bo'yicha mutaxassis.\n\n",
+      "bioRu": "Детский невролог, нейрофизиолог.\n\nЭксперт в области: реабилитологии, эпилептологии, заболеваний периферической и центральной нервной системы, иглорефлексотерапии.",
+      "bioUz": "Bolalar nevrologi, neyrofiziolog.\n\nMutaxassislik: reabilitologiya, epileptologiya, periferik va markaziy asab tizimi kasalliklari, ignorefleksoterapiya.",
       "department": "dept-ypjjupwone39whuz7nw1",
-      "order": 83,
+      "order": 75,
       "photo": "/images/doctors/sattorov-adxam-sadridinovich.webp"
     },
     {
@@ -1288,16 +1288,16 @@
     {
       "id": "fKQfcsXXlmYOCn5rpwN7",
       "slug": "balayan-asmik-yurevna",
-      "nameRu": "Балаян Асмик Юрьевна",
-      "nameUz": "Balayan Asmik Yuryevna ",
-      "specialtyRu": "Детский невролог ",
-      "specialtyUz": "Bolalar nevrologi",
-      "experienceRu": "стаж 19 лет",
-      "experienceUz": "19 yillik tajriba",
-      "bioRu": "Врач-детский невролог высшей квалификационной категории с 19-летним опытом практической работы.\n\nСпециализируется на диагностике и лечении заболеваний нервной системы у детей с рождения до 18 лет. Имеет значительный опыт ведения пациентов с эпилепсией, задержками психоречевого и моторного развития, расстройствами аутистического спектра, СДВГ, нарушениями сна, головными болями и другими неврологическими заболеваниями.\n\nПостоянно совершенствует профессиональные знания и навыки, прошла обучение в Латвийской школе эпилептологов, где освоила современные международные подходы к диагностике и лечению эпилепсии у детей.\n\nВ своей работе придерживается принципов доказательной медицины, сочетая высокий профессионализм, внимательное отношение к каждому пациенту и индивидуальный подход к решению клинических задач. Главная цель — помочь ребенку раскрыть свой потенциал и обеспечить ему максимально высокое качество жизни.\n\n",
-      "bioUz": "19 yillik amaliy tajribaga ega bo‘lgan oliy toifali bolalar nevrologi.\n\nU tug‘ilgandan 18 yoshgacha bo‘lgan bolalarda asab tizimi kasalliklarini tashxislash va davolashga ixtisoslashgan. Epilepsiya, psixonutq va harakat rivojlanishining kechikishi, autizm spektri buzilishlari, DEHB (diqqat yetishmovchiligi va giperaktivlik sindromi), uyqu buzilishlari, bosh og‘riqlari hamda boshqa nevrologik kasalliklarga chalingan bolalarni kuzatish va davolash bo‘yicha katta tajribaga ega.\n\nKasbiy bilim va ko‘nikmalarini muntazam ravishda takomillashtirib boradi. Latviyadagi Epileptologlar maktabida tahsil olib, bolalarda epilepsiyani tashxislash va davolashning zamonaviy xalqaro yondashuvlarini o‘zlashtirgan.\n\nO‘z faoliyatida dalillarga asoslangan tibbiyot tamoyillariga amal qiladi, yuqori professionallik, har bir bemorga e’tibor va individual yondashuvni uyg‘unlashtiradi. Uning asosiy maqsadi — har bir bolaning imkoniyatlarini to‘liq namoyon etishiga va hayot sifatini yaxshilashga yordam berishdir.\n",
+      "nameRu": "Балаян Асмик Юраевна",
+      "nameUz": "Balayan Asmik Yurayevna",
+      "specialtyRu": "Невролог, детский невролог и нейрофизиолог",
+      "specialtyUz": "Nevrolog, bolalar nevrologi va neyrofiziolog",
+      "experienceRu": "Стаж 19 лет",
+      "experienceUz": "Ish tajribasi: 19 yil",
+      "bioRu": "Невролог, детский невролог и нейрофизиолог.\n\nЭксперт в области: перинатальной неврологии, заболеваний центральной и периферической нервной системы, эпилепсии, реабилитологии, сомнологии.\n\nСтажировка в Латвии, г. Санкт-Петербург (Россия).",
+      "bioUz": "Nevrolog, bolalar nevrologi va neyrofiziolog.\n\nMutaxassislik: perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya, somnologiya.\n\nLatviya va Sankt-Peterburg (Rossiya)da stajirovka.",
       "department": "dept-ypjjupwone39whuz7nw1",
-      "order": 87,
+      "order": 73,
       "photo": "/images/doctors/balaan-asmik-uraevna.webp"
     },
     {
@@ -1316,21 +1316,6 @@
       "photo": "/images/doctors/magdieva-muborak-zaynutdinovna.webp"
     },
     {
-      "id": "JV26NPgQ7dhkqCDqAlzZ",
-      "slug": "gazieva-gulnoza-mahamadzhanovna",
-      "nameRu": "Газиева Гульноза Махамаджановна",
-      "nameUz": "Gaziyeva Gulnoza Mahamadjanovna ",
-      "specialtyRu": "Невролог",
-      "specialtyUz": "Nevrolog",
-      "experienceRu": "Стаж 20 лет",
-      "experienceUz": "20 yillik tajriba",
-      "bioRu": "Детский невролог, нейросурдолог и нейрофизиолог с 20-летним практическим опытом.\nОна является экспертом в области перинатальной неврологии, заболеваний центральной и периферической нервной системы, эпилепсии, задержки психоречевого и двигательного развития, расстройств аутистического спектра, СДВГ (синдром дефицита внимания и гиперактивности), нарушений сна, головных болей, энуреза и энкопреза, а также реабилитологии. Имея большой опыт, она способна находить эффективные решения при диагностике и лечении сложных состояний, связанных с нервной системой у детей разного возраста.\nПостоянно совершенствует свои профессиональные знания и навыки, внедряет в практику новейшие научные достижения и современные методы лечения.\nВ своей деятельности строго придерживается принципов доказательной медицины, обеспечивая индивидуальный подход и внимание к каждому пациенту. Главная цель — максимально раскрыть потенциал каждого ребенка и внести свой вклад в улучшение качества его жизни.\n\n\n",
-      "bioUz": "20 yillik amaliy tajribaga ega bo‘lgan bolalar nevrologi, neyrosurdolog va neyrofiziolog.\nU perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari, epilepsiya, psixonutq va harakat rivojlanishining kechikishi, autizm spektri buzilishlari, DEHB (diqqat yetishmovchiligi va giperaktivlik sindromi), uyqu buzilishlari, bosh og‘riqlari, enurez va enkoprez hamda reabilitologiya sohalarida ekspert hisoblanadi. Katta tajribaga ega bo‘lib, turli yoshdagi bolalarda asab tizimi bilan bog‘liq murakkab holatlarni tashxislash va davolashda samarali yechimlar topishga qodir.\nKasbiy bilim va ko‘nikmalarini doimiy ravishda takomillashtirib boradi, so‘nggi ilmiy yutuqlar va zamonaviy davolash usullarini amaliyotga joriy etadi.\nO‘z faoliyatida dalillarga asoslangan tibbiyot tamoyillariga qat’iy amal qiladi, har bir bemorga individual yondashuv va e’tiborni ta’minlaydi. Asosiy maqsadi — har bir bolaning imkoniyatlarini to‘liq ochib berish va ularning hayot sifatini yaxshilashga hissa qo‘shishdir.\n",
-      "department": "dept-ypjjupwone39whuz7nw1",
-      "order": 89,
-      "photo": "/images/doctors/gazieva-gulnoza-maxamatjanovna.webp"
-    },
-    {
       "id": "d7kY2rLiOr18tGKGwjR4",
       "slug": "rahimova-lobar-hayrullaevna",
       "nameRu": "Рахимова Лобар Хайруллаевна",
@@ -1344,6 +1329,111 @@
       "department": "diagnostika",
       "order": 90,
       "photo": "/images/doctors/raximova-lobarxon-xayrulla.webp"
+    },
+    {
+      "id": "vtc6PF15sxg9w",
+      "slug": "isamuhamedova-umida-rahimberdievna",
+      "nameRu": "Исамухамедова Умида Рахимбердиевна",
+      "nameUz": "Isamuhamedova Umida Rahimberdiyevna",
+      "specialtyRu": "Детский невролог, заведующая отделением",
+      "specialtyUz": "Bolalar nevrologi, bo‘lim mudiri",
+      "experienceRu": "Стаж 38 лет",
+      "experienceUz": "Ish tajribasi: 38 yil",
+      "bioRu": "Детский невролог. Заведующая отделением детской неврологии.\n\nЭксперт в области: перинатальной неврологии, заболеваний периферической нервной системы, эпилепсии, реабилитологии.\n\nСтажировка в Южной Корее.",
+      "bioUz": "Bolalar nevrologi. Bolalar nevrologiya bo‘limi mudiri.\n\nMutaxassislik: perinatal nevrologiya, periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.\n\nJanubiy Koreyada stajirovka.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "photo": "/images/doctors/isamuhamedova-umida-rahimberdievna.webp",
+      "order": 70
+    },
+    {
+      "id": "oOMH4Xj373mxxA",
+      "slug": "rahimova-feruza-bahtiyarovna",
+      "nameRu": "Рахимова Феруза Бахтияровна",
+      "nameUz": "Rahimova Feruza Baxtiyorovna",
+      "specialtyRu": "Врач-ординатор, детский невролог",
+      "specialtyUz": "Ordinar shifokor, bolalar nevrologi",
+      "experienceRu": "Стаж 16 лет",
+      "experienceUz": "Ish tajribasi: 16 yil",
+      "bioRu": "Врач-ординатор, детский невролог.\n\nЭксперт в области: перинатальной неврологии, заболеваний периферической нервной системы, эпилепсии, реабилитологии.",
+      "bioUz": "Ordinar shifokor, bolalar nevrologi.\n\nMutaxassislik: perinatal nevrologiya, periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "photo": "",
+      "order": 71
+    },
+    {
+      "id": "fRs82oRZYTCY3g",
+      "slug": "akmalova-zilola-tairovna",
+      "nameRu": "Акмалова Зилола Таировна",
+      "nameUz": "Akmalova Zilola Tairovna",
+      "specialtyRu": "Детский невролог, дежурный врач экстренного поста",
+      "specialtyUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori",
+      "experienceRu": "Стаж 15 лет",
+      "experienceUz": "Ish tajribasi: 15 yil",
+      "bioRu": "Детский невролог, дежурный врач экстренного поста.\n\nЭксперт в области: перинатальной неврологии, заболеваний центральной и периферической нервной системы, эпилепсии, реабилитологии.",
+      "bioUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori.\n\nMutaxassislik: perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "photo": "",
+      "order": 76
+    },
+    {
+      "id": "0RIMtTurrN0VPg",
+      "slug": "sharipova-nafisa-rafailovna",
+      "nameRu": "Шарипова Нафиса Рафаиловна",
+      "nameUz": "Sharipova Nafisa Rafailovna",
+      "specialtyRu": "Детский невролог, дежурный врач экстренного поста",
+      "specialtyUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori",
+      "experienceRu": "Стаж 16 лет",
+      "experienceUz": "Ish tajribasi: 16 yil",
+      "bioRu": "Детский невролог, дежурный врач экстренного поста.\n\nЭксперт в области: перинатальной неврологии, заболеваний центральной и периферической нервной системы.",
+      "bioUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori.\n\nMutaxassislik: perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "photo": "",
+      "order": 77
+    },
+    {
+      "id": "91vm4zEYV22Sg",
+      "slug": "soibov-alisher-shavkatovich",
+      "nameRu": "Соибов Алишер Шавкатович",
+      "nameUz": "Soibov Alisher Shavkatovich",
+      "specialtyRu": "Детский невролог, дежурный врач экстренного поста",
+      "specialtyUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori",
+      "experienceRu": "Стаж 5 лет",
+      "experienceUz": "Ish tajribasi: 5 yil",
+      "bioRu": "Детский невролог, дежурный врач экстренного поста.\n\nЭксперт в области: перинатальной неврологии, заболеваний центральной и периферической нервной системы, эпилепсии, реабилитологии.\n\nСтажировка в г. Санкт-Петербург (Россия).",
+      "bioUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori.\n\nMutaxassislik: perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.\n\nSankt-Peterburg (Rossiya)da stajirovka.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "photo": "",
+      "order": 78
+    },
+    {
+      "id": "IXbAP6ohTJtQpw",
+      "slug": "galimova-zarina-alikovna",
+      "nameRu": "Галимова Зарина Аликовна",
+      "nameUz": "Galimova Zarina Alikovna",
+      "specialtyRu": "Детский невролог, дежурный врач экстренного поста",
+      "specialtyUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori",
+      "experienceRu": "Стаж 2 года",
+      "experienceUz": "Ish tajribasi: 2 yil",
+      "bioRu": "Детский невролог, дежурный врач экстренного поста.\n\nЭксперт в области: перинатальной неврологии, заболеваний периферической нервной системы, эпилепсии, реабилитологии.",
+      "bioUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori.\n\nMutaxassislik: perinatal nevrologiya, periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "photo": "",
+      "order": 79
+    },
+    {
+      "slug": "usmanova-naina-anvarovna",
+      "nameRu": "Усманова Наина Анваровна",
+      "nameUz": "Usmanova Naina Anvarovna",
+      "specialtyRu": "Врач педиатр",
+      "specialtyUz": "Shifokor pediatr",
+      "experienceRu": "Стаж работы 39 лет",
+      "experienceUz": "39 yillik ish tajribasi",
+      "bioRu": "Заместитель главного врача по педиатрии. Стаж работы 39 лет. Врач педиатр",
+      "bioUz": "Pediatriya bo‘yicha bosh shifokor o‘rinbosari. 39 yillik kasbiy tajriba. Pediatr.\n\n",
+      "department": "pediatriya",
+      "photo": "/images/doctors/usmanova-naina-anvarovna.webp",
+      "order": 93,
+      "id": "4173c41bfc85e69a"
     }
   ],
   "services": [
@@ -16353,14 +16443,14 @@
     },
     {
       "id": "ypjJUPWONE39WHuz7nW1",
-      "nameRu": "Неврология (детская)",
-      "nameUz": "Nevrologiya (bolalar uchun)",
-      "descriptionRu": "Детская неврология — это раздел медицины, который занимается диагностикой, лечением и профилактикой заболеваний нервной системы у детей и подростков.\n\nВ отделении детской неврологии оказывают помощь при:\n\nзадержке речевого и психомоторного развития;\nголовных болях и головокружениях;\nнарушениях сна;\nсудорогах и эпилептических состояниях;\nповышенной возбудимости или гиперактивности;\nпоследствиях родовых травм;\nнарушениях координации и движений.\n\nСпециалисты проводят комплексную диагностику с использованием современных методов и подбирают индивидуальное лечение с учётом возраста ребёнка.\n\nОсобое внимание уделяется раннему выявлению нарушений и своевременной коррекции.\n\nГлавная цель — обеспечить правильное развитие нервной системы ребёнка, улучшить качество его жизни и предотвратить осложнения.",
-      "descriptionUz": "Bolalar nevrologiyasi — bu bolalar va o‘smirlarda asab tizimi kasalliklarini aniqlash, davolash va oldini olish bilan shug‘ullanuvchi tibbiyot yo‘nalishidir.\n\nBolalar nevrologiya bo‘limida quyidagi holatlarda yordam ko‘rsatiladi:\n\nnutq va psixomotor rivojlanishning kechikishi;\nbosh og‘rig‘i va bosh aylanishi;\nuyqu buzilishlari;\ntutqanoq va epileptik holatlar;\nortiqcha qo‘zg‘aluvchanlik yoki giperaktivlik;\ntug‘ruq jarohatlaridan keyingi asoratlar;\nharakat va muvofiqlashtirish buzilishlari.\n\nMutaxassislar zamonaviy usullar yordamida to‘liq diagnostika o‘tkazadilar va bolaning yoshiga mos individual davolashni belgilaydilar.\n\nErta aniqlash va o‘z vaqtida tuzatishga alohida e’tibor qaratiladi.\n\nAsosiy maqsad — bolaning asab tizimi to‘g‘ri rivojlanishini ta’minlash, uning hayot sifatini yaxshilash va asoratlarning oldini olishdir.",
-      "icon": "stethoscope",
-      "hasEmergency": false,
+      "nameRu": "Отделение детской неврологии",
+      "nameUz": "Bolalar nevrologiya bo‘limi",
+      "descriptionRu": "Отделение детской неврологии рассчитано на 20 коек.\n\nДетская неврология — это специализированный раздел медицины, изучающий развитие, а также занимающийся диагностикой, лечением и профилактикой расстройств центральной и периферической нервной системы у детей от младенческого возраста до 18 лет.\n\nВ отделении проводится консервативное лечение детей с неврологическими заболеваниями, обратившихся в плановом и в экстренном порядке: воспалительные заболевания нервной системы — энцефалиты, энцефаломиелиты, миелиты и их последствия; сосудистые заболевания нервной системы — острые и преходящие нарушения мозгового кровообращения по ишемическому типу и их последствия; демиелинизирующие заболевания; перинатальные поражения нервной системы и их последствия; эпилепсия и пароксизмальные состояния; нервно-мышечные и генетические заболевания нервной системы; последствия черепно-мозговых травм; заболевания периферической нервной системы.\n\nСпециалисты используют современные методы диагностики и лечения. Главная задача — сохранение здоровья ребёнка и улучшение его состояния при хронических заболеваниях.",
+      "descriptionUz": "Bolalar nevrologiya bo‘limi 20 o‘rinli.\n\nBolalar nevrologiyasi — chaqaloqlikdan 18 yoshgacha bo‘lgan bolalarda markaziy va periferik asab tizimi kasalliklarining rivojlanishi, diagnostikasi, davolashi va oldini olishi bilan shug‘ullanadigan maxsus tibbiyot yo‘nalishidir.\n\nBo‘limda reja asosida va shoshilinch tartibda murojaat qilgan bolalarga konservativ davolash o‘tkaziladi: asab tizimining yallig‘lanish kasalliklari — ensefalitlar, ensefalomiyelitlar, miyelitlar va ularning oqibatlari; qon tomir kasalliklari — ishemik tipdagi o‘tkir va o‘tkinchi miya qon aylanishi buzilishlari va ularning oqibatlari; demiyelinizatsiyalovchi kasalliklar; perinatal asab tizimi shikastlanishlari va ularning oqibatlari; epilepsiya va paroksizmal holatlar; nerv-mushak va genetik kasalliklar; bosh miya shikastlanishlari oqibatlari; periferik asab tizimi kasalliklari.\n\nMutaxassislar zamonaviy diagnostika va davolash usullaridan foydalanadilar. Asosiy vazifa — bolaning sog‘lig‘ini saqlash va surunkali kasalliklarda uning holatini yaxshilash.",
+      "icon": "brain",
+      "hasEmergency": true,
       "order": 11,
-      "beds": 25,
+      "beds": 20,
       "image": "/napravlenia/Неврология (детская).jpg",
       "slug": "dept-ypjjupwone39whuz7nw1"
     },

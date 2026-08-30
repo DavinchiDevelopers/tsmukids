@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import Image from 'next/image';
 import { Shield, Clock, Zap, Activity } from 'lucide-react';
 import { Lang } from '@/types';
@@ -15,11 +16,11 @@ export default function AboutSection({ lang }: AboutSectionProps) {
   const { settings } = useSiteData();
 
   const features = [
-    { icon: Shield, key: 'license' },
-    { icon: Clock, key: 'stationery' },
-    { icon: Zap, key: 'emergency' },
-    { icon: Activity, key: 'equipment' },
-  ] as const;
+    { icon: Shield, key: 'license' as const },
+    { icon: Clock, key: 'stationery' as const },
+    { icon: Zap, key: 'emergency' as const },
+    { icon: Activity, key: 'equipment' as const, href: `/${lang}/equipment` },
+  ];
 
   const description1 = lang === 'ru' ? settings.aboutDescription1Ru : settings.aboutDescription1Uz;
   const description2 = lang === 'ru' ? settings.aboutDescription2Ru : settings.aboutDescription2Uz;
@@ -28,7 +29,6 @@ export default function AboutSection({ lang }: AboutSectionProps) {
     <section id="about" className="py-12 sm:py-20 bg-white">
       <div className="container mx-auto px-3 sm:px-4">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left: Photo */}
           <div className="relative">
             <div className="aspect-[4/3] bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl overflow-hidden shadow-sm">
               <Image
@@ -38,7 +38,6 @@ export default function AboutSection({ lang }: AboutSectionProps) {
                 className="object-cover"
                 unoptimized
               />
-              {/* Decorative floating card */}
               <div className="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-auto sm:max-w-xs bg-white rounded-2xl p-4 shadow-xl">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
@@ -53,12 +52,12 @@ export default function AboutSection({ lang }: AboutSectionProps) {
                 </div>
               </div>
             </div>
-            {/* Decorative dot grid */}
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 opacity-20"
-              style={{ backgroundImage: 'radial-gradient(circle, #3b82f6 1px, transparent 1px)', backgroundSize: '12px 12px' }} />
+            <div
+              className="absolute -bottom-4 -right-4 w-32 h-32 opacity-20"
+              style={{ backgroundImage: 'radial-gradient(circle, #3b82f6 1px, transparent 1px)', backgroundSize: '12px 12px' }}
+            />
           </div>
 
-          {/* Right: Content */}
           <div>
             <span className="inline-block bg-blue-50 text-blue-600 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
               {t.about.badge}
@@ -70,17 +69,32 @@ export default function AboutSection({ lang }: AboutSectionProps) {
             <p className="text-gray-600 mb-8 leading-relaxed">{description2}</p>
 
             <div className="grid sm:grid-cols-2 gap-4">
-              {features.map(({ icon: Icon, key }) => (
-                <div key={key} className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center shrink-0">
-                    <Icon size={20} className="text-blue-600" />
+              {features.map(({ icon: Icon, key, href }) => {
+                const inner = (
+                  <>
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center shrink-0">
+                      <Icon size={20} className="text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800 text-sm">{t.about.features[key].title}</p>
+                      <p className="text-gray-500 text-xs mt-0.5">{t.about.features[key].desc}</p>
+                    </div>
+                  </>
+                );
+                return href ? (
+                  <Link
+                    key={key}
+                    href={href}
+                    className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors"
+                  >
+                    {inner}
+                  </Link>
+                ) : (
+                  <div key={key} className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors">
+                    {inner}
                   </div>
-                  <div>
-                    <p className="font-semibold text-gray-800 text-sm">{t.about.features[key].title}</p>
-                    <p className="text-gray-500 text-xs mt-0.5">{t.about.features[key].desc}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

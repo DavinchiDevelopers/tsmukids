@@ -46,7 +46,7 @@ const generalSurgeryExclusions = [
   'yiringli',
 ];
 
-/** Старые slug из демо-данных → канонические slug направлений */
+/** Старые slug из демо-данных / CMS → актуальные slug отделений на сайте */
 const legacyDepartmentSlugMap: Record<string, string> = {
   cardiology: 'cardiac-surgery',
   gastroenterology: 'diagnostics',
@@ -70,7 +70,10 @@ export function inferCanonicalDepartmentSlug(dept: DepartmentDoc) {
     { slug: 'urology', terms: ['urology', 'urologiya', 'уролог'] },
     { slug: 'gynecology', terms: ['gynecology', 'ginekologiya', 'гинеколог'] },
     { slug: 'pulmonology', terms: ['pulmonology', 'pulmonologiya', 'пульмонолог'] },
-    { slug: 'cardiorheumatology', terms: ['cardiorheumatology', 'kardiorevmatologiya', 'кардиоревматолог'] },
+    {
+      slug: 'cardiorheumatology',
+      terms: ['cardiorheumatology', 'kardiorevmatologiya', 'кардиоревматолог', 'кардио-ревматолог', 'кардио-ревматология'],
+    },
     { slug: 'neurology', terms: ['neurology', 'nevrologiya', 'невролог'] },
     { slug: 'dermatology', terms: ['dermatology', 'dermatologiya', 'дерматолог'] },
     { slug: 'pediatrics', terms: ['pediatrics', 'pediatriya', 'педиатр'] },
@@ -83,10 +86,6 @@ export function inferCanonicalDepartmentSlug(dept: DepartmentDoc) {
   ];
 
   return rules.find(rule => rule.terms.some(term => value.includes(term)))?.slug ?? dept.slug;
-}
-
-function departmentAliases(dept: DepartmentDoc, canonicalSlug: string) {
-  return [...new Set([dept.slug, canonicalSlug, dept.nameRu, dept.nameUz].map(normalizeText).filter(Boolean))];
 }
 
 function normalizeDoctorDepartment(department?: string) {
@@ -107,16 +106,22 @@ function matchesDepartmentBySpecialty(doctor: DoctorDoc, deptSlug: string) {
   return terms.some(term => specialty.includes(term));
 }
 
+/**
+ * Врачи отделения: только точное совпадение doctor.department === dept.slug
+ * (или явный список doctorSlugs). Канонические/английские slug больше не
+ * «растекаются» по нескольким направлениям. Specialty-fallback — только если
+ * у врача отделение не указано.
+ */
 export function getDoctorsForDepartment(dept: DepartmentDoc, doctors: DoctorDoc[]): DoctorDoc[] {
-  const canonicalDeptSlug = inferCanonicalDepartmentSlug(dept);
-  const currentDeptNames = departmentAliases(dept, canonicalDeptSlug);
+  const deptSlug = normalizeText(dept.slug);
   const doctorSlugs = ((dept as { doctorSlugs?: string[] }).doctorSlugs ?? []).map(normalizeText);
+  const canonicalDeptSlug = inferCanonicalDepartmentSlug(dept);
 
   return doctors.filter(doctor => {
     const doctorDepartment = normalizeDoctorDepartment(doctor.department);
     const doctorSlug = normalizeText(doctor.slug);
 
-    if (doctorDepartment && currentDeptNames.includes(doctorDepartment)) return true;
+    if (doctorDepartment && doctorDepartment === deptSlug) return true;
     if (doctorSlugs.includes(doctorSlug)) return true;
     if (doctorDepartment) return false;
 

@@ -10,6 +10,7 @@ export type SeoPageKey =
   | 'equipment'
   | 'prices'
   | 'gallery'
+  | 'vacancies'
   | 'contacts'
   | 'privacy';
 
@@ -22,15 +23,15 @@ interface PageSeo {
 const SEO: Record<SeoPageKey, Record<Lang, PageSeo>> = {
   home: {
     ru: {
-      title: `${SITE_NAME_RU} — Детская клиника в Ташкенте`,
+      title: `${SITE_NAME_RU} — в Ташкенте`,
       description:
         'Многопрофильная детская клиника ТГМУ (TSMU — Tashkent State Medical University) в Ташкенте. Диагностика, хирургия, консультации специалистов для детей от 3 месяцев до 18 лет. Запись онлайн.',
       path: '',
     },
     uz: {
-      title: `${SITE_NAME_UZ} — Toshkentdagi bolalar klinikasi`,
+      title: `${SITE_NAME_UZ} — Toshkent`,
       description:
-        "TSMU (Toshkent State Medical University) ko'p tarmoqli bolalar klinikasi. 3 oylikdan 18 yoshgacha bolalar uchun diagnostika, jarrohlik va mutaxassis maslahatlari. Onlayn yozilish.",
+        "TDTU (Toshkent Davlat Tibbiyot Universiteti) ko'p tarmoqli bolalar klinikasi. 3 oylikdan 18 yoshgacha bolalar uchun diagnostika, jarrohlik va mutaxassis maslahatlari. Onlayn yozilish.",
       path: '',
     },
   },
@@ -38,25 +39,25 @@ const SEO: Record<SeoPageKey, Record<Lang, PageSeo>> = {
     ru: {
       title: 'О клинике',
       description:
-        'Детская клиника ТГМУ — современная многопрофильная клиника с 15 отделениями, 340 койками и командой из 100+ специалистов.',
+        'Многопрофильная детская клиника ТГМУ — 15 отделений, 340 коек и команда из 100+ специалистов.',
       path: '/about',
     },
     uz: {
       title: 'Klinika haqida',
       description:
-        "TSMU Bolalar Klinikasi — 15 bo'lim, 340 o'rin va 100+ mutaxassisdan iborat zamonaviy ko'p tarmoqli klinika.",
+        "TDTU ko'p tarmoqli bolalar klinikasi — 15 bo'lim, 340 o'rin va 100+ mutaxassis.",
       path: '/about',
     },
   },
   departments: {
     ru: {
-      title: 'Направления и отделения',
+      title: 'Отделения',
       description:
         '15 профильных отделений: хирургия, кардиохирургия, офтальмология, неврология, педиатрия и другие направления детской медицины.',
       path: '/departments',
     },
     uz: {
-      title: "Yo'nalishlar va bo'limlar",
+      title: "Bo'limlar",
       description:
         "15 ta ixtisoslashtirilgan bo'lim: jarrohlik, kardiojarrohlik, oftalmologiya, nevrologiya, pediatriya va boshqa bolalar tibbiyoti yo'nalishlari.",
       path: '/departments',
@@ -72,7 +73,7 @@ const SEO: Record<SeoPageKey, Record<Lang, PageSeo>> = {
     uz: {
       title: 'Shifokorlar',
       description:
-        "TSMU Bolalar Klinikasi tajribali bolalar shifokorlari jamoasi. Jarrohlik, diagnostika va pediatriya bo'yicha ko'p yillik tajriba.",
+        "TDTU Bolalar Klinikasi tajribali bolalar shifokorlari jamoasi. Jarrohlik, diagnostika va pediatriya bo'yicha ko'p yillik tajriba.",
       path: '/doctors',
     },
   },
@@ -114,7 +115,7 @@ const SEO: Record<SeoPageKey, Record<Lang, PageSeo>> = {
     uz: {
       title: 'Narxlar',
       description:
-        "TSMU Bolalar Klinikasidagi xizmatlar, tahlillar va maslahatlar bo'yicha dolzarb narxlar.",
+        "TDTU Bolalar Klinikasidagi xizmatlar, tahlillar va maslahatlar bo'yicha dolzarb narxlar.",
       path: '/prices',
     },
   },
@@ -128,8 +129,22 @@ const SEO: Record<SeoPageKey, Record<Lang, PageSeo>> = {
     uz: {
       title: 'Galereya',
       description:
-        "TSMU Bolalar Klinikasi binosi, palatalar, uskunalar va jamoa fotosuratlari.",
+        "TDTU Bolalar Klinikasi binosi, palatalar, uskunalar va jamoa fotosuratlari.",
       path: '/gallery',
+    },
+  },
+  vacancies: {
+    ru: {
+      title: 'Вакансии',
+      description:
+        'Открытые вакансии в детской клинике ТГМУ. Присоединяйтесь к команде специалистов.',
+      path: '/vacancies',
+    },
+    uz: {
+      title: 'Vakansiyalar',
+      description:
+        "TDTU Bolalar Klinikasidagi ochiq vakansiyalar. Mutaxassislar jamoasiga qo‘shiling.",
+      path: '/vacancies',
     },
   },
   contacts: {
@@ -142,7 +157,7 @@ const SEO: Record<SeoPageKey, Record<Lang, PageSeo>> = {
     uz: {
       title: 'Aloqa',
       description:
-        "TSMU Bolalar Klinikasining manzili, telefonlari va ish vaqti. Toshkentda qanday topish va qabulga yozilish.",
+        "TDTU Bolalar Klinikasining manzili, telefonlari va ish vaqti. Toshkentda qanday topish va qabulga yozilish.",
       path: '/contacts',
     },
   },
@@ -156,7 +171,7 @@ const SEO: Record<SeoPageKey, Record<Lang, PageSeo>> = {
     uz: {
       title: 'Maxfiylik siyosati',
       description:
-        "TSMU Bolalar Klinikasi sayti va bemorlar shaxsiy ma'lumotlarini qayta ishlash siyosati.",
+        "TDTU Bolalar Klinikasi sayti va bemorlar shaxsiy ma'lumotlarini qayta ishlash siyosati.",
       path: '/privacy',
     },
   },

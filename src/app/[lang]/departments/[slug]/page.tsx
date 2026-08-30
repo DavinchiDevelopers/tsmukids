@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: DepartmentPageProps): Promise
   return buildPageMetadata({
     lang: lang as Lang,
     title: isRu ? 'Отделение' : "Bo'lim",
-    description: isRu ? 'Отделение детской клиники ТГМУ' : "TSMU Bolalar Klinikasi bo'limi",
+    description: isRu ? 'Отделение детской клиники ТГМУ' : "TDTU Bolalar Klinikasi bo'limi",
     path: `/departments/${slug}`,
   });
 }

@@ -7,6 +7,8 @@ import { onAuthStateChanged, signOut } from '@/lib/firebase';
 import { auth } from '@/lib/firebase';
 import Logo from '@/components/layout/Logo';
 import { SITE_NAME_RU } from '@/lib/branding';
+import { defaultSettings } from '@/contexts/SiteDataContext';
+import { getSettings } from '@/lib/firestore';
 import { Settings, Stethoscope, Users, Building2, LogOut, LayoutDashboard, Menu, Monitor, Images, Inbox } from 'lucide-react';
 
 const navItems = [
@@ -25,6 +27,7 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
   const pathname = usePathname();
   const [ready, setReady] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [clinicName, setClinicName] = useState(defaultSettings.nameShortRu);
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, user => {
@@ -36,6 +39,17 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
     });
     return unsub;
   }, [router]);
+
+  useEffect(() => {
+    if (!ready) return;
+    getSettings()
+      .then(s => {
+        if (s?.nameShortRu?.trim()) setClinicName(s.nameShortRu.trim());
+      })
+      .catch(() => {
+        /* keep default */
+      });
+  }, [ready]);
 
   if (!ready) {
     return (
@@ -68,10 +82,9 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
       `}>
         <div className="p-5 border-b border-gray-100">
           <div className="flex items-center gap-3">
-            <Logo alt={`Логотип ${SITE_NAME_RU}`} size="sm" />
+            <Logo alt={`Логотип ${clinicName || SITE_NAME_RU}`} size="sm" />
             <div className="min-w-0">
-              <p className="font-bold text-gray-900 text-sm leading-tight">TSMU</p>
-              <p className="text-xs text-gray-500 leading-tight">Детская клиника</p>
+              <p className="font-bold text-gray-900 text-sm leading-tight">{clinicName}</p>
             </div>
           </div>
         </div>

@@ -91,7 +91,7 @@ export function buildRootMetadata(): Metadata {
   return {
     metadataBase: new URL(SITE_URL),
     title: {
-      default: `${SITE_NAME_RU} — Детская клиника в Ташкенте`,
+      default: `${SITE_NAME_RU} — в Ташкенте`,
       template: `%s | ${SITE_NAME_RU}`,
     },
     description:

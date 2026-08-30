@@ -9,9 +9,9 @@ import { Save, CheckCircle } from 'lucide-react';
 
 const defaultSettings: ClinicSettings = {
   nameRu: 'Ташкентский государственный медицинский университет (TSMU) — многопрофильная детская клиника',
-  nameUz: "Toshkent State Medical University (TSMU) — ko'p tarmoqli bolalar klinikasi",
-  nameShortRu: 'Детская клиника ТГМУ',
-  nameShortUz: 'TSMU Bolalar klinikasi',
+  nameUz: "Toshkent Davlat Tibbiyot Universiteti (TDTU) — ko'p tarmoqli bolalar klinikasi",
+  nameShortRu: 'Многопрофильная детская клиника ТГМУ',
+  nameShortUz: "TDTU Bolalar ko'p tarmoqli klinikasi",
   address: 'Ташкентская область, Кибрайский район, гп. Салар, ул. Богишамол, 223А/1',
   phone1: '',
   phone2: '+998 71 260 37 51',
@@ -23,7 +23,7 @@ const defaultSettings: ClinicSettings = {
   statsExperience: '20+',
   statsDepartments: '16',
   aboutDescription1Ru: 'Многопрофильная детская клиника ТГМУ (TSMU, Tashkent State Medical University) — специализированное учреждение, в котором проходят лечение дети от 3 месяцев до 18 лет. Клиника оснащена современным диагностическим и хирургическим оборудованием.',
-  aboutDescription1Uz: "TSMU (Toshkent State Medical University) ko'p tarmoqli bolalar klinikasi — 3 oylikdan 18 yoshgacha bo'lgan bolalar davolanadigan ixtisoslashtirilgan muassasa. Klinika zamonaviy diagnostik va jarrohlik uskunalari bilan jihozlangan.",
+  aboutDescription1Uz: "TDTU (Toshkent Davlat Tibbiyot Universiteti) ko'p tarmoqli bolalar klinikasi — 3 oylikdan 18 yoshgacha bo'lgan bolalar davolanadigan ixtisoslashtirilgan muassasa. Klinika zamonaviy diagnostik va jarrohlik uskunalari bilan jihozlangan.",
   aboutDescription2Ru: 'В нашей клинике функционируют 15 профильных отделений на 340 коек (включая 24 реанимационных). Работают более 100 врачей различных специальностей с опытом более 20 лет.',
   aboutDescription2Uz: "Klinikamizda 340 o'rinli (24 ta reanimatsiya o'rni bilan) 15 ta ixtisoslashtirilgan bo'lim faoliyat yuritadi. 20 yildan ortiq tajribaga ega 100 dan ortiq turli ixtisoslikdagi shifokorlar ishlaydi.",
   licenseInfo: 'Лицензия МЗ РУз',
@@ -83,12 +83,18 @@ export default function SettingsPage() {
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, user => {
-      if (user) {
-        getSettings().then(s => {
-          if (s) setData(s);
-          setLoading(false);
-        });
+      if (!user) {
+        setLoading(false);
+        return;
       }
+      getSettings()
+        .then(s => {
+          if (s) setData({ ...defaultSettings, ...s });
+        })
+        .catch(() => {
+          /* keep defaults */
+        })
+        .finally(() => setLoading(false));
     });
     return unsub;
   }, []);
@@ -137,13 +143,10 @@ export default function SettingsPage() {
               <Field label="Название (RU)" value={data.nameRu} onChange={set('nameRu')} multiline />
               <Field label="Название (UZ)" value={data.nameUz} onChange={set('nameUz')} multiline />
               <div className="grid sm:grid-cols-2 gap-4">
-                <Field label="Короткое название (для шапки) (RU)" value={data.nameShortRu} onChange={set('nameShortRu')} placeholder="Детская клиника ТГМУ" />
-                <Field label="Короткое название (для шапки) (UZ)" value={data.nameShortUz} onChange={set('nameShortUz')} placeholder="TSMU Bolalar Klinikasi" />
+                <Field label="Короткое название (для шапки) (RU)" value={data.nameShortRu} onChange={set('nameShortRu')} placeholder="Многопрофильная детская клиника ТГМУ" />
+                <Field label="Короткое название (для шапки) (UZ)" value={data.nameShortUz} onChange={set('nameShortUz')} placeholder="TDTU Bolalar ko'p tarmoqli klinikasi" />
               </div>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <Field label="Буква лого" value={data.logoLetter} onChange={set('logoLetter')} placeholder="T" />
-                <Field label="Лицензия" value={data.licenseInfo} onChange={set('licenseInfo')} placeholder="Лицензия МЗ РУз №12345" />
-              </div>
+              <Field label="Лицензия" value={data.licenseInfo} onChange={set('licenseInfo')} placeholder="Лицензия МЗ РУз №12345" />
             </div>
           </div>
 

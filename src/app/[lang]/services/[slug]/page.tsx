@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   return buildPageMetadata({
     lang: lang as Lang,
     title: isRu ? 'Услуга' : 'Xizmat',
-    description: isRu ? 'Медицинская услуга детской клиники ТГМУ' : 'TSMU Bolalar Klinikasi tibbiy xizmati',
+    description: isRu ? 'Медицинская услуга детской клиники ТГМУ' : 'TDTU Bolalar Klinikasi tibbiy xizmati',
     path: `/services/${slug}`,
   });
 }
