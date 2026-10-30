@@ -5,6 +5,7 @@ import { Phone, MapPin, Clock } from 'lucide-react';
 import { Lang } from '@/types';
 import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
+import MapEmbed from '@/components/shared/MapEmbed';
 
 export default function ContactsPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = use(params);
@@ -81,24 +82,11 @@ export default function ContactsPage({ params }: { params: Promise<{ lang: strin
             ))}
           </div>
 
-          {settings.mapEmbedUrl ? (
-            <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 min-h-[400px]">
-              <iframe
-                src={settings.mapEmbedUrl}
-                className="w-full h-full min-h-[400px]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          ) : (
-            <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 min-h-[400px] flex items-center justify-center">
-              <div className="text-center text-gray-300">
-                <MapPin size={64} />
-                <p className="mt-3 text-sm text-gray-400">Google Maps / Yandex карта</p>
-                <p className="text-xs text-gray-300 mt-1">{settings.mapLabel || settings.address}</p>
-              </div>
-            </div>
-          )}
+          <MapEmbed
+            src={settings.mapEmbedUrl}
+            label={settings.mapLabel || settings.address}
+            lang={lang as Lang}
+          />
         </div>
       </div>
     </div>

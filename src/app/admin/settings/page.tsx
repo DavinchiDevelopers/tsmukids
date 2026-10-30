@@ -29,7 +29,7 @@ const defaultSettings: ClinicSettings = {
   licenseInfo: 'Лицензия МЗ РУз',
   logoLetter: 'T',
   whatsapp: '998901234567',
-  mapEmbedUrl: 'https://yandex.ru/map-widget/v1/?oid=138576287211&ol=biz&ll=69.363348%2C41.377527&z=16&lang=ru_RU',
+  mapEmbedUrl: 'https://yandex.com/map-widget/v1/?ll=69.363348%2C41.377527&z=16&pt=69.363348%2C41.377527%2Cpm2rdm&lang=ru_RU',
   mapLabel: 'Ташкентская область, Кибрайский район, гп. Салар, ул. Богишамол, 223А/1',
   appointmentEmailWebhook: '',
 };

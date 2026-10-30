@@ -4,7 +4,7 @@
     "phone2": "+998 71 260 37 51",
     "statsDepartments": "16",
     "statsDoctors": "100+",
-    "mapEmbedUrl": "https://yandex.ru/map-widget/v1/?oid=138576287211&ol=biz&ll=69.363348%2C41.377527&z=16&lang=ru_RU",
+    "mapEmbedUrl": "https://yandex.com/map-widget/v1/?ll=69.363348%2C41.377527&z=16&pt=69.363348%2C41.377527%2Cpm2rdm&lang=ru_RU",
     "mapLabel": "Ташкентская область, Кибрайский район, гп. Салар, ул. Богишамол, 223А/1",
     "address": "Ташкентская область, Кибрайский район, гп. Салар, ул. Богишамол, 223А/1",
     "licenseInfo": "Лицензия МЗ РУз",
@@ -62,7 +62,7 @@
       "experienceUz": "Ish tajribasi: 23 yil",
       "bioRu": "Учёная степень: доктор философии (PhD)\nЗаведующий отделением",
       "bioUz": "Ilmiy darajasi: falsafa doktori (PhD)\nBo‘lim mudiri\nMutaxassislik yo‘nalishi: bolalar jarrohligi\nMalaka oshirish: Germaniya, Koreya, Xitoy va boshqalar\nO‘pkaning tug‘ma va orttirilgan kasalliklari (o‘pka kistalari, bronxoektaz, o‘pka va plevraning yiringli-yallig‘lanish kasalliklari), nafas yo‘llaridagi yot jismlar, shuningdek qizilo‘ngachning kuyishdan keyingi va operatsiyadan keyingi torayishlari bo‘lgan bemorlarni davolash bilan shug‘ullanadi",
-      "department": "dept-mpwpwitr70f50ud49ooj",
+      "department": "kOhmocksohyweiwHEIn5",
       "order": 3,
       "experienceRu": "Стаж 23 года",
       "specialtyUz": " Jarrohi, endoskopist",
@@ -77,7 +77,7 @@
       "experienceUz": "Ish tajribasi: 11 yil",
       "bioRu": "Учёная степень: доктор философии (PhD)\nСпециализация: детская хирургия\nЗанимается лечением пациентов с врождёнными и приобретёнными заболеваниями лёгких (кисты лёгких, бронхоэктазы, гнойно-воспалительные заболевания лёгких и плевры), инородными телами дыхательных путей, а также сужением пищевода после ожогов и операций",
       "bioUz": "Ilmiy darajasi: falsafa doktori (PhD)\nMutaxassislik yo‘nalishi: bolalar jarrohligi\nO‘pkaning tug‘ma va orttirilgan kasalliklari (o‘pka kistalari, bronxoektaz, o‘pka va plevraning yiringli-yallig‘lanish kasalliklari), nafas yo‘llaridagi yot jismlar, shuningdek qizilo‘ngachning kuyishdan keyingi va operatsiyadan keyingi torayishlari bo‘lgan bemorlarni davolash bilan shug‘ullanadi",
-      "department": "dept-mpwpwitr70f50ud49ooj",
+      "department": "kOhmocksohyweiwHEIn5",
       "order": 4,
       "experienceRu": "Стаж 11 лет",
       "specialtyUz": " Jarrohi",
@@ -114,21 +114,6 @@
       "department": "test",
       "order": 6,
       "photo": "/images/doctors/muslimov-nigmatilla-sunnatillaevich.webp"
-    },
-    {
-      "id": "1jgiBZcK54zd8BZvaKV0",
-      "slug": "abduhalilov-rustam-uktam-ugli",
-      "nameRu": "Абдухалилов Рустам Уктам угли",
-      "nameUz": "Abduxalilov Rustam Uktam o‘g‘li",
-      "specialtyRu": "Врач-ординатор, детский невролог экстренного поста",
-      "specialtyUz": "Ordinar shifokor, shoshilinch post bolalar nevrologi",
-      "experienceRu": "Стаж 9 лет",
-      "experienceUz": "Ish tajribasi: 9 yil",
-      "bioRu": "Врач-ординатор, детский невролог экстренного поста.\n\nЭксперт в области: перинатальной неврологии, заболеваний периферической нервной системы, эпилепсии, реабилитологии, нейрофизиологии, вертебрологии, инсультологии, иглорефлексотерапии.",
-      "bioUz": "Ordinar shifokor, shoshilinch post bolalar nevrologi.\n\nMutaxassislik: perinatal nevrologiya, periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya, neyrofiziologiya, vertebrologiya, insultologiya, ignorefleksoterapiya.",
-      "department": "dept-ypjjupwone39whuz7nw1",
-      "photo": "",
-      "order": 72
     },
     {
       "id": "bQqrcUjz3uMMf1t3z20M",
@@ -596,21 +581,6 @@
       "photo": "/images/doctors/rashidov-jasur-komilovich.webp"
     },
     {
-      "id": "L5NVd0mFjga3pOz5wiwF",
-      "slug": "sultonov-timur-ismoilovich",
-      "nameRu": "Султонов Тимур Исмоилович",
-      "nameUz": "Султонов Тимур Исмоилович",
-      "specialtyRu": "десткий хирург",
-      "specialtyUz": "болалар хирурги",
-      "experienceRu": "Стаж 13 лет",
-      "experienceUz": "13 yillik tajriba",
-      "bioRu": "Султонов Тимур Исмоилович десткий хирург. 1 категория. Колоноскопист.",
-      "bioUz": "Султонов Тимур Исмоилович — болалар хирурги, 1-тоифали шифокор, колоноскопист.",
-      "department": "dept-mpwpwitr70f50ud49ooj",
-      "order": 39,
-      "photo": "/images/doctors/sultanov-temur-ismailovich.webp"
-    },
-    {
       "id": "IK086NOtHHDJBs2EfQPw",
       "slug": "aripova-gulnara-malikovna",
       "nameRu": "Арипова Гулнара Маликовна",
@@ -1016,21 +986,6 @@
       "order": 66
     },
     {
-      "id": "hMpOaET12wa8OGkB7SwL",
-      "slug": "gazieva-gulnoza-mahamadzhanovna",
-      "nameRu": "Газиева Гулноза Махамаджановна",
-      "nameUz": "Gaziyeva Gulnoza Maxamajanovna",
-      "specialtyRu": "Детский невролог, нейросурдолог и нейрофизиолог",
-      "specialtyUz": "Bolalar nevrologi, neyrosurdolog va neyrofiziolog",
-      "experienceRu": "Стаж 20 лет",
-      "experienceUz": "Ish tajribasi: 20 yil",
-      "bioRu": "Детский невролог, нейросурдолог и нейрофизиолог.\n\nЭксперт в области: перинатальной неврологии, заболеваний центральной и периферической нервной системы, эпилепсии, реабилитологии.",
-      "bioUz": "Bolalar nevrologi, neyrosurdolog va neyrofiziolog.\n\nMutaxassislik: perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.",
-      "department": "dept-ypjjupwone39whuz7nw1",
-      "photo": "/images/doctors/gazieva-gulnoza-maxamatjanovna.webp",
-      "order": 74
-    },
-    {
       "id": "wpKRj26KZrLbVABGb6Yk",
       "slug": "tursunova-manzura-saydazimovna",
       "nameRu": "Турсунова Манзура Сайдазимовна",
@@ -1076,6 +1031,21 @@
       "order": 70
     },
     {
+      "id": "vtc6PF15sxg9w",
+      "slug": "isamuhamedova-umida-rahimberdievna",
+      "nameRu": "Исамухамедова Умида Рахимбердиевна",
+      "nameUz": "Isamuhamedova Umida Rahimberdiyevna",
+      "specialtyRu": "Детский невролог, заведующая отделением",
+      "specialtyUz": "Bolalar nevrologi, bo‘lim mudiri",
+      "experienceRu": "Стаж 38 лет",
+      "experienceUz": "Ish tajribasi: 38 yil",
+      "bioRu": "Детский невролог. Заведующая отделением детской неврологии.\n\nЭксперт в области: перинатальной неврологии, заболеваний периферической нервной системы, эпилепсии, реабилитологии.\n\nСтажировка в Южной Корее.",
+      "bioUz": "Bolalar nevrologi. Bolalar nevrologiya bo‘limi mudiri.\n\nMutaxassislik: perinatal nevrologiya, periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.\n\nJanubiy Koreyada stajirovka.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "photo": "/images/doctors/isamuhamedova-umida-rahimberdievna.webp",
+      "order": 70
+    },
+    {
       "id": "1OQL3LY3fsZyYoHLJY5M",
       "slug": "zharimbetov-alisher-konisbayevich",
       "nameRu": "Жаримбетов   Алишер   Конисбайевич",
@@ -1089,6 +1059,36 @@
       "department": "dept-suaz5avxjrloezvpbeld",
       "photo": "",
       "order": 71
+    },
+    {
+      "id": "oOMH4Xj373mxxA",
+      "slug": "rahimova-feruza-bahtiyarovna",
+      "nameRu": "Рахимова Феруза Бахтияровна",
+      "nameUz": "Rahimova Feruza Baxtiyorovna",
+      "specialtyRu": "Врач-ординатор, детский невролог",
+      "specialtyUz": "Ordinar shifokor, bolalar nevrologi",
+      "experienceRu": "Стаж 16 лет",
+      "experienceUz": "Ish tajribasi: 16 yil",
+      "bioRu": "Врач-ординатор, детский невролог.\n\nЭксперт в области: перинатальной неврологии, заболеваний периферической нервной системы, эпилепсии, реабилитологии.",
+      "bioUz": "Ordinar shifokor, bolalar nevrologi.\n\nMutaxassislik: perinatal nevrologiya, periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "photo": "",
+      "order": 71
+    },
+    {
+      "id": "1jgiBZcK54zd8BZvaKV0",
+      "slug": "abduhalilov-rustam-uktam-ugli",
+      "nameRu": "Абдухалилов Рустам Уктам угли",
+      "nameUz": "Abduxalilov Rustam Uktam o‘g‘li",
+      "specialtyRu": "Врач-ординатор, детский невролог экстренного поста",
+      "specialtyUz": "Ordinar shifokor, shoshilinch post bolalar nevrologi",
+      "experienceRu": "Стаж 9 лет",
+      "experienceUz": "Ish tajribasi: 9 yil",
+      "bioRu": "Врач-ординатор, детский невролог экстренного поста.\n\nЭксперт в области: перинатальной неврологии, заболеваний периферической нервной системы, эпилепсии, реабилитологии, нейрофизиологии, вертебрологии, инсультологии, иглорефлексотерапии.",
+      "bioUz": "Ordinar shifokor, shoshilinch post bolalar nevrologi.\n\nMutaxassislik: perinatal nevrologiya, periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya, neyrofiziologiya, vertebrologiya, insultologiya, ignorefleksoterapiya.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "photo": "",
+      "order": 72
     },
     {
       "id": "KRJWMBcS9PJkg7Ym4HVV",
@@ -1121,6 +1121,21 @@
       "photo": "/images/doctors/ibragimov-nodir-shabatirovich.webp"
     },
     {
+      "id": "fKQfcsXXlmYOCn5rpwN7",
+      "slug": "balayan-asmik-yurevna",
+      "nameRu": "Балаян Асмик Юраевна",
+      "nameUz": "Balayan Asmik Yurayevna",
+      "specialtyRu": "Невролог, детский невролог и нейрофизиолог",
+      "specialtyUz": "Nevrolog, bolalar nevrologi va neyrofiziolog",
+      "experienceRu": "Стаж 19 лет",
+      "experienceUz": "Ish tajribasi: 19 yil",
+      "bioRu": "Невролог, детский невролог и нейрофизиолог.\n\nЭксперт в области: перинатальной неврологии, заболеваний центральной и периферической нервной системы, эпилепсии, реабилитологии, сомнологии.\n\nСтажировка в Латвии, г. Санкт-Петербург (Россия).",
+      "bioUz": "Nevrolog, bolalar nevrologi va neyrofiziolog.\n\nMutaxassislik: perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya, somnologiya.\n\nLatviya va Sankt-Peterburg (Rossiya)da stajirovka.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "order": 73,
+      "photo": "/images/doctors/balaan-asmik-uraevna.webp"
+    },
+    {
       "id": "7lQOhZohpzXku2qbSAu9",
       "slug": "bobur-batirovich-turaev",
       "nameRu": "Бобур Батирович Тураев",
@@ -1134,6 +1149,21 @@
       "department": "dept-rqwzmnjuizsppyzax9kq",
       "order": 74,
       "photo": "/images/doctors/turaev-bobur-batir.webp"
+    },
+    {
+      "id": "hMpOaET12wa8OGkB7SwL",
+      "slug": "gazieva-gulnoza-mahamadzhanovna",
+      "nameRu": "Газиева Гулноза Махамаджановна",
+      "nameUz": "Gaziyeva Gulnoza Maxamajanovna",
+      "specialtyRu": "Детский невролог, нейросурдолог и нейрофизиолог",
+      "specialtyUz": "Bolalar nevrologi, neyrosurdolog va neyrofiziolog",
+      "experienceRu": "Стаж 20 лет",
+      "experienceUz": "Ish tajribasi: 20 yil",
+      "bioRu": "Детский невролог, нейросурдолог и нейрофизиолог.\n\nЭксперт в области: перинатальной неврологии, заболеваний центральной и периферической нервной системы, эпилепсии, реабилитологии.",
+      "bioUz": "Bolalar nevrologi, neyrosurdolog va neyrofiziolog.\n\nMutaxassislik: perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "photo": "/images/doctors/gazieva-gulnoza-maxamatjanovna.webp",
+      "order": 74
     },
     {
       "id": "N0ENIsuNXjk0gWT7rpAJ",
@@ -1151,6 +1181,21 @@
       "photo": "/images/doctors/babaev-afzaljon-odiljonovich.webp"
     },
     {
+      "id": "qHOSSHwwA5nzIz5vMGdd",
+      "slug": "sattorov-adham-sadriddinovich",
+      "nameRu": "Сатторов Адхам Садриддинович",
+      "nameUz": "Sattorov Adham Sadriddinovich",
+      "specialtyRu": "Детский невролог, нейрофизиолог",
+      "specialtyUz": "Bolalar nevrologi, neyrofiziolog",
+      "experienceRu": "Стаж 13 лет",
+      "experienceUz": "Ish tajribasi: 13 yil",
+      "bioRu": "Детский невролог, нейрофизиолог.\n\nЭксперт в области: реабилитологии, эпилептологии, заболеваний периферической и центральной нервной системы, иглорефлексотерапии.",
+      "bioUz": "Bolalar nevrologi, neyrofiziolog.\n\nMutaxassislik: reabilitologiya, epileptologiya, periferik va markaziy asab tizimi kasalliklari, ignorefleksoterapiya.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "order": 75,
+      "photo": "/images/doctors/sattorov-adxam-sadridinovich.webp"
+    },
+    {
       "id": "Hazoh6MvxpvyAwn2Rou3",
       "slug": "dilshod-rahmonberdievich-ibragimov",
       "nameRu": "Дилшод Рахмонбердиевич Ибрагимов",
@@ -1164,6 +1209,36 @@
       "department": "dept-rqwzmnjuizsppyzax9kq",
       "order": 76,
       "photo": "/images/doctors/ibragimov-dilshod-raxmanberdievich.webp"
+    },
+    {
+      "id": "fRs82oRZYTCY3g",
+      "slug": "akmalova-zilola-tairovna",
+      "nameRu": "Акмалова Зилола Таировна",
+      "nameUz": "Akmalova Zilola Tairovna",
+      "specialtyRu": "Детский невролог, дежурный врач экстренного поста",
+      "specialtyUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori",
+      "experienceRu": "Стаж 15 лет",
+      "experienceUz": "Ish tajribasi: 15 yil",
+      "bioRu": "Детский невролог, дежурный врач экстренного поста.\n\nЭксперт в области: перинатальной неврологии, заболеваний центральной и периферической нервной системы, эпилепсии, реабилитологии.",
+      "bioUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori.\n\nMutaxassislik: perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "photo": "",
+      "order": 76
+    },
+    {
+      "id": "0RIMtTurrN0VPg",
+      "slug": "sharipova-nafisa-rafailovna",
+      "nameRu": "Шарипова Нафиса Рафаиловна",
+      "nameUz": "Sharipova Nafisa Rafailovna",
+      "specialtyRu": "Детский невролог, дежурный врач экстренного поста",
+      "specialtyUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori",
+      "experienceRu": "Стаж 16 лет",
+      "experienceUz": "Ish tajribasi: 16 yil",
+      "bioRu": "Детский невролог, дежурный врач экстренного поста.\n\nЭксперт в области: перинатальной неврологии, заболеваний центральной и периферической нервной системы.",
+      "bioUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori.\n\nMutaxassislik: perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "photo": "",
+      "order": 77
     },
     {
       "id": "36LML2SuZ4MctZq0NPGq",
@@ -1181,6 +1256,21 @@
       "order": 78
     },
     {
+      "id": "91vm4zEYV22Sg",
+      "slug": "soibov-alisher-shavkatovich",
+      "nameRu": "Соибов Алишер Шавкатович",
+      "nameUz": "Soibov Alisher Shavkatovich",
+      "specialtyRu": "Детский невролог, дежурный врач экстренного поста",
+      "specialtyUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori",
+      "experienceRu": "Стаж 5 лет",
+      "experienceUz": "Ish tajribasi: 5 yil",
+      "bioRu": "Детский невролог, дежурный врач экстренного поста.\n\nЭксперт в области: перинатальной неврологии, заболеваний центральной и периферической нервной системы, эпилепсии, реабилитологии.\n\nСтажировка в г. Санкт-Петербург (Россия).",
+      "bioUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori.\n\nMutaxassislik: perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.\n\nSankt-Peterburg (Rossiya)da stajirovka.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "photo": "",
+      "order": 78
+    },
+    {
       "id": "Hhq2WpFTsMyTjZIUuR1q",
       "slug": "ishanhodzhaev-nuriddin-aslanovich",
       "nameRu": "Ишанходжаев Нуриддин Асланович",
@@ -1194,6 +1284,21 @@
       "department": "grudnaya-hirurgiya",
       "order": 79,
       "photo": "/images/doctors/ishonxojaev-nuriddin-aslanovich.webp"
+    },
+    {
+      "id": "IXbAP6ohTJtQpw",
+      "slug": "galimova-zarina-alikovna",
+      "nameRu": "Галимова Зарина Аликовна",
+      "nameUz": "Galimova Zarina Alikovna",
+      "specialtyRu": "Детский невролог, дежурный врач экстренного поста",
+      "specialtyUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori",
+      "experienceRu": "Стаж 2 года",
+      "experienceUz": "Ish tajribasi: 2 yil",
+      "bioRu": "Детский невролог, дежурный врач экстренного поста.\n\nЭксперт в области: перинатальной неврологии, заболеваний периферической нервной системы, эпилепсии, реабилитологии.",
+      "bioUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori.\n\nMutaxassislik: perinatal nevrologiya, periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.",
+      "department": "dept-ypjjupwone39whuz7nw1",
+      "photo": "",
+      "order": 79
     },
     {
       "id": "fLLmEvKM3T4GYIegJzDQ",
@@ -1224,21 +1329,6 @@
       "department": "pediatriya",
       "order": 82,
       "photo": "/images/doctors/achilov-shoxruxbek-azamatovich.webp"
-    },
-    {
-      "id": "qHOSSHwwA5nzIz5vMGdd",
-      "slug": "sattorov-adham-sadriddinovich",
-      "nameRu": "Сатторов Адхам Садриддинович",
-      "nameUz": "Sattorov Adham Sadriddinovich",
-      "specialtyRu": "Детский невролог, нейрофизиолог",
-      "specialtyUz": "Bolalar nevrologi, neyrofiziolog",
-      "experienceRu": "Стаж 13 лет",
-      "experienceUz": "Ish tajribasi: 13 yil",
-      "bioRu": "Детский невролог, нейрофизиолог.\n\nЭксперт в области: реабилитологии, эпилептологии, заболеваний периферической и центральной нервной системы, иглорефлексотерапии.",
-      "bioUz": "Bolalar nevrologi, neyrofiziolog.\n\nMutaxassislik: reabilitologiya, epileptologiya, periferik va markaziy asab tizimi kasalliklari, ignorefleksoterapiya.",
-      "department": "dept-ypjjupwone39whuz7nw1",
-      "order": 75,
-      "photo": "/images/doctors/sattorov-adxam-sadridinovich.webp"
     },
     {
       "id": "IqOFW1GjF7NDdRONVVLY",
@@ -1286,21 +1376,6 @@
       "photo": "/images/doctors/ergashev-sherali-baxtior.webp"
     },
     {
-      "id": "fKQfcsXXlmYOCn5rpwN7",
-      "slug": "balayan-asmik-yurevna",
-      "nameRu": "Балаян Асмик Юраевна",
-      "nameUz": "Balayan Asmik Yurayevna",
-      "specialtyRu": "Невролог, детский невролог и нейрофизиолог",
-      "specialtyUz": "Nevrolog, bolalar nevrologi va neyrofiziolog",
-      "experienceRu": "Стаж 19 лет",
-      "experienceUz": "Ish tajribasi: 19 yil",
-      "bioRu": "Невролог, детский невролог и нейрофизиолог.\n\nЭксперт в области: перинатальной неврологии, заболеваний центральной и периферической нервной системы, эпилепсии, реабилитологии, сомнологии.\n\nСтажировка в Латвии, г. Санкт-Петербург (Россия).",
-      "bioUz": "Nevrolog, bolalar nevrologi va neyrofiziolog.\n\nMutaxassislik: perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya, somnologiya.\n\nLatviya va Sankt-Peterburg (Rossiya)da stajirovka.",
-      "department": "dept-ypjjupwone39whuz7nw1",
-      "order": 73,
-      "photo": "/images/doctors/balaan-asmik-uraevna.webp"
-    },
-    {
       "id": "fdOsKlAo6JNYNzJ7UPp0",
       "slug": "magdieva-muborak-zaygutdinovna",
       "nameRu": "Магдиева Муборак Зайгутдиновна ",
@@ -1331,96 +1406,6 @@
       "photo": "/images/doctors/raximova-lobarxon-xayrulla.webp"
     },
     {
-      "id": "vtc6PF15sxg9w",
-      "slug": "isamuhamedova-umida-rahimberdievna",
-      "nameRu": "Исамухамедова Умида Рахимбердиевна",
-      "nameUz": "Isamuhamedova Umida Rahimberdiyevna",
-      "specialtyRu": "Детский невролог, заведующая отделением",
-      "specialtyUz": "Bolalar nevrologi, bo‘lim mudiri",
-      "experienceRu": "Стаж 38 лет",
-      "experienceUz": "Ish tajribasi: 38 yil",
-      "bioRu": "Детский невролог. Заведующая отделением детской неврологии.\n\nЭксперт в области: перинатальной неврологии, заболеваний периферической нервной системы, эпилепсии, реабилитологии.\n\nСтажировка в Южной Корее.",
-      "bioUz": "Bolalar nevrologi. Bolalar nevrologiya bo‘limi mudiri.\n\nMutaxassislik: perinatal nevrologiya, periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.\n\nJanubiy Koreyada stajirovka.",
-      "department": "dept-ypjjupwone39whuz7nw1",
-      "photo": "/images/doctors/isamuhamedova-umida-rahimberdievna.webp",
-      "order": 70
-    },
-    {
-      "id": "oOMH4Xj373mxxA",
-      "slug": "rahimova-feruza-bahtiyarovna",
-      "nameRu": "Рахимова Феруза Бахтияровна",
-      "nameUz": "Rahimova Feruza Baxtiyorovna",
-      "specialtyRu": "Врач-ординатор, детский невролог",
-      "specialtyUz": "Ordinar shifokor, bolalar nevrologi",
-      "experienceRu": "Стаж 16 лет",
-      "experienceUz": "Ish tajribasi: 16 yil",
-      "bioRu": "Врач-ординатор, детский невролог.\n\nЭксперт в области: перинатальной неврологии, заболеваний периферической нервной системы, эпилепсии, реабилитологии.",
-      "bioUz": "Ordinar shifokor, bolalar nevrologi.\n\nMutaxassislik: perinatal nevrologiya, periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.",
-      "department": "dept-ypjjupwone39whuz7nw1",
-      "photo": "",
-      "order": 71
-    },
-    {
-      "id": "fRs82oRZYTCY3g",
-      "slug": "akmalova-zilola-tairovna",
-      "nameRu": "Акмалова Зилола Таировна",
-      "nameUz": "Akmalova Zilola Tairovna",
-      "specialtyRu": "Детский невролог, дежурный врач экстренного поста",
-      "specialtyUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori",
-      "experienceRu": "Стаж 15 лет",
-      "experienceUz": "Ish tajribasi: 15 yil",
-      "bioRu": "Детский невролог, дежурный врач экстренного поста.\n\nЭксперт в области: перинатальной неврологии, заболеваний центральной и периферической нервной системы, эпилепсии, реабилитологии.",
-      "bioUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori.\n\nMutaxassislik: perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.",
-      "department": "dept-ypjjupwone39whuz7nw1",
-      "photo": "",
-      "order": 76
-    },
-    {
-      "id": "0RIMtTurrN0VPg",
-      "slug": "sharipova-nafisa-rafailovna",
-      "nameRu": "Шарипова Нафиса Рафаиловна",
-      "nameUz": "Sharipova Nafisa Rafailovna",
-      "specialtyRu": "Детский невролог, дежурный врач экстренного поста",
-      "specialtyUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori",
-      "experienceRu": "Стаж 16 лет",
-      "experienceUz": "Ish tajribasi: 16 yil",
-      "bioRu": "Детский невролог, дежурный врач экстренного поста.\n\nЭксперт в области: перинатальной неврологии, заболеваний центральной и периферической нервной системы.",
-      "bioUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori.\n\nMutaxassislik: perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari.",
-      "department": "dept-ypjjupwone39whuz7nw1",
-      "photo": "",
-      "order": 77
-    },
-    {
-      "id": "91vm4zEYV22Sg",
-      "slug": "soibov-alisher-shavkatovich",
-      "nameRu": "Соибов Алишер Шавкатович",
-      "nameUz": "Soibov Alisher Shavkatovich",
-      "specialtyRu": "Детский невролог, дежурный врач экстренного поста",
-      "specialtyUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori",
-      "experienceRu": "Стаж 5 лет",
-      "experienceUz": "Ish tajribasi: 5 yil",
-      "bioRu": "Детский невролог, дежурный врач экстренного поста.\n\nЭксперт в области: перинатальной неврологии, заболеваний центральной и периферической нервной системы, эпилепсии, реабилитологии.\n\nСтажировка в г. Санкт-Петербург (Россия).",
-      "bioUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori.\n\nMutaxassislik: perinatal nevrologiya, markaziy va periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.\n\nSankt-Peterburg (Rossiya)da stajirovka.",
-      "department": "dept-ypjjupwone39whuz7nw1",
-      "photo": "",
-      "order": 78
-    },
-    {
-      "id": "IXbAP6ohTJtQpw",
-      "slug": "galimova-zarina-alikovna",
-      "nameRu": "Галимова Зарина Аликовна",
-      "nameUz": "Galimova Zarina Alikovna",
-      "specialtyRu": "Детский невролог, дежурный врач экстренного поста",
-      "specialtyUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori",
-      "experienceRu": "Стаж 2 года",
-      "experienceUz": "Ish tajribasi: 2 yil",
-      "bioRu": "Детский невролог, дежурный врач экстренного поста.\n\nЭксперт в области: перинатальной неврологии, заболеваний периферической нервной системы, эпилепсии, реабилитологии.",
-      "bioUz": "Bolalar nevrologi, shoshilinch post navbatchi shifokori.\n\nMutaxassislik: perinatal nevrologiya, periferik asab tizimi kasalliklari, epilepsiya, reabilitologiya.",
-      "department": "dept-ypjjupwone39whuz7nw1",
-      "photo": "",
-      "order": 79
-    },
-    {
       "slug": "usmanova-naina-anvarovna",
       "nameRu": "Усманова Наина Анваровна",
       "nameUz": "Usmanova Naina Anvarovna",
@@ -1434,6 +1419,21 @@
       "photo": "/images/doctors/usmanova-naina-anvarovna.webp",
       "order": 93,
       "id": "4173c41bfc85e69a"
+    },
+    {
+      "id": "277ef1f9e8543584",
+      "slug": "azizov-abduxalil-abdukadirovich",
+      "nameRu": "Азизов Абдухалил Абдукадирович",
+      "nameUz": "Azizov Abduxalil Abdukadirovich",
+      "specialtyRu": "Врач",
+      "specialtyUz": "Shifokor",
+      "experienceRu": "",
+      "experienceUz": "",
+      "bioRu": "",
+      "bioUz": "",
+      "department": "pediatriya",
+      "photo": "/images/doctors/azizov-abduxalil-abdukadirovich.webp",
+      "order": 94
     }
   ],
   "services": [

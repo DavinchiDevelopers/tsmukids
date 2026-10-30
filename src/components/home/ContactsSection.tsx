@@ -4,6 +4,7 @@ import { Phone, MapPin, Clock, Mail } from 'lucide-react';
 import { Lang } from '@/types';
 import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
+import MapEmbed from '@/components/shared/MapEmbed';
 
 interface ContactsSectionProps {
   lang: Lang;
@@ -87,29 +88,12 @@ export default function ContactsSection({ lang }: ContactsSectionProps) {
             </div>
           </div>
 
-          {settings.mapEmbedUrl ? (
-            <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 aspect-video lg:aspect-auto lg:h-full min-h-[350px]">
-              <iframe
-                src={settings.mapEmbedUrl}
-                className="w-full h-full min-h-[350px]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          ) : (
-            <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl overflow-hidden border border-gray-100 aspect-video lg:aspect-auto lg:h-full min-h-[350px] flex items-center justify-center">
-              <div
-                className="absolute inset-0 opacity-40"
-                style={{ backgroundImage: 'radial-gradient(circle, #93c5fd 1.5px, transparent 1.5px)', backgroundSize: '22px 22px' }}
-              />
-              <div className="relative text-center px-6">
-                <div className="w-14 h-14 bg-white rounded-2xl shadow-md flex items-center justify-center mx-auto mb-4">
-                  <MapPin size={26} className="text-blue-600" />
-                </div>
-                <p className="text-gray-800 font-semibold text-sm">{settings.mapLabel || settings.address}</p>
-              </div>
-            </div>
-          )}
+          <MapEmbed
+            src={settings.mapEmbedUrl}
+            label={settings.mapLabel || settings.address}
+            lang={lang}
+            heightClass="h-[350px] sm:h-[400px] lg:h-full lg:min-h-[420px]"
+          />
         </div>
       </div>
     </section>

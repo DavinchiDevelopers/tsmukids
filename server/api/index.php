@@ -114,6 +114,21 @@ function new_id(): string {
     }
 }
 
+function send_telegram(string $token, string $chatId, string $text): void {
+    $url = "https://api.telegram.org/bot{$token}/sendMessage";
+    $payload = json_encode(['chat_id' => $chatId, 'text' => $text, 'parse_mode' => 'HTML']);
+    $ctx = stream_context_create([
+        'http' => [
+            'method'  => 'POST',
+            'header'  => "Content-Type: application/json\r\n",
+            'content' => $payload,
+            'timeout' => 5,
+            'ignore_errors' => true,
+        ],
+    ]);
+    @file_get_contents($url, false, $ctx);
+}
+
 function sort_by_order(array $items): array {
     usort($items, static function ($a, $b) {
         $ao = is_array($a) ? (int)($a['order'] ?? 0) : 0;
@@ -304,6 +319,21 @@ try {
         $list = read_json(appointments_path(), []);
         $list[] = $item;
         write_json(appointments_path(), $list);
+
+        $tgToken = $config['telegram_bot_token'] ?? '';
+        $tgChat  = $config['telegram_chat_id'] ?? '';
+        if ($tgToken !== '' && $tgChat !== '') {
+            $doctorLine  = $item['doctor']  ? "\n👨‍⚕️ Врач: " . $item['doctor']   : '';
+            $serviceLine = $item['service'] ? "\n🏥 Услуга: " . $item['service'] : '';
+            $msgLine     = $item['message'] ? "\n💬 Сообщение: " . $item['message'] : '';
+            $tgText = "📋 <b>Новая заявка на запись</b>\n\n"
+                . "👤 Имя: " . htmlspecialchars($item['name'], ENT_XML1)
+                . "\n📞 Телефон: " . htmlspecialchars($item['phone'], ENT_XML1)
+                . $doctorLine . $serviceLine . $msgLine
+                . "\n🕐 " . $item['createdAt'];
+            send_telegram($tgToken, $tgChat, $tgText);
+        }
+
         respond(['id' => $item['id']], 201);
     }
 
