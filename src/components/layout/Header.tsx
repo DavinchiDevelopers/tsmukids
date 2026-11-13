@@ -72,6 +72,7 @@ export default function Header({ lang }: HeaderProps) {
     { href: `/${lang}/prices`, label: t.nav.prices },
     { href: `/${lang}/gallery`, label: t.nav.gallery },
     { href: `/${lang}/vacancies`, label: t.nav.vacancies },
+    { href: `/${lang}/anti-corruption`, label: t.nav.antiCorruption },
     { href: `/${lang}/contacts`, label: t.nav.contacts },
   ];
 

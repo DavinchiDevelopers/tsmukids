@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Shield, Clock, Zap, Activity, Award, ArrowRight, Monitor } from 'lucide-react';
+import { Shield, Clock, Zap, Activity, Award, ArrowRight, Monitor, ShieldAlert } from 'lucide-react';
 import { Lang } from '@/types';
 import { getT } from '@/i18n';
 import { getSettingsServer } from '@/lib/firestore-server';
@@ -125,6 +125,29 @@ export default async function AboutPage({ params }: AboutPageProps) {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Anti-corruption callout */}
+        <div className="bg-gradient-to-br from-slate-900 to-blue-950 rounded-2xl p-6 sm:p-8 text-white border border-blue-900 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-medium mb-3 border border-blue-400/20">
+              <ShieldAlert size={14} className="text-amber-400" />
+              <span>{t.antiCorruption.badge}</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold mb-2 text-white">
+              {t.antiCorruption.title}
+            </h2>
+            <p className="text-blue-200 text-sm leading-relaxed">
+              {t.antiCorruption.lawBasis}
+            </p>
+          </div>
+          <Link
+            href={`/${lang}/anti-corruption`}
+            className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-3 rounded-xl text-sm font-medium hover:bg-blue-500 transition-colors shrink-0"
+          >
+            <span>{lang === 'ru' ? 'Читать обращение' : 'Murojaatnomani o‘qish'}</span>
+            <ArrowRight size={16} />
+          </Link>
         </div>
 
         <div className="bg-white rounded-2xl p-8 border border-gray-100">

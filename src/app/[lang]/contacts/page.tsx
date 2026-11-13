@@ -1,7 +1,8 @@
 'use client';
 
 import { use } from 'react';
-import { Phone, MapPin, Clock } from 'lucide-react';
+import Link from 'next/link';
+import { Phone, MapPin, Clock, ShieldCheck } from 'lucide-react';
 import { Lang } from '@/types';
 import { getT } from '@/i18n';
 import { useSiteData } from '@/contexts/SiteDataContext';
@@ -80,6 +81,45 @@ export default function ContactsPage({ params }: { params: Promise<{ lang: strin
                 </div>
               </div>
             ))}
+
+            <div className="bg-gradient-to-br from-blue-50/60 to-white rounded-2xl p-6 border border-blue-100">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center shrink-0">
+                  <ShieldCheck size={22} />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-gray-900 mb-1">
+                    {lang === 'ru' ? 'Комплаенс и телефоны доверия' : 'Komplaens va ishonch telefonlari'}
+                  </h3>
+                  <p className="text-xs text-gray-500 mb-3">
+                    {t.antiCorruption.lawBasis}
+                  </p>
+                  <div className="space-y-1.5 text-sm">
+                    <div>
+                      <span className="text-xs text-gray-500 block">{t.antiCorruption.hotlineClinic}:</span>
+                      <a href="tel:+998909188999" className="text-blue-600 hover:underline font-medium mr-3">+998 (90) 918-89-99</a>
+                      <a href="tel:+998712603116" className="text-blue-600 hover:underline font-medium">+998 (71) 260-31-16</a>
+                    </div>
+                    <div>
+                      <span className="text-xs text-gray-500 block">{t.antiCorruption.complianceTitle}:</span>
+                      <a href="tel:+998916078977" className="text-blue-600 hover:underline font-medium">+998 (91) 607-89-77</a>
+                    </div>
+                    <div>
+                      <span className="text-xs text-gray-500 block">{t.antiCorruption.emailTitle}:</span>
+                      <a href="mailto:alibek.berdiqulov@mail.ru" className="text-blue-600 hover:underline">alibek.berdiqulov@mail.ru</a>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-blue-100 flex items-center justify-between">
+                    <Link href={`/${lang}/anti-corruption`} className="text-xs font-semibold text-blue-600 hover:underline">
+                      {lang === 'ru' ? 'Обращение руководителя →' : 'Rahbar murojaatnomasi →'}
+                    </Link>
+                    <a href="https://t.me/clinica07_bot" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-500 hover:underline font-medium">
+                      @clinica07_bot
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <MapEmbed

@@ -17,6 +17,7 @@ const STATIC_PAGES = [
   'vacancies',
   'contacts',
   'privacy',
+  'anti-corruption',
 ] as const;
 
 const LEGACY_DOCTOR_SLUGS = [

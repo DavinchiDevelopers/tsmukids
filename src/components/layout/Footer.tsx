@@ -27,6 +27,7 @@ export default function Footer({ lang }: FooterProps) {
     { href: `/${lang}/prices`, label: t.nav.prices },
     { href: `/${lang}/gallery`, label: t.nav.gallery },
     { href: `/${lang}/vacancies`, label: t.nav.vacancies },
+    { href: `/${lang}/anti-corruption`, label: t.footer.antiCorruption },
     { href: `/${lang}/contacts`, label: t.nav.contacts },
   ];
 
@@ -136,9 +137,14 @@ export default function Footer({ lang }: FooterProps) {
 
         <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-sm text-gray-500">© {new Date().getFullYear()} {settings.nameShortRu}. {t.footer.rights}</p>
-          <Link href={`/${lang}/privacy`} className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
-            {t.footer.privacy}
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <Link href={`/${lang}/anti-corruption`} className="text-sm text-gray-400 hover:text-white transition-colors">
+              {t.footer.antiCorruption}
+            </Link>
+            <Link href={`/${lang}/privacy`} className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
+              {t.footer.privacy}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

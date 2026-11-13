@@ -12,7 +12,8 @@ export type SeoPageKey =
   | 'gallery'
   | 'vacancies'
   | 'contacts'
-  | 'privacy';
+  | 'privacy'
+  | 'anti-corruption';
 
 interface PageSeo {
   title: string;
@@ -173,6 +174,20 @@ const SEO: Record<SeoPageKey, Record<Lang, PageSeo>> = {
       description:
         "TDTU Bolalar Klinikasi sayti va bemorlar shaxsiy ma'lumotlarini qayta ishlash siyosati.",
       path: '/privacy',
+    },
+  },
+  'anti-corruption': {
+    ru: {
+      title: 'Противодействие коррупции — Обращение руководителя клиники',
+      description:
+        'Обращение руководителя Детской многопрофильной клиники ТГМУ о политике нетерпимости к коррупции и правонарушениям, телефоны доверия и комплаенс-контроль.',
+      path: '/anti-corruption',
+    },
+    uz: {
+      title: 'Korrupsiyaga qarshi kurash — Rahbar murojaatnomasi',
+      description:
+        "TDTU Bolalar ko'p tarmoqli Klinikasi rahbarining korrupsiya va qonunbuzarliklarga nisbatan «murosasizlik» siyosati to'g'risidagi murojaatnomasi.",
+      path: '/anti-corruption',
     },
   },
 };
