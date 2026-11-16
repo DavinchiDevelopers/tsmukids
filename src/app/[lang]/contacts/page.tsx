@@ -97,7 +97,7 @@ export default function ContactsPage({ params }: { params: Promise<{ lang: strin
                   <div className="space-y-1.5 text-sm">
                     <div>
                       <span className="text-xs text-gray-500 block">{t.antiCorruption.hotlineClinic}:</span>
-                      <a href="tel:+998909188999" className="text-blue-600 hover:underline font-medium mr-3">+998 (90) 918-89-99</a>
+                      <a href="tel:+998909168999" className="text-blue-600 hover:underline font-medium mr-3">+998 (90) 916-89-99</a>
                       <a href="tel:+998712603116" className="text-blue-600 hover:underline font-medium">+998 (71) 260-31-16</a>
                     </div>
                     <div>

@@ -287,7 +287,7 @@ const uz = {
     appealPublic: 'Hurmatli ota-onalar, bemorlar va hamkorlar! Agar Siz klinikamizda davolanish, tibbiy xizmatlardan foydalanish yoki boshqa jarayonlarda tamagirlik, noqonuniy to‘lov talab qilish yoki xizmat vakolatini suiiste’mol qilish holatlariga duch kelsangiz, quyidagi rasmiy aloqa kanallari orqali darhol xabar berishingizni so‘raymiz:',
     hotlinesTitle: 'Rasmiy aloqa kanallari va ishonch telefonlari',
     hotlineClinic: 'Klinika ishonch telefoni',
-    hotlineClinicNumbers: ['+998 (90) 918-89-99', '+998 (71) 260-31-16'],
+    hotlineClinicNumbers: ['+998 (90) 916-89-99', '+998 (71) 260-31-16'],
     complianceTitle: 'Komplaens-nazorat bo‘limi telefoni',
     compliancePhone: '+998 (91) 607-89-77',
     emailTitle: 'Elektron pochta',
